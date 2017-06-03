@@ -1,0 +1,33 @@
+CACHE MANIFEST
+#ver:6/3/2017, 5:00:52 PM
+#plugin:4.8.1
+
+CACHE:
+../embedEn.html
+../
+../fonts/materialdesignicons-webfont.eot
+../fonts/materialdesignicons-webfont.svg
+../fonts/materialdesignicons-webfont.ttf
+../fonts/materialdesignicons-webfont.woff2
+../fonts/materialdesignicons-webfont.woff
+../fonts/roboto/Roboto-Bold.woff
+../fonts/roboto/Roboto-Bold.woff2
+../fonts/roboto/Roboto-Light.woff
+../fonts/roboto/Roboto-Light.woff2
+../fonts/roboto/Roboto-Medium.woff
+../fonts/roboto/Roboto-Medium.woff2
+../fonts/roboto/Roboto-Regular.woff
+../fonts/roboto/Roboto-Regular.woff2
+../fonts/roboto/Roboto-Thin.woff
+../fonts/roboto/Roboto-Thin.woff2
+../bundle.js
+../android-chrome-192x192.png
+../android-chrome-512x512.png
+../favicon-32x32.png
+../favicon-16x16.png
+../js/materialize.min.js
+../js/jquery-3.2.1.min.js
+../manifest.json
+
+NETWORK:
+*
