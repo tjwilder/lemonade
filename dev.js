@@ -34,17 +34,6 @@ module.exports = function (env) {
           options: { presets: ['es2015'] }
         }],
       }],
-    },
-    resolve: {
-        alias: {
-            jquery: "./js/jquery-3.2.1.min.js",
-            $: "./js/jquery-3.2.1.min.js",
-            hammerjs: "./js/materialize.min.js",
-            Materialize: "./js/materialize.min.js"
-        }
-    },
-    plugins: [
-
-    ]
+    }
   };
 };

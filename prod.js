@@ -53,16 +53,16 @@ module.exports = function (env) {
         compiler: {
           language_in: 'ECMASCRIPT6',
           language_out: 'ECMASCRIPT5',
-          compilation_level: 'ADVANCED',
+          compilation_level: 'SIMPLE',
         },
-        concurrency: 3,
+        concurrency: 8,
       }),
       new OfflinePlugin({
         externals: ['./android-chrome-192x192.png', './android-chrome-512x512.png', './favicon-32x32.png', './favicon-16x16.png', './js/materialize.min.js', './js/jquery-3.2.1.min.js', './manifest.json'],
         caches: 'all',
         responseStrategy: 'cache-first',
         updateStrategy: 'changed'
-      }),
-    ],
+      })
+    ]
   };
 };
