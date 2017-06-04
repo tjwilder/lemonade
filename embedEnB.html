@@ -47,39 +47,60 @@
   <script src="js/materialize.min.js" charset="utf-8"></script>
 </head>
 
-<body class="container">
-  <section class="row info">
-    <div id="dayDisplay" class="col s2 btn-large">Lemonade Day 1</div>
-    <div class="col s10">
-      <div id="weatherDisplay" class="col s4 btn-large">Hot and Dry Forecast</div>
-      <div id="cupsSoldDisplay" class="col s4 btn-large">Cups Sold: 0</div>
-      <div id="grandTotalDisplay" class="col s4 btn-large">Life Earnings: $0.00</div>
-    </div>
-  </section>
+<body class="grey lighten-4">
 
-  <form action="operations">
-    <section class="row">
-      <i class="col s2 btn-large mdi mdi-cup mdi-36px"></i>
-      <p class="range-field col s10">
-        <input class="range" type="range" id="cups" min="0" max="120" />
-      </p>
-    </section>
-    <section class="row">
-      <i class="col s2 btn-large mdi mdi-sign-text mdi-36px"></i>
-      <p class="range-field col s10">
-        <input class="range" type="range" id="signs" min="0" max="8" />
-      </p>
-    </section>
-    <section class="row">
-      <i class="col s2 btn-large mdi mdi-currency-usd mdi-36px"></i>
-      <p class="range-field col s10">
-        <input type="range" id="price" min="0.01" max="0.29" step="0.01" />
-      </p>
-    </section>
-    <section class="row">
-      <i id="play" class="col s12 btn-large mdi mdi-play mdi-48px waves-effect waves-light"></i>
-    </section>
-  </form>
+  <header class="navbar-fixed">
+    <nav class="teal lighten-1 white-text">
+
+      <div class=" container">
+        <div class="row">
+          <h5>
+            <div id="dayDisplay" class="col s2">Lemonade Day 1</div>
+            <div class="col s10">
+              <div id="weatherDisplay" class="col s4">Hot and Dry Forecast</div>
+              <div id="cupsSoldDisplay" class="col s4">Cups Sold: 0</div>
+              <div id="grandTotalDisplay" class="col s4">Earnings: $0.00</div>
+          </h5>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="">
+
+  </main>
+  <footer class="page-footer fixed-footer grey lighten-4">
+    <form action="operations" class="container section">
+      <section class="row">
+        <i class="col s2 btn-large mdi mdi-cup mdi-36px"></i>
+        <p class="range-field col s10">
+          <input class="range" type="range" id="cups" min="0" max="120" />
+        </p>
+      </section>
+      <section class="row">
+        <i class="col s2 btn-large mdi mdi-sign-text mdi-36px"></i>
+        <p class="range-field col s10">
+          <input class="range" type="range" id="signs" min="0" max="8" />
+        </p>
+      </section>
+      <section class="row">
+        <i class="col s2 btn-large mdi mdi-currency-usd mdi-36px"></i>
+        <p class="range-field col s10">
+          <input type="range" id="price" min="0.01" max="0.29" step="0.01" />
+        </p>
+      </section>
+
+    </form>
+
+    <div class="container">
+      <section class="row">
+        <i id="play" class="col s12 btn-large mdi mdi-play mdi-48px waves-effect waves-light"></i>
+      </section>
+
+    </div>
+    <div class="footer-copyright grey lighten-4"></div>
+  </footer>
+
   <script src="bundle.js"></script>
 </body>
 

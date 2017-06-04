@@ -44,7 +44,7 @@ window.lemonade = {
     lemonade.dailyProfit = 0;
     lemonade.day++;
     document.getElementById('dayDisplay')
-      .innerText = 'Lemonade Day ' + lemonade.day;
+      .innerText = 'Day ' + lemonade.day;
     document.getElementById('weatherDisplay')
       .innerText = lemonade.tomorrowForecast + ' Forecast';
     document.getElementById('cupsSoldDisplay')
