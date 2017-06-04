@@ -19,14 +19,17 @@
     "comma-dangle": "off",
     "prefer-arrow-callback": "off",
     "linebreak-style": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "prefer-template": "off",
+    "no-plusplus": "off",
+    "max-len": "off"
   },
   "globals": {
     "Materialize": true,
-    "intervalID": true,
     "jQuery": true,
     "$": true,
     "window": true,
-    "navigator": true
+    "navigator": true,
+    "lemonade": true
   }
 }
