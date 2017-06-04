@@ -18,13 +18,13 @@ window.lemonade = {
     const profits = lemonade.cups * lemonade.price;
     const sold = lemonade.signs * lemonade.cups * lemonade.randomNum;
     const expenses = (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost);
-    lemonade.dailyProfit = (lemonade.profits - lemonade.expenses);
+    lemonade.dailyProfit = (profits - expenses);
     lemonade.allTimeProfit += lemonade.dailyProfit;
 
     Materialize.toast('Day: ' + lemonade.day, 5000);
-    Materialize.toast('Cups Sold: ' + lemonade.sold, 5000);
-    Materialize.toast('Expenses: $' + lemonade.expenses, 5000);
-    Materialize.toast('Profits: $' + lemonade.profits, 5000);
+    Materialize.toast('Cups Sold: ' + sold, 5000);
+    Materialize.toast('Expenses: $' + expenses, 5000);
+    Materialize.toast('Profits: $' + profits, 5000);
     Materialize.toast('All-time Profit: $' + lemonade.allTimeProfit, 5000);
     lemonade.dailyProfit = 0;
     lemonade.day++;
