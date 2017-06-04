@@ -1,13 +1,9 @@
-let lemonade = window.lemonade;
-lemonade = {
+window.lemonade = {
   day: 1,
   cupCost: 0.05,
   signCost: 0.15,
   allTimeProfit: 0,
   dailyProfit: 0,
-  profits: lemonade.cups * lemonade.price,
-  sold: lemonade.signs * lemonade.cups * lemonade.randomNum,
-  expenses: (lemonade.signs * lemonade.signCost) + (lemonade.cups * cupCost),
   cups: document.getElementById('cups')
     .value,
   price: document.getElementById('price')
@@ -16,8 +12,12 @@ lemonade = {
     .value,
   randomNum: Math.random,
   weatherPool: ['Sunny', 'Cloudy', 'Hot and Dry'],
-  weatherToday: lemonade.weatherPool[0],
-  play: function dayPlay(balance) {
+  weatherToday: false,
+
+  play: function play() {
+    const profits = lemonade.cups * lemonade.price;
+    const sold = lemonade.signs * lemonade.cups * lemonade.randomNum;
+    const expenses = (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost);
     lemonade.dailyProfit = (lemonade.profits - lemonade.expenses);
     lemonade.allTimeProfit += lemonade.dailyProfit;
 
