@@ -34,9 +34,7 @@ window.lemonade = {
     lemonade.dailyProfit = Math.round((profits - expenses) * 100) / 100;
     lemonade.allTimeProfit += lemonade.dailyProfit;
     lemonade.allTimeProfit = (Math.round(lemonade.allTimeProfit * 100) / 100);
-    Materialize.toast('Profits: $' + profits, 5000);
-    Materialize.toast('Expenses: $' + expenses, 5000);
-    Materialize.toast('Net Total: $' + lemonade.dailyProfit, 5000);
+    Materialize.toast('Profits: $' + profits + '| Expenses: $' + expenses + '| Net Total: $' + lemonade.dailyProfit, 5000);
 
     lemonade.tomorrowWeatherVariant = lemonade.randomNum(0, 3);
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
