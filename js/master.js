@@ -7,11 +7,11 @@ window.lemonade = {
   randomNum: function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   },
-  weather: ['Cloudy', 'Sunny', 'Hot and Dry'],
+  weather: ['Cloudy', 'Sunny', 'Hot & Dry'],
   tomorrowWeatherVariant: 3,
-  tomorrowForecast: 'Hot and Dry',
+  tomorrowForecast: 'Hot & Dry',
   todayWeatherVariant: 3,
-  todayForecast: 'Hot and Dry',
+  todayForecast: 'Hot & Dry',
   nextDay: function nextDay() {
     const cups = document.getElementById('cups')
       .value;
@@ -21,7 +21,7 @@ window.lemonade = {
       .value;
     if (lemonade.day < 2) {
       lemonade.todayWeatherVariant = 3;
-      lemonade.todayForecast = 'Hot and Dry';
+      lemonade.todayForecast = 'Hot & Dry';
     } else {
       lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
       lemonade.todayForecast = lemonade.tomorrowForecast;
@@ -34,7 +34,7 @@ window.lemonade = {
     lemonade.dailyProfit = Math.round((profits - expenses) * 100) / 100;
     lemonade.allTimeProfit += lemonade.dailyProfit;
     lemonade.allTimeProfit = (Math.round(lemonade.allTimeProfit * 100) / 100);
-    Materialize.toast('Profits: $' + profits + '| Expenses: $' + expenses + '| Net Total: $' + lemonade.dailyProfit, 5000);
+    Materialize.toast('Profit: $' + profits + ' | Expense: $' + expenses + ' | Net: $' + lemonade.dailyProfit, 5000);
 
     lemonade.tomorrowWeatherVariant = lemonade.randomNum(0, 3);
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
@@ -44,11 +44,11 @@ window.lemonade = {
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
     document.getElementById('weatherDisplay')
-      .innerText = lemonade.tomorrowForecast + ' Forecast';
+      .innerText = lemonade.tomorrowForecast;
     document.getElementById('cupsSoldDisplay')
-      .innerText = 'Cups Sold: ' + sold;
+      .innerText = 'Sold: ' + sold;
     document.getElementById('grandTotalDisplay')
-      .innerText = 'Earnings: $' + lemonade.allTimeProfit;
+      .innerText = '$' + lemonade.allTimeProfit;
   },
 };
 
