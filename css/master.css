@@ -11,6 +11,11 @@
   .above {
       z-index: 20000;
   }
+
+  .noBackground{
+      background:none;
+      z-index: 10;
+  }
   
   #toast-container {
       bottom: 50%;
