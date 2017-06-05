@@ -42,48 +42,45 @@
     <script src="js/materialize.min.js" charset="utf-8"></script>
 </head>
 
-<body class="grey lighten-4">
+<body class="light-blue lighten-4">
     <header class="navbar-fixed">
-        <nav class="teal lighten-1 white-text">
-            <div class="">
-                <div class="row">
-                    <div id="dayDisplay" class="col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business">Lemonade Day 1</div>
-                    <div id="weatherDisplay" class="col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">Hot & Dry</div>
-                    <div id="cupsSoldDisplay" class="col s3 btn-flat btn-large white-text waves-effect waves-light  tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cups Sold Yesterday">0</div>
-                    <div id="grandTotalDisplay" class="col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings">$0.00</div>
-                </div>
+        <nav class="yellow darken-2">
+            <div class="row bold">
+                <div id="dayDisplay" class="light-blue-text text-darken-4 col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business">Day 1</div>
+                <div id="weatherDisplay" class="light-blue-text text-darken-4 col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">Hot/Dry</div>
+                <div id="cupsSoldDisplay" class="light-blue-text text-darken-4 col s3 btn-flat btn-large white-text waves-effect waves-light  tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cups Sold Yesterday">0</div>
+                <div id="grandTotalDisplay" class="light-blue-text text-darken-4 col s3 btn-flat btn-large white-text waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings">$0.00</div>
             </div>
         </nav>
     </header>
-    <main class="">
+    <main>
+        <img id="lemonadeImage" class="responsive-img fade picture" src="img/lemonadeResponsive.svg" alt="">
     </main>
-    <footer class="page-footer fixed-footer grey lighten-4">
-        <form action="operations" class="section">
+    <footer class="page-footer fixed-footer light-blue lighten-4">
+        <form action="operations" class="container">
             <section class="row">
-                <i class="col s2 btn-large mdi mdi-cup mdi-36px tooltipped" data-position="right" data-delay="50" data-tooltip="Cups cost $0.05 each."></i>
+                <i class="col s2 btn-large mdi mdi-cup mdi-36px tooltipped yellow darken-2 light-blue-text text-darken-4" data-position="right" data-delay="50" data-tooltip="Cups cost $0.05 each."></i>
                 <p class="range-field col s10">
                     <input class="range" type="range" id="cups" min="0" max="120" />
                 </p>
             </section>
             <section class="row">
-                <i class="col s2 btn-large mdi mdi-sign-text mdi-36px tooltipped" data-position="right" data-delay="50" data-tooltip="Signs cost $0.15 each."></i>
+                <i class="col s2 btn-large mdi mdi-sign-text mdi-36px tooltipped yellow darken-2 light-blue-text text-darken-4" data-position="right" data-delay="50" data-tooltip="Signs cost $0.15 each."></i>
                 <p class="range-field col s10">
                     <input class="range" type="range" id="signs" min="0" max="8" />
                 </p>
             </section>
             <section class="row">
-                <i class="col s2 btn-large mdi mdi-currency-usd mdi-36px tooltipped" data-position="right" data-delay="50" data-tooltip="Low prices can attract crowds."></i>
+                <i class="col s2 btn-large mdi mdi-currency-usd mdi-36px tooltipped yellow darken-2 light-blue-text text-darken-4" data-position="right" data-delay="50" data-tooltip="Low prices can attract crowds."></i>
                 <p class="range-field col s10">
                     <input type="range" id="price" min="0.01" max="0.29" step="0.01" />
                 </p>
             </section>
         </form>
-        <div class="">
-            <section class="row">
-                <i id="play" class="col s12 btn-large mdi mdi-play mdi-48px waves-effect waves-light"></i>
-            </section>
+        <div class="footer-copyright light-blue darken-4"></div>
+        <div class="fixed-action-btn above">
+            <i id="play" class="btn-floating btn-large mdi mdi-play mdi-48px waves-effect waves-light scale-transition scale-out yellow darken-2 light-blue-text text-darken-4"></i>
         </div>
-        <!--<div class="footer-copyright grey lighten-4"></div>-->
     </footer>
     <script src="bundle.js"></script>
 </body>

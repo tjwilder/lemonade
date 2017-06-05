@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:6/5/2017, 7:31:56 PM
+#ver:6/5/2017, 10:15:15 PM
 #plugin:4.8.1
 
 CACHE:
@@ -20,6 +20,7 @@ CACHE:
 ../fonts/roboto/Roboto-Regular.woff2
 ../fonts/roboto/Roboto-Thin.woff
 ../fonts/roboto/Roboto-Thin.woff2
+../img/lemonadeResponsive.svg
 ../bundle.js
 ../android-chrome-192x192.png
 ../android-chrome-512x512.png
