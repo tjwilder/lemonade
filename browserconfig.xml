@@ -2,9 +2,9 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/mstile-150x150.png"/>
-            <square310x310logo src="/mstile-310x310.png"/>
-            <TileColor>#7cd4f5</TileColor>
+            <square150x150logo src="https://xtreemze.github.io/Lemonade/mstile-150x150.png"/>
+            <square310x310logo src="https://xtreemze.github.io/Lemonade/mstile-310x310.png"/>
+            <TileColor>#da532c</TileColor>
         </tile>
     </msapplication>
 </browserconfig>
