@@ -4,7 +4,7 @@ window.lemonade = {
   signCost: 0.15,
   allTimeProfit: 0,
   dailyProfit: 0,
-  randomNum: function getRandomArbitrary(min, max) {
+  randomNumber: function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   },
   weather: ['Cloudy', 'Sunny', 'Hot & Dry'],
@@ -26,20 +26,19 @@ window.lemonade = {
       lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
       lemonade.todayForecast = lemonade.tomorrowForecast;
     }
-    const marketing = Math.round(((((signs / 1.2) + (lemonade.randomNum(1, 5) / 4.8)) / price) * ((lemonade.todayWeatherVariant / 2.8) + 0.5)));
-    let sold = Math.round(marketing);
-    if (marketing > cups) { sold = cups; }
+    const marketingResult = (((signs / 1.2) + (lemonade.randomNumber(1, 5) / 4.8)) / price) * ((lemonade.todayWeatherVariant / 2.8) + 0.5);
+    let sold = Math.round(marketingResult);
+    if (marketingResult > cups) { sold = cups; }
     const profits = Math.round((sold * price) * 100) / 100;
     const expenses = Math.round(((signs * lemonade.signCost) + (cups * lemonade.cupCost)) * 100) / 100;
-    lemonade.dailyProfit = Math.round((profits - expenses) * 100) / 100;
+    lemonade.dailyProfit = (profits - expenses);
     lemonade.allTimeProfit += lemonade.dailyProfit;
-    lemonade.allTimeProfit = (Math.round(lemonade.allTimeProfit * 100) / 100);
+    lemonade.allTimeProfit = Math.round(lemonade.allTimeProfit * 100) / 100;
     Materialize.toast('Profit: $' + profits + ' | Expense: $' + expenses + ' | Net: $' + lemonade.dailyProfit, 5000);
 
-    lemonade.tomorrowWeatherVariant = lemonade.randomNum(0, 3);
+    lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 3);
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
 
-    lemonade.dailyProfit = 0;
     lemonade.day++;
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
