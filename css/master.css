@@ -74,15 +74,15 @@
   }
   
   input#cups[type=range]::-webkit-slider-thumb {
-      background: url('/img/cup.svg');
+      background: url('https://xtreemze.github.io/Lemonade/img/cup.svg');
   }
   
   input#signs[type=range]::-webkit-slider-thumb {
-      background: url('/img/sign.svg');
+      background: url('https://xtreemze.github.io/Lemonade/img/sign.svg');
   }
   
   input#price[type=range]::-webkit-slider-thumb {
-      background: url('/img/usd.svg');
+      background: url('https://xtreemze.github.io/Lemonade/img/usd.svg');
   }
   
   input[type=range]+.thumb.active .value {
