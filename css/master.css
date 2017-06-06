@@ -30,14 +30,20 @@
       max-width: 100vw !important;
       padding: 12vh 5vh;
       width: 100vw;
+      z-index: 3;
   }
   
   .bold {
       font-weight: 800;
   }
   
-  input[type=range]+.thumb.active {
+  input[type=range]+.thumb {
       background: #e64a19;
+      transform: scale(2.2);
+      margin-top: .2em;
+  }
+  
+  input[type=range]+.thumb.active {
       transform: scale(2.2);
       margin-top: .2em;
       transform: rotate(-45deg);
