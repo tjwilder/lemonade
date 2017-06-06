@@ -53,7 +53,7 @@
           <i id="emotionDisplay" class="mdi mdi-emoticon mdi-36px"></i>
         </div>
         <div id="dayDisplay" class="grey-text text-lighten-5 col s4 btn-flat btn-large grey-text text-lighten-5 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business">Day: 0</div>
-        <div id="grandTotalDisplay" class="grey-text text-lighten-5 col s4 btn-flat btn-large grey-text text-lighten-5 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings">$0.00</div>
+        <div id="grandTotalDisplay" class="grey-text text-lighten-5 col s4 btn-flat btn-large grey-text text-lighten-5 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings">$10.00</div>
         <div id="weatherDisplay" class="grey-text text-lighten-5 col s2 btn-flat btn-large grey-text text-lighten-5 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
           <i id="forecastDisplay" class="mdi mdi-weather-sunny mdi-36px"></i></div>
       </div>
@@ -209,35 +209,32 @@ Y88b  d88P    Y888P    Y88b  d88P
 </svg>
   </main>
   <footer class="page-footer fixed-footer noBackground">
-    <form action="operations" class="container">
+    <form class="container operations section">
       <section class="row">
-        <i class="col s2 btn-large mdi mdi-cup mdi-36px tooltipped deep-orange darken-2 grey-text text-lighten-5" data-position="right" data-delay="50" data-tooltip="Cups cost $0.05 each."></i>
-        <p class="range-field col s8">
+        <p class="range-field col s8 offset-s2">
           <input class="range" type="range" id="cups" min="0" max="116" />
         </p>
       </section>
       <section class="row">
-        <i class="col s2 btn-large mdi mdi-sign-text mdi-36px tooltipped deep-orange darken-2 grey-text text-lighten-5" data-position="right" data-delay="50" data-tooltip="Signs cost $0.15 each."></i>
-        <p class="range-field col s8">
+        <p class="range-field col s8 offset-s2">
           <input class="range" type="range" id="signs" min="0" max="16" />
         </p>
       </section>
       <section class="row">
-        <i class="col s2 btn-large mdi mdi-currency-usd mdi-36px tooltipped deep-orange darken-2 grey-text text-lighten-5" data-position="right" data-delay="50" data-tooltip="Low prices can attract crowds."></i>
-        <p class="range-field col s8">
+        <p class="range-field col s8 offset-s2">
           <input type="range" id="price" min="0.01" max="0.47" step="0.01" />
         </p>
       </section>
     </form>
-    <div class="footer-copyright light-blue darken-4">
-      <section class="container">
-        <div class="row">
-          <div class="progress col s9">
-            <div id="percentageBar" class="determinate light-blue" style="width: 100%"></div>
-          </div>
-          <div id="cupsSoldDisplay" class="light-blue-text bold col s12 center-align">Cups Sold Today: 0</div>
+    <div class="footer-copyright light-blue darken-4 fade">
+      <div class="row">
+        <div class="progress col s12">
+          <div id="percentageBar" class="determinate light-blue" style="width: 100%"></div>
         </div>
-      </section>
+        <div class="col s12">
+          <div id="cupsSoldDisplay" class="light-blue-text bold center-align">Cups Sold Today: 0</div>
+        </div>
+      </div>
     </div>
     <div class="fixed-action-btn above">
       <i id="play" class="btn-floating btn-large mdi mdi-play mdi-48px waves-effect waves-light scale-transition scale-out light-blue accent-3 grey-text text-lighten-5"></i>

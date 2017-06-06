@@ -25,10 +25,10 @@
   }
   
   .picture {
-      max-height: 68vh !important;
+      max-height: 100vh !important;
       position: absolute;
       max-width: 100vw !important;
-      padding: 5vh;
+      padding: 12vh 5vh;
       width: 100vw;
   }
   
@@ -36,10 +36,11 @@
       font-weight: 800;
   }
   
-  input[type=range]+.thumb {
-      background: #fbc02d;
-      transform: scale(1.5) rotate(-45deg);
-      margin-top: -2.2em;
+  input[type=range]+.thumb.active {
+      background: #e64a19;
+      transform: scale(2.2);
+      margin-top: .2em;
+      transform: rotate(-45deg);
   }
   
   input[type=range] {
@@ -47,11 +48,11 @@
   }
   
   input[type=range]::-webkit-slider-runnable-track {
-      height: 2em;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      height: .3em;
+      /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
       background: #01579b;
       border: none;
-      margin-top: -1em;
+      margin: 1em 0;
   }
   
   input[type=range]:focus::-webkit-slider-runnable-track {
@@ -59,17 +60,33 @@
   }
   
   input[type=range]::-webkit-slider-thumb {
-      margin-top: -.5em;
-      height: 3em;
-      width: 1em;
       border-radius: 0;
-      background: #fbc02d;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      color: #01579b !important
+      /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+  }
+  
+  input#cups[type=range]::-webkit-slider-thumb,
+  input#signs[type=range]::-webkit-slider-thumb,
+  input#price[type=range]::-webkit-slider-thumb {
+      width: 24px;
+      height: 24px;
+      box-shadow: none;
+      transform: scale(2.4) translateY(-1.2px);
+  }
+  
+  input#cups[type=range]::-webkit-slider-thumb {
+      background: url('/img/cup.svg');
+  }
+  
+  input#signs[type=range]::-webkit-slider-thumb {
+      background: url('/img/sign.svg');
+  }
+  
+  input#price[type=range]::-webkit-slider-thumb {
+      background: url('/img/usd.svg');
   }
   
   input[type=range]+.thumb.active .value {
-      color: #01579b;
+      color: #fafafa;
       margin-left: 0em;
       margin-top: .4em;
       font-size: 1em;
@@ -77,7 +94,7 @@
   
   input[type=range]+.thumb .value {
       font-size: 0em;
-      /*transform: rotate(45deg);*/
+      transform: rotate(45deg);
   }
   
   .eliminate {
@@ -127,11 +144,11 @@
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
       animation-delay: 10s;
-      transform: translateY(-10em);
+      transform: translateY(-15em);
   }
   
   #straw {
-      transform: translateY(-10em);
+      transform: translateY(-15em);
       animation: comeDown 5s 1 ease-in-out 5s, bob 4s infinite ease-in-out alternate 10s;
   }
   
@@ -146,7 +163,7 @@
   
   @keyframes comeDown {
       0% {
-          transform: translateY(-10em);
+          transform: translateY(-15em);
       }
       50% {
           transform: translateY(-2em);

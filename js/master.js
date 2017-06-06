@@ -46,11 +46,12 @@ window.lemonade = {
     Materialize.toast('Profit: $' + profits + ' | Expense: $' + expenses + ' | Net: $' + lemonade.dailyProfit, 6000);
     if (lemonade.allTimeProfit < 0.01) {
       emotion.className = lemonade.emotionBank[0];
-    } else if (lemonade.allTimeProfit < 10) {
+      Materialize.toast('Bankrupt!', 6000);
+    } else if (lemonade.allTimeProfit < 12) {
       emotion.className = lemonade.emotionBank[1];
-    } else if (lemonade.allTimeProfit < 25) {
+    } else if (lemonade.allTimeProfit < 34) {
       emotion.className = lemonade.emotionBank[2];
-    } else if (lemonade.allTimeProfit > 49) {
+    } else if (lemonade.allTimeProfit > 74) {
       emotion.className = lemonade.emotionBank[3];
     }
 
@@ -76,4 +77,3 @@ window.onload = function () {
   play.className += ' scale-in';
   Materialize.fadeInImage('#lemonadeImage');
 };
-
