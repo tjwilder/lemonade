@@ -42,39 +42,42 @@ window.lemonade = {
 
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
-
-    const marketingResult = (((signs * 1.35) + (lemonade.randomNumber(14.4, 94.2) / 70)) / price) * ((lemonade.todayWeatherVariant / 2.5) + 0.08);
-    lemonade.sold = Math.round(marketingResult);
-    if (marketingResult > cups) { lemonade.sold = cups; }
-    if (lemonade.sold > 0) {
-      lemonade.bar.style.width = ((lemonade.sold / cups) * 100) + '%';
-    } else {
-      lemonade.bar.style.width = 0;
-    }
-    const profits = Math.round((lemonade.sold * price) * 100) / 100;
     const expenses = Math.round(((signs * lemonade.signCost) + (cups * lemonade.cupCost)) * 100) / 100;
-    lemonade.dailyProfit = Math.round((profits - expenses) * 100) / 100;
-    lemonade.allTimeProfit += lemonade.dailyProfit;
-    lemonade.allTimeProfit = Math.round(lemonade.allTimeProfit * 100) / 100;
-    Materialize.toast('Profit: $' + profits + ' | Expense: $' + expenses + ' | Net: $' + lemonade.dailyProfit, 6000);
-    if (lemonade.allTimeProfit < 0.01) {
-      lemonade.emotion.className = lemonade.emotionBank[0];
-      Materialize.toast('Bankrupt!', 6000);
-      lemonade.play.removeEventListener('click', lemonade.nextDay);
-      lemonade.play.addEventListener('click', lemonade.firstDay);
-    } else if (lemonade.allTimeProfit < 12) {
-      lemonade.emotion.className = lemonade.emotionBank[1];
-    } else if (lemonade.allTimeProfit < 34) {
-      lemonade.emotion.className = lemonade.emotionBank[2];
-    } else if (lemonade.allTimeProfit > 74) {
-      lemonade.emotion.className = lemonade.emotionBank[3];
+    if (expenses > lemonade.allTimeProfit) {
+      Materialize.toast("You can't afford $" + expenses + '!', 6000);
+    } else {
+      const marketingResult = (((signs * 1.35) + (lemonade.randomNumber(14.4, 94.2) / 70)) / price) * ((lemonade.todayWeatherVariant / 2.5) + 0.08);
+      lemonade.sold = Math.round(marketingResult);
+      if (marketingResult > cups) { lemonade.sold = cups; }
+      if (lemonade.sold > 0) {
+        lemonade.bar.style.width = ((lemonade.sold / cups) * 100) + '%';
+      } else {
+        lemonade.bar.style.width = 0;
+      }
+      const profits = Math.round((lemonade.sold * price) * 100) / 100;
+      lemonade.dailyProfit = Math.round((profits - expenses) * 100) / 100;
+      lemonade.allTimeProfit += lemonade.dailyProfit;
+      lemonade.allTimeProfit = Math.round(lemonade.allTimeProfit * 100) / 100;
+      Materialize.toast('Profit: $' + profits + ' | Expense: $' + expenses + ' | Net: $' + lemonade.dailyProfit, 6000);
+      if (lemonade.allTimeProfit < 0.01) {
+        lemonade.emotion.className = lemonade.emotionBank[0];
+        Materialize.toast('Bankrupt!', 6000);
+        lemonade.play.removeEventListener('click', lemonade.nextDay);
+        lemonade.play.addEventListener('click', lemonade.firstDay);
+      } else if (lemonade.allTimeProfit < 12) {
+        lemonade.emotion.className = lemonade.emotionBank[1];
+      } else if (lemonade.allTimeProfit < 34) {
+        lemonade.emotion.className = lemonade.emotionBank[2];
+      } else if (lemonade.allTimeProfit > 74) {
+        lemonade.emotion.className = lemonade.emotionBank[3];
+      }
+
+      lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
+      // lemonade.tomorrowWeatherVariant = 1;
+
+      lemonade.day++;
+      lemonade.displayUpdate();
     }
-
-    lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
-    // lemonade.tomorrowWeatherVariant = 1;
-
-    lemonade.day++;
-    lemonade.displayUpdate();
   },
   displayUpdate: function displayUpdate() {
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
@@ -83,7 +86,7 @@ window.lemonade = {
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
     document.getElementById('cupsSoldDisplay')
-      .innerText = 'Cups Sold Today: ' + lemonade.sold;
+      .innerText = "Today's Sales: " + lemonade.sold;
     document.getElementById('grandTotalDisplay')
       .innerText = '$' + lemonade.allTimeProfit;
   }
