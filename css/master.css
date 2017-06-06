@@ -1,25 +1,23 @@
-  body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-  }
-  
-  main {
-      flex: 1 0 auto;
-  }
-  
   .above {
       z-index: 20000;
   }
-
-  .noBackground{
-      background:none;
+  
+  .noBackground {
+      background: none;
       z-index: 10;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
   }
   
   #toast-container {
-      bottom: 50%;
+      /*bottom: 50%;*/
       z-index: 2;
+      position: relative;
+  }
+  
+  .main {
+      overflow: hidden;
   }
   
   .toast {
@@ -30,8 +28,8 @@
       max-height: 68vh !important;
       position: absolute;
       max-width: 100vw !important;
-      margin: 5vh;
-      width: 82vw;
+      padding: 5vh;
+      width: 100vw;
   }
   
   .bold {
@@ -41,7 +39,7 @@
   input[type=range]+.thumb {
       background: #fbc02d;
       transform: scale(1.5) rotate(-45deg);
-      margin-top: -3em;
+      margin-top: -2.2em;
   }
   
   input[type=range] {
@@ -80,4 +78,99 @@
   input[type=range]+.thumb .value {
       font-size: 0em;
       /*transform: rotate(45deg);*/
+  }
+  
+  .eliminate {
+      display: none;
+  }
+  
+  #glassBottom,
+  #glassTop {
+      animation-name: appear;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      animation-delay: 0s;
+  }
+  
+  #lemonade1,
+  #lemonade2 {
+      animation: appear 5s, pour 5s 1 ease-in-out;
+  }
+  
+  @keyframes pour {
+      0% {
+          transform: scaleX(0.1) scaleY(1.9) translateX(41em) translateY(-10em);
+      }
+      45% {
+          transform: scaleX(0.1) scaleY(1.9) translateX(41em) translateY(-4em);
+      }
+      70% {
+          transform: translateX(0) translateY(0em);
+      }
+      100% {
+          transform: scaleX() scaleY() translateX(0em) translateY(0em);
+      }
+  }
+  
+  .cubes {
+      animation: appear 10s;
+  }
+  
+  #lemon {
+      animation-name: comeDown;
+      animation-duration: 7s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      animation-delay: 10s;
+      transform: translateY(-10em);
+  }
+  
+  #straw {
+      transform: translateY(-10em);
+      animation: comeDown 5s 1 ease-in-out 5s, bob 4s infinite ease-in-out alternate 10s;
+  }
+  
+  @keyframes appear {
+      0% {
+          fill-opacity: 0;
+      }
+      100% {
+          fill-opacity: 1;
+      }
+  }
+  
+  @keyframes comeDown {
+      0% {
+          transform: translateY(-10em);
+      }
+      50% {
+          transform: translateY(-2em);
+      }
+      80% {
+          transform: rotate(3deg);
+      }
+      100% {
+          transform: translateY(0em);
+      }
+      ;
+  }
+  
+  @keyframes bob {
+      0% {
+          transform: translateY(0em);
+          transform: translateX(0em);
+      }
+      50% {
+          transform: translateX(.19em);
+          transform: rotate(2deg);
+      }
+      100% {
+          transform: translateY(.2em);
+          transform: translateX(.1em);
+      }
   }
