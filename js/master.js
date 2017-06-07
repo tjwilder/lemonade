@@ -39,6 +39,17 @@ window.lemonade = {
   emotion: document.getElementById('emotionDisplay'),
   sold: 0,
   forecastDisplay: document.getElementById('forecastDisplay'),
+  clean: function clean() {
+    if (range1.children.length === 2) {
+      range1.children[1].remove();
+    }
+    if (range2.children.length === 2) {
+      range2.children[1].remove();
+    }
+    if (range3.children.length === 2) {
+      range3.children[1].remove();
+    }
+  },
   nextDay: function nextDay() {
     lemonade.cups = document.getElementById('cups')
       .valueAsNumber;
@@ -46,7 +57,7 @@ window.lemonade = {
       .valueAsNumber;
     lemonade.signs = document.getElementById('signs')
       .valueAsNumber;
-
+    lemonade.clean();
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
     lemonade.expenses = Math.round(
@@ -102,6 +113,7 @@ window.lemonade = {
       // lemonade.tomorrowWeatherVariant = 1;
 
       lemonade.day++;
+
       lemonade.displayUpdate();
     }
   },
