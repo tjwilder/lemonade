@@ -53,6 +53,14 @@ window.lemonade = {
       range3.children[1].remove();
     }
   },
+  round2: function round2(equation) {
+    const result = equation.toFixed(2);
+    return result;
+  },
+  round0: function round0(equation) {
+    const result = Math.round((equation) * 100) / 100;
+    return result;
+  },
   nextDay: function nextDay() {
     lemonade.cups = document.getElementById('cups')
       .valueAsNumber;
@@ -63,11 +71,11 @@ window.lemonade = {
     lemonade.clean();
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
-    lemonade.expenses = Math.round(
-      ((lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost)) * 100) / 100;
+    lemonade.expenses = lemonade.round0(
+      (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
-      Materialize.toast("You can't afford $" + lemonade.expenses + '! $' +
-        lemonade.cupCost + '/Cup | $' + lemonade.signCost + '/Sign', 6000);
+      Materialize.toast("You can't afford $" + lemonade.expenses + '!', 6000);
+      Materialize.toast('$' + lemonade.round2(lemonade.cupCost) + ' per Cup | $' + lemonade.round2(lemonade.signCost) + ' per Sign', 6000);
       cups.valueAsNumber = lemonade.allTimeProfit - 2;
       signs.valueAsNumber = 2;
     } else {
@@ -83,12 +91,12 @@ window.lemonade = {
       } else {
         lemonade.bar.style.width = 0;
       }
-      lemonade.profits = Math.round((lemonade.sold * lemonade.price) * 100) / 100;
-      lemonade.dailyProfit = Math.round((lemonade.profits - lemonade.expenses) * 100) / 100;
+      lemonade.profits = lemonade.round0(lemonade.sold * lemonade.price);
+      lemonade.dailyProfit = lemonade.round0(lemonade.profits - lemonade.expenses);
       lemonade.allTimeProfit += lemonade.dailyProfit;
-      lemonade.allTimeProfit = Math.round(lemonade.allTimeProfit * 100) / 100;
+      lemonade.allTimeProfit = lemonade.round0(lemonade.allTimeProfit);
       Materialize.toast(
-        'Profit: $' + lemonade.profits + ' | Expense: $' + lemonade.expenses,
+        'Profit: $' + lemonade.round2(lemonade.profits) + ' | Expense: $' + lemonade.round2(lemonade.expenses),
         4000);
       if (lemonade.allTimeProfit < 10) {
         lemonade.emotion.className = lemonade.emotionBank[0];
@@ -123,9 +131,9 @@ window.lemonade = {
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
     document.getElementById('cupsSoldDisplay')
-      .innerText = lemonade.sold + ' Cups | $' + lemonade.dailyProfit;
+      .innerText = lemonade.sold + ' Cups | $' + lemonade.dailyProfit.toFixed(2);
     document.getElementById('grandTotalDisplay')
-      .innerText = '$' + lemonade.allTimeProfit;
+      .innerText = '$' + lemonade.allTimeProfit.toFixed(2);
   }
 };
 lemonade.play.addEventListener('click', lemonade.nextDay);
@@ -133,5 +141,4 @@ lemonade.displayUpdate();
 window.onload = function () {
   loader.remove();
   play.className += ' scale-in';
-
 };
