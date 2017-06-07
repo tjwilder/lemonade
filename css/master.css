@@ -23,8 +23,10 @@
 }
 
 .toast {
-    background-color: #0277bd;
-    color: #81d4fa;
+    color: #0288d1;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+    font-weight: 500;
 }
 
 .picture {
@@ -53,13 +55,13 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     height: .3em;
     /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
-    background: #01579b;
+    background: #0277bd;
     border: none;
     margin: 1em 0;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #01579b;
+    background: #0277bd;
 }
 
 input[type=range]::-webkit-slider-thumb {
