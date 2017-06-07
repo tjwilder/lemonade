@@ -1,201 +1,229 @@
-  .above {
-      z-index: 20000;
-  }
-  
-  .noBackground {
-      background: none;
-      z-index: 10;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-  }
-  
-  #toast-container {
-      z-index: 2;
-      position: relative;
-      overflow: hidden;
-      max-height: 80vh;
-  }
-  
-  .main {
-      overflow: hidden;
-  }
-  
-  .toast {
-      background-color: #01579b;
-  }
-  
-  .picture {
-      max-height: 90%;
-      position: absolute;
-      max-width: 100% !important;
-      padding: 12vh 5vh;
-      width: 100%;
-      z-index: 3;
-  }
-  
-  .bold {
-      font-weight: 800;
-  }
-  
-  input[type=range]+.thumb {
-      background: #e64a19;
-      transform: scale(2.2);
-      margin-top: .2em;
-  }
-  
-  input[type=range]+.thumb.active {
-      transform: scale(2.2);
-      margin-top: .2em;
-      transform: rotate(-45deg);
-  }
-  
-  input[type=range] {
-      border: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.00);
-  }
-  
-  input[type=range]::-webkit-slider-runnable-track {
-      height: .3em;
-      /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
-      background: #01579b;
-      border: none;
-      margin: 1em 0;
-  }
-  
-  input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #01579b;
-  }
-  
-  input[type=range]::-webkit-slider-thumb {
-      border-radius: 0;
-      /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
-  }
-  
-  input#cups[type=range]::-webkit-slider-thumb,
-  input#signs[type=range]::-webkit-slider-thumb,
-  input#price[type=range]::-webkit-slider-thumb {
-      width: 24px;
-      height: 24px;
-      box-shadow: none;
-      transform: scale(2.4) translateY(-1.2px);
-  }
-  
-  input#cups[type=range]::-webkit-slider-thumb {
-      background: url('https://xtreemze.github.io/Lemonade/img/cup.svg');
-  }
-  
-  input#signs[type=range]::-webkit-slider-thumb {
-      background: url('https://xtreemze.github.io/Lemonade/img/sign.svg');
-  }
-  
-  input#price[type=range]::-webkit-slider-thumb {
-      background: url('https://xtreemze.github.io/Lemonade/img/usd.svg');
-  }
-  
-  input[type=range]+.thumb.active .value {
-      color: #fafafa;
-      margin-left: 0em;
-      margin-top: .4em;
-      font-size: 1em;
-  }
-  
-  input[type=range]+.thumb .value {
-      font-size: 0em;
-      transform: rotate(45deg);
-  }
-  
-  .eliminate {
-      display: none;
-  }
-  
-  #glassBottom,
-  #glassTop {
-      animation-name: appear;
-      animation-duration: 1s;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-timing-function: linear;
-      animation-fill-mode: forwards;
-      animation-delay: 0s;
-  }
-  
-  #lemonade1,
-  #lemonade2 {
-      animation: appear 5s, pour 5s 1 ease-in-out;
-  }
-  
-  @keyframes pour {
-      0% {
-          transform: scaleX(0.1) scaleY(1.9) translateX(41em) translateY(-10em);
-      }
-      45% {
-          transform: scaleX(0.1) scaleY(1.9) translateX(41em) translateY(-4em);
-      }
-      70% {
-          transform: translateX(0) translateY(0em);
-      }
-      100% {
-          transform: scaleX() scaleY() translateX(0em) translateY(0em);
-      }
-  }
-  
-  .cubes {
-      animation: appear 10s;
-  }
-  
-  #lemon {
-      animation-name: comeDown;
-      animation-duration: 7s;
-      animation-iteration-count: 1;
-      animation-direction: normal;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
-      animation-delay: 10s;
-      transform: translateY(-15em);
-  }
-  
-  #straw {
-      transform: translateY(-15em);
-      animation: comeDown 5s 1 ease-in-out 5s, bob 4s infinite ease-in-out alternate 10s;
-  }
-  
-  @keyframes appear {
-      0% {
-          fill-opacity: 0;
-      }
-      100% {
-          fill-opacity: 1;
-      }
-  }
-  
-  @keyframes comeDown {
-      0% {
-          transform: translateY(-15em);
-      }
-      50% {
-          transform: translateY(-2em);
-      }
-      80% {
-          transform: rotate(3deg);
-      }
-      100% {
-          transform: translateY(0em);
-      }
-      ;
-  }
-  
-  @keyframes bob {
-      0% {
-          transform: translateY(0em);
-          transform: translateX(0em);
-      }
-      50% {
-          transform: translateX(.19em);
-          transform: rotate(2deg);
-      }
-      100% {
-          transform: translateY(.2em);
-          transform: translateX(.1em);
-      }
-  }
+.above {
+    z-index: 20000;
+}
+
+.noBackground {
+    background: none;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#toast-container {
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+    max-height: 80vh;
+}
+
+.main {
+    overflow: hidden;
+}
+
+.toast {
+    background-color: #01579b;
+}
+
+.picture {
+    position: absolute;
+    max-width: 100% !important;
+    padding: 0 1vw 0;
+    z-index: 3;
+    bottom: 16vh;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+input[type=range]+.thumb {
+    background: #e64a19;
+    transform: scale(2.2);
+    margin-top: .2em;
+}
+
+input[type=range]+.thumb.active {
+    transform: scale(2.2);
+    margin-top: .2em;
+    transform: rotate(-45deg);
+}
+
+input[type=range] {
+    border: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.00);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: .3em;
+    /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+    background: #01579b;
+    border: none;
+    margin: 1em 0;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #01579b;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    border-radius: 0;
+    /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+}
+
+input#cups[type=range]::-webkit-slider-thumb,
+input#signs[type=range]::-webkit-slider-thumb,
+input#price[type=range]::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    box-shadow: none;
+    transform: scale(2.4) translateY(-1.2px);
+}
+
+input#cups[type=range]::-webkit-slider-thumb {
+    background: url('https://xtreemze.github.io/Lemonade/img/cup.svg');
+}
+
+input#signs[type=range]::-webkit-slider-thumb {
+    background: url('https://xtreemze.github.io/Lemonade/img/sign.svg');
+}
+
+input#price[type=range]::-webkit-slider-thumb {
+    background: url('https://xtreemze.github.io/Lemonade/img/usd.svg');
+}
+
+input[type=range]+.thumb.active .value {
+    color: #fafafa;
+    margin-left: 0em;
+    margin-top: .4em;
+    font-size: 1em;
+}
+
+input[type=range]+.thumb .value {
+    font-size: 0em;
+    transform: rotate(45deg);
+}
+
+.eliminate {
+    display: none;
+}
+
+#glassBottom,
+#glassTop {
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+}
+
+#lemonade1,
+#lemonade2 {
+    animation: pour 10s ease-in-out, gravity 5s infinite alternate ease-in-out 10s;
+    transform-origin: bottom center;
+}
+
+@keyframes pour {
+    0% {
+        transform: scaleX(0.1) scaleY(18) translateY(-10em);
+    }
+    30% {
+        transform: scaleX(0.05) scaleY(12);
+    }
+    45% {
+        transform: scaleX(0.08) scaleY(2);
+    }
+    50% {
+        transform: scaleX(0.05) scaleY(.02) translateY(0em);
+    }
+    58% {
+        transform: scaleX(0.8) scaleY(0.02);
+    }
+    100% {
+        transform: scaleX() scaleY() translateY();
+    }
+}
+
+@keyframes gravity {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(.97);
+    }
+    100% {
+        transform: scaleY(1.03);
+    }
+}
+
+.cubes {
+    fill-opacity: 0;
+    animation: appear 3s 1 linear 10s, appearInfinite 1s infinite 13s;
+}
+
+#lemon {
+    animation-name: comeDown;
+    animation-duration: 7s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 10s;
+    transform: translateY(-15em);
+}
+
+#straw {
+    transform: translateY(-15em);
+    animation: comeDown 5s 1 ease-in-out 5s, bob 4s infinite ease-in-out alternate 10s;
+}
+
+@keyframes appearInfinite {
+    0% {
+        fill-opacity: 1;
+    }
+    100% {
+        fill-opacity: 1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 1;
+    }
+}
+
+@keyframes comeDown {
+    0% {
+        transform: translateY(-15em);
+    }
+    50% {
+        transform: translateY(-2em);
+    }
+    80% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: translateY(0em);
+    }
+    ;
+}
+
+@keyframes bob {
+    0% {
+        transform: translateY(0em);
+        transform: translateX(0em);
+    }
+    50% {
+        transform: translateX(.19em);
+        transform: rotate(2deg);
+    }
+    100% {
+        transform: translateY(.2em);
+        transform: translateX(.1em);
+    }
+}
