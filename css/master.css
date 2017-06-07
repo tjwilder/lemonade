@@ -102,10 +102,6 @@ input[type=range]+.thumb .value {
     /*transform: rotate(45deg);*/
 }
 
-.eliminate {
-    display: none;
-}
-
 #glassBottom,
 #glassTop {
     animation-name: appear;

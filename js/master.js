@@ -131,5 +131,7 @@ window.lemonade = {
 lemonade.play.addEventListener('click', lemonade.nextDay);
 lemonade.displayUpdate();
 window.onload = function () {
+  loader.remove();
   play.className += ' scale-in';
+
 };
