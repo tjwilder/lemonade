@@ -74,10 +74,10 @@ window.lemonade = {
       lemonade.allTimeProfit = Math.round(lemonade.allTimeProfit * 100) / 100;
       Materialize.toast(
         'Profit: $' + lemonade.profits + ' | Expense: $' + lemonade.expenses,
-        6000);
+        5000);
       if (lemonade.allTimeProfit < 5) {
         lemonade.emotion.className = lemonade.emotionBank[0];
-        Materialize.toast('Bankrupt! Press play to try again...', 10000);
+        Materialize.toast('Bankrupt! Press play to try again...', 20000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
         lemonade.play.addEventListener('click', lemonade.firstDay);
       } else if (lemonade.allTimeProfit < 29) {
