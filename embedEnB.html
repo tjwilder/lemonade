@@ -44,18 +44,18 @@
   <script src="js/materialize.min.js" charset="utf-8"></script>
 </head>
 
-<body class="light-blue lighten-1">
+<body class="blue lighten-1">
   <div id="loader" style="position: absolute; background-color:#00a1de; width: 100%; height: 100%; z-index: 60000;" class="eliminate"></div>
   <header class="navbar-fixed">
-    <nav class="darken-3 light-blue">
+    <nav class="darken-3 blue">
       <div class="row bold">
         <div id="emotion" class="light-blue-text text-lighten-3 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Confidence Level">
-          <i id="emotionDisplay" class="mdi mdi-emoticon mdi-36px"></i>
+          <i id="emotionDisplay"></i>
         </div>
-        <div id="dayDisplay" class="light-blue-text text-lighten-3 col s4 btn-flat btn-large light-blue-text text-lighten-3 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business">Day: 0</div>
-        <div id="grandTotalDisplay" class="light-blue-text text-lighten-3 col s4 btn-flat btn-large light-blue-text text-lighten-3 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings">$10.00</div>
-        <div id="weatherDisplay" class="light-blue-text text-lighten-3 col s2 btn-flat btn-large light-blue-text text-lighten-3 waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
-          <i id="forecastDisplay" class="mdi mdi-weather-sunny mdi-36px"></i></div>
+        <div id="dayDisplay" class="light-blue-text text-lighten-3 col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business"></div>
+        <div id="grandTotalDisplay" class="light-blue-text text-lighten-3 col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings"></div>
+        <div id="weatherDisplay" class="light-blue-text text-lighten-3 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
+          <i id="forecastDisplay"></i></div>
       </div>
     </nav>
   </header>
@@ -174,7 +174,7 @@ Y88b  d88P    Y888P    Y88b  d88P
       }
     </style>
   </defs>
-  <title>lemonadeResponsive</title>
+  <title>Lemonade</title>
   <g id="lemon">
     <circle class="cls-1" cx="97.11377" cy="29.5" r="29.5"/>
     <circle class="cls-2" cx="97.11377" cy="29.5" r="23.5"/>
@@ -226,18 +226,20 @@ Y88b  d88P    Y888P    Y88b  d88P
         </p>
       </section>
     </form>
-    <div class="footer-copyright light-blue darken-4">
-      <div class="row">
-        <div class="progress col s12">
+    <div class="footer-copyright blue darken-4">
+      <div class="results">
+        <div class="progress">
+
           <div id="percentageBar" class="determinate light-blue" style="width: 100%"></div>
+
         </div>
-        <div class="col s12">
-          <div id="cupsSoldDisplay" class="light-blue-text bold center-align">Today's Sales: 0</div>
+        <div class="">
+          <div id="cupsSoldDisplay" class="light-blue-text bold center-align"></div>
         </div>
       </div>
     </div>
     <div class="fixed-action-btn above">
-      <i id="play" class="btn-floating btn-large mdi mdi-play mdi-48px waves-effect waves-light scale-transition scale-out light-blue-text text-darken-4 light-blue accent-3"></i>
+      <i id="play" class="btn-floating btn-large mdi mdi-play mdi-48px waves-effect scale-transition scale-out blue-text text-darken-4 light-blue lighten-3"></i>
     </div>
   </footer>
   <script src="bundle.js"></script>

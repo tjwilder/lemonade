@@ -2,6 +2,11 @@
     z-index: 20000;
 }
 
+.results {
+    width: 40vw;
+    margin: 0 30vw;
+}
+
 .noBackground {
     background: none;
     z-index: 10;
@@ -14,11 +19,12 @@
     z-index: 2;
     position: relative;
     overflow: hidden;
-    max-height: 80vh;
+    max-height: 90vh;
 }
 
 .toast {
-    background-color: #01579b;
+    background-color: #0277bd;
+    color: #81d4fa;
 }
 
 .picture {

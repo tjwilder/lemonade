@@ -4,7 +4,7 @@ window.lemonade = {
   signCost: 0.50,
   allTimeProfit: 20,
   dailyProfit: 0,
-  confidence: 0,
+  confidence: 3,
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
 
@@ -32,6 +32,8 @@ window.lemonade = {
     lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.play.removeEventListener('click', lemonade.firstDay);
     lemonade.play.addEventListener('click', lemonade.nextDay);
+    lemonade.emotion.className = lemonade.emotionBank[3];
+    lemonade.confidence = 3;
     lemonade.displayUpdate();
   },
   emotion: document.getElementById('emotionDisplay'),
@@ -44,7 +46,6 @@ window.lemonade = {
       .valueAsNumber;
     lemonade.signs = document.getElementById('signs')
       .valueAsNumber;
-
 
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
@@ -75,25 +76,25 @@ window.lemonade = {
       Materialize.toast(
         'Profit: $' + lemonade.profits + ' | Expense: $' + lemonade.expenses,
         5000);
-      if (lemonade.allTimeProfit < 5) {
+      if (lemonade.allTimeProfit < 10) {
         lemonade.emotion.className = lemonade.emotionBank[0];
         Materialize.toast('Bankrupt! Press play to try again...', 20000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
         lemonade.play.addEventListener('click', lemonade.firstDay);
-      } else if (lemonade.allTimeProfit < 29) {
-        lemonade.emotion.className = lemonade.emotionBank[1];
+      } else if (lemonade.allTimeProfit < 100) {
+
         lemonade.confidence = 1;
-      } else if (lemonade.allTimeProfit < 99) {
-        lemonade.emotion.className = lemonade.emotionBank[2];
+      } else if (lemonade.allTimeProfit < 200) {
+
         lemonade.confidence = 2;
-      } else if (lemonade.allTimeProfit < 199) {
-        lemonade.emotion.className = lemonade.emotionBank[3];
+      } else if (lemonade.allTimeProfit < 400) {
+
         lemonade.confidence = 3;
-      } else if (lemonade.allTimeProfit < 399) {
-        lemonade.emotion.className = lemonade.emotionBank[4];
+      } else if (lemonade.allTimeProfit < 800) {
+
         lemonade.confidence = 4;
-      } else if (lemonade.allTimeProfit > 699) {
-        lemonade.emotion.className = lemonade.emotionBank[5];
+      } else if (lemonade.allTimeProfit > 1200) {
+
         lemonade.confidence = 5;
       }
 
@@ -107,11 +108,12 @@ window.lemonade = {
   displayUpdate: function displayUpdate() {
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
     lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
-
+    lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
+    lemonade.confidence = 3;
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
     document.getElementById('cupsSoldDisplay')
-      .innerText = "Today's Sales: " + lemonade.sold + ' Cups | $' + lemonade.dailyProfit;
+      .innerText = lemonade.sold + ' Cups | $' + lemonade.dailyProfit;
     document.getElementById('grandTotalDisplay')
       .innerText = '$' + lemonade.allTimeProfit;
   }
