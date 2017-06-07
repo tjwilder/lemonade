@@ -15,7 +15,7 @@ window.lemonade = {
   tomorrowForecast: '',
   todayWeatherVariant: 3,
   todayForecast: '',
-  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px'],
+  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-sad mdi-36px', 'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px', 'mdi mdi-emoticon-cool mdi-36px'],
   firstDay: function firstDay() {
     lemonade.day = 0;
     lemonade.tomorrowWeatherVariant = 3;
@@ -64,12 +64,16 @@ window.lemonade = {
         Materialize.toast('Bankrupt!', 6000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
         lemonade.play.addEventListener('click', lemonade.firstDay);
-      } else if (lemonade.allTimeProfit < 12) {
+      } else if (lemonade.allTimeProfit < 29) {
         lemonade.emotion.className = lemonade.emotionBank[1];
-      } else if (lemonade.allTimeProfit < 34) {
+      } else if (lemonade.allTimeProfit < 99) {
         lemonade.emotion.className = lemonade.emotionBank[2];
-      } else if (lemonade.allTimeProfit > 74) {
+      } else if (lemonade.allTimeProfit > 199) {
         lemonade.emotion.className = lemonade.emotionBank[3];
+      } else if (lemonade.allTimeProfit > 199) {
+        lemonade.emotion.className = lemonade.emotionBank[4];
+      } else if (lemonade.allTimeProfit > 399) {
+        lemonade.emotion.className = lemonade.emotionBank[4];
       }
 
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
