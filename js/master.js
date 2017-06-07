@@ -7,7 +7,54 @@ window.lemonade = {
   confidence: 3,
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
-
+  resetAnimation: function resetAnimation() {
+    straw.classList.remove('straw2');
+    lemon.classList.remove('lemon2');
+    lemonade1.classList.remove('liquid2');
+    lemonade2.classList.remove('liquid2');
+    for (let i = 1; i < 6; i++) {
+      document.getElementById('cube' + i)
+        .classList.remove('cubes2');
+    }
+    straw.classList.remove('straw');
+    lemon.classList.remove('lemon');
+    glassTop.classList.remove('glass');
+    glassBottom.classList.remove('glass');
+    lemonade1.classList.remove('liquid');
+    lemonade2.classList.remove('liquid');
+    for (let cubesOut = 1; cubesOut < 6; cubesOut++) {
+      document.getElementById('cube' + cubesOut)
+        .classList.remove('cubes');
+    }
+  },
+  pourIn: function pourIn() {
+    lemonade.resetAnimation();
+    setTimeout(function () {
+      straw.classList.add('straw');
+      lemon.classList.add('lemon');
+      lemonade1.classList.add('liquid');
+      lemonade2.classList.add('liquid');
+      for (let i = 1; i < 6; i++) {
+        document.getElementById('cube' + i)
+          .classList.add('cubes');
+      }
+    }, 5);
+  },
+  pourOut: function pourOut() {
+    lemonade.resetAnimation();
+    setTimeout(function () {
+      straw.classList.add('straw2');
+      lemon.classList.add('lemon2');
+      glassTop.classList.add('glass2');
+      glassBottom.classList.add('glass2');
+      lemonade1.classList.add('liquid2');
+      lemonade2.classList.add('liquid2');
+      for (let cubesIn = 1; cubesIn < 6; cubesIn++) {
+        document.getElementById('cube' + cubesIn)
+          .classList.add('cubes2');
+      }
+    }, 5);
+  },
   randomNumber: function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   },
@@ -38,6 +85,7 @@ window.lemonade = {
     signs.valueAsNumber = 10;
     price.valueAsNumber = 4;
     lemonade.displayUpdate();
+    lemonade.pourIn();
   },
   emotion: document.getElementById('emotionDisplay'),
   sold: 0,
@@ -103,6 +151,7 @@ window.lemonade = {
         Materialize.toast('Bankrupt! Press play to try again...', 20000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
         lemonade.play.addEventListener('click', lemonade.firstDay);
+        lemonade.pourOut();
       } else if (lemonade.allTimeProfit < 100) {
         lemonade.confidence = 1;
       } else if (lemonade.allTimeProfit < 200) {
@@ -141,4 +190,5 @@ lemonade.displayUpdate();
 window.onload = function () {
   loader.remove();
   play.className += ' scale-in';
+  lemonade.pourIn('');
 };
