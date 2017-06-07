@@ -17,10 +17,6 @@
     max-height: 80vh;
 }
 
-.main {
-    overflow: hidden;
-}
-
 .toast {
     background-color: #01579b;
 }
@@ -31,6 +27,7 @@
     padding: 0 1vw 0;
     z-index: 3;
     bottom: 16vh;
+    overflow: visible !important;
 }
 
 .bold {
@@ -39,14 +36,7 @@
 
 input[type=range]+.thumb {
     background: #e64a19;
-    transform: scale(2.2);
     margin-top: .2em;
-}
-
-input[type=range]+.thumb.active {
-    transform: scale(2.2);
-    margin-top: .2em;
-    transform: rotate(-45deg);
 }
 
 input[type=range] {
@@ -101,7 +91,7 @@ input[type=range]+.thumb.active .value {
 
 input[type=range]+.thumb .value {
     font-size: 0em;
-    transform: rotate(45deg);
+    /*transform: rotate(45deg);*/
 }
 
 .eliminate {
