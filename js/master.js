@@ -73,7 +73,7 @@ window.lemonade = {
       } else if (lemonade.allTimeProfit < 199) {
         lemonade.emotion.className = lemonade.emotionBank[4];
       } else if (lemonade.allTimeProfit > 399) {
-        lemonade.emotion.className = lemonade.emotionBank[4];
+        lemonade.emotion.className = lemonade.emotionBank[5];
       }
 
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
