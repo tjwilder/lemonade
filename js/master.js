@@ -34,6 +34,9 @@ window.lemonade = {
     lemonade.play.addEventListener('click', lemonade.nextDay);
     lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.confidence = 3;
+    cups.valueAsNumber = 75;
+    signs.valueAsNumber = 10;
+    price.valueAsNumber = 4;
     lemonade.displayUpdate();
   },
   emotion: document.getElementById('emotionDisplay'),
