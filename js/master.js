@@ -68,9 +68,9 @@ window.lemonade = {
         lemonade.emotion.className = lemonade.emotionBank[1];
       } else if (lemonade.allTimeProfit < 99) {
         lemonade.emotion.className = lemonade.emotionBank[2];
-      } else if (lemonade.allTimeProfit > 199) {
+      } else if (lemonade.allTimeProfit < 199) {
         lemonade.emotion.className = lemonade.emotionBank[3];
-      } else if (lemonade.allTimeProfit > 199) {
+      } else if (lemonade.allTimeProfit < 199) {
         lemonade.emotion.className = lemonade.emotionBank[4];
       } else if (lemonade.allTimeProfit > 399) {
         lemonade.emotion.className = lemonade.emotionBank[4];
