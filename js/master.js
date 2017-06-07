@@ -1,7 +1,7 @@
 window.lemonade = {
   day: 0,
-  cupCost: 0.05,
-  signCost: 0.15,
+  cupCost: 1.05,
+  signCost: 0.85,
   allTimeProfit: 12,
   dailyProfit: 0,
   bar: document.getElementById('percentageBar'),
