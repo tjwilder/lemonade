@@ -7,6 +7,10 @@ window.lemonade = {
   confidence: 3,
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
+  clearToast: function clearToast() {
+    document.getElementById('toast-container')
+      .innerHTML = '';
+  },
   resetAnimation: function resetAnimation() {
     straw.classList.remove('straw2');
     lemon.classList.remove('lemon2');
@@ -69,7 +73,8 @@ window.lemonade = {
     'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px',
     'mdi mdi-emoticon-cool mdi-36px'
   ],
-  firstDay: function firstDay() {
+  newGame: function newGame() {
+    lemonade.clearToast();
     lemonade.day = 0;
     lemonade.tomorrowWeatherVariant = 3;
     lemonade.todayWeatherVariant = 3;
@@ -77,7 +82,7 @@ window.lemonade = {
     lemonade.allTimeProfit = 20;
     lemonade.dailyProfit = 0;
     lemonade.emotion.className = lemonade.emotionBank[3];
-    lemonade.play.removeEventListener('click', lemonade.firstDay);
+    lemonade.play.removeEventListener('click', lemonade.newGame);
     lemonade.play.addEventListener('click', lemonade.nextDay);
     lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.confidence = 3;
@@ -86,6 +91,7 @@ window.lemonade = {
     price.valueAsNumber = 4;
     lemonade.displayUpdate();
     lemonade.pourIn();
+    Materialize.toast("It's a nice day to sell Lemonade!", 5000);
   },
   emotion: document.getElementById('emotionDisplay'),
   sold: 0,
@@ -122,7 +128,8 @@ window.lemonade = {
     lemonade.expenses = lemonade.round0(
       (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
-      Materialize.toast("You can't afford $" + lemonade.expenses + '!', 6000);
+      lemonade.clearToast();
+      Materialize.toast("You can't afford $" + lemonade.expenses + '!', 2000);
       Materialize.toast('$' + lemonade.round2(lemonade.cupCost) + ' per Cup | $' + lemonade.round2(lemonade.signCost) + ' per Sign', 6000);
       cups.valueAsNumber = lemonade.allTimeProfit - 2;
       signs.valueAsNumber = 2;
@@ -145,12 +152,13 @@ window.lemonade = {
       lemonade.allTimeProfit = lemonade.round0(lemonade.allTimeProfit);
       Materialize.toast(
         'Profit: $' + lemonade.round2(lemonade.profits) + ' | Expense: $' + lemonade.round2(lemonade.expenses),
-        4000);
+        3000);
       if (lemonade.allTimeProfit < 10) {
-        lemonade.emotion.className = lemonade.emotionBank[0];
-        Materialize.toast('Bankrupt! Press play to try again...', 20000);
+        lemonade.confidence = 0;
+        lemonade.clearToast();
+        Materialize.toast('Bankrupt! Press play to try again...', 30000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
-        lemonade.play.addEventListener('click', lemonade.firstDay);
+        lemonade.play.addEventListener('click', lemonade.newGame);
         lemonade.pourOut();
       } else if (lemonade.allTimeProfit < 100) {
         lemonade.confidence = 1;
@@ -191,4 +199,5 @@ window.onload = function () {
   loader.remove();
   play.className += ' scale-in';
   lemonade.pourIn('');
+  Materialize.toast("It's a nice day to sell Lemonade!", 5000);
 };
