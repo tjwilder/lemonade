@@ -60,8 +60,9 @@ module.exports = function (env) {
       new OfflinePlugin({
         externals: ['./android-chrome-192x192.png', './android-chrome-512x512.png', './favicon-32x32.png', './favicon-16x16.png', './js/materialize.min.js', './js/jquery-3.2.1.min.js', './manifest.json'],
         caches: 'all',
-        responseStrategy: 'cache-first',
-        updateStrategy: 'changed'
+        responseStrategy: 'network-first',
+        updateStrategy: 'all',
+        minify: 'true'
       })
     ]
   };
