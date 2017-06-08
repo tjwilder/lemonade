@@ -43,22 +43,32 @@
   <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
   <script src="js/materialize.min.js" charset="utf-8"></script>
 </head>
+<!--
+888888b.                 888          
+888  "88b                888          
+888  .88P                888          
+8888888K.   .d88b.   .d88888 888  888 
+888  "Y88b d88""88b d88" 888 888  888 
+888    888 888  888 888  888 888  888 
+888   d88P Y88..88P Y88b 888 Y88b 888 
+8888888P"   "Y88P"   "Y88888  "Y88888 
+                                  888 
+                             Y8b d88P 
+                              "Y88P"  
+-->
 
 <body class="light-blue lighten-3">
   <div id="loader" style="position: absolute; background-color:#81d4fa; width: 100%; height: 100%; z-index: 60000;"></div>
-  <header class="navbar-fixed">
-    <nav class="light-blue darken-2">
-      <div class="row bold">
-        <div id="emotion" class="light-blue-text text-lighten-4 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Confidence Level">
-          <i id="emotionDisplay"></i>
-        </div>
-        <div id="dayDisplay" class="light-blue-text text-lighten-4 col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business"></div>
-        <div id="grandTotalDisplay" class="light-blue-text text-lighten-4 col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings"></div>
-        <div id="weatherDisplay" class="light-blue-text text-lighten-4 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
-          <i id="forecastDisplay"></i></div>
-      </div>
-    </nav>
-  </header>
+  <div class="row bold">
+    <div id="emotion" class="light-blue-text text-darken-2 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Confidence Level">
+      <i id="emotionDisplay"></i>
+    </div>
+    <div id="dayDisplay" class="light-blue-text text-darken-2  col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Days in Business"></div>
+    <div id="grandTotalDisplay" class="light-blue-text  text-darken-2  col s4 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings"></div>
+    <div id="weatherDisplay" class="light-blue-text text-darken-2 col s2 btn-flat btn-large waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
+      <i id="forecastDisplay"></i></div>
+  </div>
+
   <main id="main">
     <!--
  .d8888b.  888     888  .d8888b.  
@@ -73,7 +83,8 @@ Y88b  d88P    Y888P    Y88b  d88P
                                   
                                   
 -->
-    <svg id="Lemonade" class="responsive-img picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.61377 128">
+    <i id="play" class="play">
+    <svg id="Lemonade" class="picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.61377 128">
   <defs>
     <style>
       .cls-1 {
@@ -207,9 +218,10 @@ Y88b  d88P    Y888P    Y88b  d88P
     <path id="highlight" class="cls-22" d="M62.395,57h68.35278a3.50382,3.50382,0,0,1,3.471,3.03351l.01984-.23364A3.50341,3.50341,0,0,0,130.74774,56H62.395a3.50341,3.50341,0,0,0-3.49085,3.79987l.01984.23364A3.50382,3.50382,0,0,1,62.395,57Z" transform="translate(-33.38623 -33)"/>
   </g>
 </svg>
+</i>
   </main>
   <footer class="page-footer fixed-footer noBackground">
-    <form class="container operations section">
+    <form class="container operations">
       <section class="row">
         <p id="range1" class="range-field col s8 offset-s2">
           <input class="range" type="range" id="cups" min="0" max="150" />
@@ -226,7 +238,9 @@ Y88b  d88P    Y888P    Y88b  d88P
         </p>
       </section>
     </form>
-    <div class="footer-copyright light-blue darken-3">
+
+    <div class="section">
+
       <div class="results">
         <div class="progress">
 
@@ -234,13 +248,13 @@ Y88b  d88P    Y888P    Y88b  d88P
 
         </div>
         <div>
-          <div id="cupsSoldDisplay" class="light-blue-text text-lighten-2 bold center-align"></div>
+          <div id="cupsSoldDisplay" class="light-blue-text text-darken-2 bold center-align"></div>
         </div>
       </div>
     </div>
-    <div class="fixed-action-btn above">
+    <!--<div class="fixed-action-btn above">
       <i id="play" class="btn-floating btn-large mdi mdi-play mdi-48px waves-effect scale-transition scale-out blue-text text-darken-4 light-blue accent-2"></i>
-    </div>
+    </div>-->
   </footer>
   <script src="bundle.js"></script>
 </body>

@@ -156,7 +156,7 @@ window.lemonade = {
       if (lemonade.allTimeProfit < 10) {
         lemonade.confidence = 0;
         lemonade.clearToast();
-        Materialize.toast('Bankrupt! Press play to try again...', 30000);
+        Materialize.toast('Bankrupt! Better luck next time!', 30000);
         lemonade.play.removeEventListener('click', lemonade.nextDay);
         lemonade.play.addEventListener('click', lemonade.newGame);
         lemonade.pourOut();

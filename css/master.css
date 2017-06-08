@@ -16,10 +16,11 @@
 }
 
 #toast-container {
-    z-index: 2;
-    position: relative;
+    z-index: 0;
+    position: absolute;
     overflow: hidden;
     max-height: 90vh;
+    top: 48px;
 }
 
 .toast {
@@ -30,12 +31,22 @@
 }
 
 .picture {
-    position: absolute;
-    max-width: 100% !important;
-    padding: 0 1vw 0;
-    z-index: 3;
-    bottom: 22vh;
     overflow: visible !important;
+}
+
+.play {
+    position: absolute;
+    max-width: 116px;
+    width: 20%;
+    z-index: 100;
+    bottom: 3vh;
+    right: 2vw;
+    transition: transform 80ms;
+    transform-origin: bottom center;
+}
+
+.play:active {
+    transform: scale(1.1);
 }
 
 .bold {
@@ -44,7 +55,7 @@
 
 input[type=range]+.thumb {
     background: #e64a19;
-    margin-top: .2em;
+    margin-top: .5vh;
 }
 
 input[type=range] {
@@ -53,15 +64,15 @@ input[type=range] {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    height: .3em;
+    /*height: .3em;*/
     /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
-    background: #0277bd;
+    background: rgba(2, 119, 189, 0.8);
     border: none;
-    margin: 1em 0;
+    margin: 2vh 0;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #0277bd;
+    background: rgba(2, 119, 189, 0.8);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -118,7 +129,7 @@ input[type=range]+.thumb .value {
 }
 
 .liquid2 {
-    animation: pour 13s reverse ease-in-out, dissapearInfinite 1s infinite 6s;
+    animation: pour 13s reverse ease-in-out, dissapearInfinite 1s infinite 13s;
     transform-origin: bottom center;
 }
 
@@ -208,7 +219,7 @@ input[type=range]+.thumb .value {
 
 @keyframes comeDown {
     0% {
-        transform: translateY(-15em);
+        transform: translateY(-96em);
     }
     50% {
         transform: translateY(-2em);
