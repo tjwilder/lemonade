@@ -129,7 +129,7 @@ window.lemonade = {
       (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
-      Materialize.toast("You can't afford $" + lemonade.expenses + '!', 2000);
+      Materialize.toast("You can't afford $" + lemonade.round2(lemonade.expenses) + '!', 2000);
       Materialize.toast('$' + lemonade.round2(lemonade.cupCost) + ' per Cup | $' + lemonade.round2(lemonade.signCost) + ' per Sign', 6000);
       cups.valueAsNumber = lemonade.allTimeProfit - 2;
       signs.valueAsNumber = 2;
@@ -188,9 +188,9 @@ window.lemonade = {
     document.getElementById('dayDisplay')
       .innerText = 'Day ' + lemonade.day;
     document.getElementById('cupsSoldDisplay')
-      .innerText = lemonade.sold + ' Cups | $' + lemonade.dailyProfit.toFixed(2);
+      .innerText = lemonade.sold + ' Cups | $' + lemonade.round2(lemonade.dailyProfit);
     document.getElementById('grandTotalDisplay')
-      .innerText = '$' + lemonade.allTimeProfit.toFixed(2);
+      .innerText = '$' + lemonade.round2(lemonade.allTimeProfit);
   }
 };
 lemonade.play.addEventListener('click', lemonade.nextDay);

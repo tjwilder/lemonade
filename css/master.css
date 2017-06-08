@@ -37,20 +37,20 @@
 .play {
     position: absolute;
     max-width: 116px;
-    width: 30%;
+    width: 26%;
     z-index: 100;
-    bottom: 2vh;
+    bottom: 1vh;
     right: 2vw;
     transition: transform 90ms;
     transform-origin: bottom center;
 }
 
 .operations {
-    margin-bottom: 10vh;
+    margin-bottom: 16vh;
 }
 
 .play:active {
-    transform: scale(1.1);
+    transform: scale(0.95);
 }
 
 .bold {
@@ -59,7 +59,7 @@
 
 input[type=range]+.thumb {
     background: #e64a19;
-    margin-top: .5vh;
+    margin-top: .5em;
 }
 
 input[type=range] {
@@ -70,13 +70,13 @@ input[type=range] {
 input[type=range]::-webkit-slider-runnable-track {
     /*height: .3em;*/
     /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
-    background: rgba(2, 119, 189, 0.8);
+    background: rgba(2, 119, 189, 0.4);
     border: none;
-    margin: 2vh 0;
+    margin: 1.5em 0;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: rgba(2, 119, 189, 0.8);
+    background: rgba(2, 119, 189, 0.4);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -90,7 +90,7 @@ input#price[type=range]::-webkit-slider-thumb {
     width: 24px;
     height: 24px;
     box-shadow: none;
-    transform: scale(2) translateY(-1.4px);
+    transform: scale(2.4) translateY(-1.4px);
 }
 
 input#cups[type=range]::-webkit-slider-thumb {
