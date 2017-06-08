@@ -37,12 +37,16 @@
 .play {
     position: absolute;
     max-width: 116px;
-    width: 20%;
+    width: 30%;
     z-index: 100;
-    bottom: 3vh;
+    bottom: 2vh;
     right: 2vw;
-    transition: transform 80ms;
+    transition: transform 90ms;
     transform-origin: bottom center;
+}
+
+.operations {
+    margin-bottom: 10vh;
 }
 
 .play:active {
@@ -86,7 +90,7 @@ input#price[type=range]::-webkit-slider-thumb {
     width: 24px;
     height: 24px;
     box-shadow: none;
-    transform: scale(2.4) translateY(-1.2px);
+    transform: scale(2) translateY(-1.4px);
 }
 
 input#cups[type=range]::-webkit-slider-thumb {
