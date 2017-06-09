@@ -5,10 +5,12 @@
   "main": "index.html",
   "scripts": {
     "test": "none",
-    "dev": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --inline --hot --profile --open",
+    "dev": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile --open",
+    "hotDebug": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
+    "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",
-    "exportp": "webpack --progress --colors --env=prod --profile -p"
+    "exportp": "webpack --env=prod --profile"
   },
   "repository": {
     "type": "git",

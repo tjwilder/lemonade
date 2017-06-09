@@ -5,6 +5,7 @@ module.exports = function (env) {
       path: __dirname,
       filename: 'bundle.js',
     },
+    devtool: 'cheap-module-eval-source-map',
     module: {
       rules: [{
         test: /indexB.html$/,

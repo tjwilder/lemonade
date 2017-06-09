@@ -7,6 +7,42 @@ window.lemonade = {
   confidence: 3,
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
+  marketingResult: () => {
+    const signs = lemonade.signs * 6;
+    const confidence = lemonade.randomNumber(1, 3) * lemonade.confidence;
+    const price = lemonade.price * 3;
+    const weather = lemonade.todayWeatherVariant * 3;
+    const result = ((signs + confidence) / price) * weather;
+    return result + 0.08;
+    // const marketingResult = (
+    //     ((lemonade.signs * 6) +
+    //       (lemonade.randomNumber(1, 3) * lemonade.confidence)
+    //     ) /
+    //     (lemonade.price * 3)) * ((lemonade.todayWeatherVariant * 3) + 0.08);
+  },
+  determineConfidence: () => {
+    if (lemonade.allTimeProfit < 10) {
+      lemonade.confidence = 0;
+      lemonade.clearToast();
+      Materialize.toast('Bankrupt! Better luck next time!', 30000);
+      lemonade.play.removeEventListener('click', lemonade.nextDay);
+      lemonade.play.addEventListener('click', lemonade.newGame);
+      lemonade.pourOut();
+    } else if (lemonade.dailyProfit === 0) {
+      lemonade.confidence = 2;
+      // console.log('option 0 ' + lemonade.confidence);
+    } else if (lemonade.dailyProfit < lemonade.average()) {
+      lemonade.confidence = 1;
+      // console.log('option 1 ' + lemonade.confidence);
+    } else if (lemonade.dailyProfit - lemonade.average() < 60) {
+      lemonade.confidence = Math.round(((lemonade.dailyProfit - lemonade.average()) / 20) + 2);
+      // console.log('option 2 ' + lemonade.confidence);
+    } else {
+      lemonade.confidence = 5;
+      // console.log('option 3 ' + lemonade.confidence);
+    }
+    return lemonade.confidence;
+  },
   clearToast: function clearToast() {
     document.getElementById('toast-container')
       .innerHTML = '';
@@ -17,7 +53,7 @@ window.lemonade = {
     lemonade1.classList.remove('liquid2');
     lemonade2.classList.remove('liquid2');
     for (let i = 1; i < 6; i++) {
-      document.getElementById('cube' + i)
+      document.getElementById(`cube${i}`)
         .classList.remove('cubes2');
     }
     straw.classList.remove('straw');
@@ -27,26 +63,26 @@ window.lemonade = {
     lemonade1.classList.remove('liquid');
     lemonade2.classList.remove('liquid');
     for (let cubesOut = 1; cubesOut < 6; cubesOut++) {
-      document.getElementById('cube' + cubesOut)
+      document.getElementById(`cube${cubesOut}`)
         .classList.remove('cubes');
     }
   },
   pourIn: function pourIn() {
     lemonade.resetAnimation();
-    setTimeout(function () {
+    setTimeout(() => {
       straw.classList.add('straw');
       lemon.classList.add('lemon');
       lemonade1.classList.add('liquid');
       lemonade2.classList.add('liquid');
       for (let i = 1; i < 6; i++) {
-        document.getElementById('cube' + i)
+        document.getElementById(`cube${i}`)
           .classList.add('cubes');
       }
     }, 5);
   },
   pourOut: function pourOut() {
     lemonade.resetAnimation();
-    setTimeout(function () {
+    setTimeout(() => {
       straw.classList.add('straw2');
       lemon.classList.add('lemon2');
       glassTop.classList.add('glass2');
@@ -54,14 +90,12 @@ window.lemonade = {
       lemonade1.classList.add('liquid2');
       lemonade2.classList.add('liquid2');
       for (let cubesIn = 1; cubesIn < 6; cubesIn++) {
-        document.getElementById('cube' + cubesIn)
+        document.getElementById(`cube${cubesIn}`)
           .classList.add('cubes2');
       }
     }, 5);
   },
-  randomNumber: function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  },
+  randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
   weather: ['mdi mdi-weather-lightning-rainy mdi-36px', 'mdi mdi-weather-cloudy mdi-36px',
     'mdi mdi-weather-partlycloudy mdi-36px', 'mdi mdi-weather-sunny mdi-36px'
   ],
@@ -96,25 +130,20 @@ window.lemonade = {
   emotion: document.getElementById('emotionDisplay'),
   sold: 0,
   forecastDisplay: document.getElementById('forecastDisplay'),
-  clean: function clean() {
-    if (range1.children.length === 2) {
+  clean: () => {
+    if (range1.children.length > 1) {
       range1.children[1].remove();
     }
-    if (range2.children.length === 2) {
+    if (range2.children.length > 1) {
       range2.children[1].remove();
     }
-    if (range3.children.length === 2) {
+    if (range3.children.length > 1) {
       range3.children[1].remove();
     }
   },
-  round2: function round2(equation) {
-    const result = equation.toFixed(2);
-    return result;
-  },
-  round0: function round0(equation) {
-    const result = Math.round((equation) * 100) / 100;
-    return result;
-  },
+  stringRound: equation => equation.toFixed(2),
+  twoDecimals: equation => Math.round(equation * 100) / 100,
+  average: () => ((lemonade.allTimeProfit - lemonade.dailyProfit) / lemonade.day),
   nextDay: function nextDay() {
     lemonade.cups = document.getElementById('cups')
       .valueAsNumber;
@@ -125,77 +154,51 @@ window.lemonade = {
     lemonade.clean();
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
-    lemonade.expenses = lemonade.round0(
+    lemonade.expenses = lemonade.twoDecimals(
       (lemonade.signs * lemonade.signCost) + (lemonade.cups * lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
-      Materialize.toast("You can't afford $" + lemonade.round2(lemonade.expenses) + '!', 2000);
-      Materialize.toast('$' + lemonade.round2(lemonade.cupCost) + ' per Cup | $' + lemonade.round2(lemonade.signCost) + ' per Sign', 6000);
+      Materialize.toast(`You can't afford $${lemonade.stringRound(lemonade.expenses)}!`, 2000);
+      Materialize.toast(`$${lemonade.stringRound(lemonade.cupCost)} per Cup | $${lemonade.stringRound(lemonade.signCost)} per Sign`, 6000);
       cups.valueAsNumber = lemonade.allTimeProfit - 2;
       signs.valueAsNumber = 2;
     } else {
-      const marketingResult = (
-        ((lemonade.signs * 6) +
-          (lemonade.randomNumber(1, 3) * lemonade.confidence)
-        ) /
-        (lemonade.price * 3)) * ((lemonade.todayWeatherVariant * 3) + 0.08);
-      lemonade.sold = Math.round(marketingResult);
-      if (marketingResult > lemonade.cups) { lemonade.sold = lemonade.cups; }
+      lemonade.sold = Math.round(lemonade.marketingResult());
+      if (lemonade.marketingResult() > lemonade.cups) { lemonade.sold = lemonade.cups; }
       if (lemonade.sold > 0) {
-        lemonade.bar.style.width = ((lemonade.sold / lemonade.cups) * 100) + '%';
+        lemonade.bar.style.width = `${(lemonade.sold / lemonade.cups) * 100}%`;
       } else {
         lemonade.bar.style.width = 0;
       }
-      lemonade.profits = lemonade.round0(lemonade.sold * lemonade.price);
-      lemonade.dailyProfit = lemonade.round0(lemonade.profits - lemonade.expenses);
+      lemonade.profits = lemonade.twoDecimals(lemonade.sold * lemonade.price);
+      lemonade.dailyProfit = lemonade.twoDecimals(lemonade.profits - lemonade.expenses);
       lemonade.allTimeProfit += lemonade.dailyProfit;
-      lemonade.allTimeProfit = lemonade.round0(lemonade.allTimeProfit);
+      lemonade.allTimeProfit = lemonade.twoDecimals(lemonade.allTimeProfit);
       Materialize.toast(
-        'Profit: $' + lemonade.round2(lemonade.profits) + ' | Expense: $' + lemonade.round2(lemonade.expenses),
+        `Profit: $${lemonade.stringRound(lemonade.profits)} | Expense: $${lemonade.stringRound(lemonade.expenses)}`,
         3000);
-      if (lemonade.allTimeProfit < 10) {
-        lemonade.confidence = 0;
-        lemonade.clearToast();
-        Materialize.toast('Bankrupt! Better luck next time!', 30000);
-        lemonade.play.removeEventListener('click', lemonade.nextDay);
-        lemonade.play.addEventListener('click', lemonade.newGame);
-        lemonade.pourOut();
-      } else if (lemonade.allTimeProfit < 100) {
-        lemonade.confidence = 1;
-      } else if (lemonade.allTimeProfit < 200) {
-        lemonade.confidence = 2;
-      } else if (lemonade.allTimeProfit < 400) {
-        lemonade.confidence = 3;
-      } else if (lemonade.allTimeProfit < 800) {
-        lemonade.confidence = 4;
-      } else if (lemonade.allTimeProfit > 1200) {
-        lemonade.confidence = 5;
-      }
-
+      lemonade.determineConfidence();
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
       // lemonade.tomorrowWeatherVariant = 1;
-
       lemonade.day++;
-
       lemonade.displayUpdate();
     }
   },
-  displayUpdate: function displayUpdate() {
+  displayUpdate: () => {
     lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
     lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
     lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
-    lemonade.confidence = 3;
     document.getElementById('dayDisplay')
-      .innerText = 'Day ' + lemonade.day;
+      .innerText = `Day ${lemonade.day}`;
     document.getElementById('cupsSoldDisplay')
-      .innerText = lemonade.sold + ' Cups | $' + lemonade.round2(lemonade.dailyProfit);
+      .innerText = `${lemonade.sold} Cups | $${lemonade.stringRound(lemonade.dailyProfit)}`;
     document.getElementById('grandTotalDisplay')
-      .innerText = '$' + lemonade.round2(lemonade.allTimeProfit);
+      .innerText = `$${lemonade.stringRound(lemonade.allTimeProfit)}`;
   }
 };
 lemonade.play.addEventListener('click', lemonade.nextDay);
 lemonade.displayUpdate();
-window.onload = function () {
+window.onload = () => {
   loader.remove();
   play.className += ' scale-in';
   lemonade.pourIn('');

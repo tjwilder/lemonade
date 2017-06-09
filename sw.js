@@ -1,3 +1,846 @@
-var __wpo = {"assets":{"main":["./embedEn.html","./","./fonts/materialdesignicons-webfont.eot","./fonts/materialdesignicons-webfont.svg","./fonts/materialdesignicons-webfont.ttf","./fonts/materialdesignicons-webfont.woff2","./fonts/materialdesignicons-webfont.woff","./fonts/roboto/Roboto-Bold.woff","./fonts/roboto/Roboto-Bold.woff2","./fonts/roboto/Roboto-Light.woff","./fonts/roboto/Roboto-Light.woff2","./fonts/roboto/Roboto-Medium.woff","./fonts/roboto/Roboto-Medium.woff2","./fonts/roboto/Roboto-Regular.woff","./fonts/roboto/Roboto-Regular.woff2","./fonts/roboto/Roboto-Thin.woff","./fonts/roboto/Roboto-Thin.woff2","./bundle.js","./android-chrome-192x192.png","./android-chrome-512x512.png","./favicon-32x32.png","./favicon-16x16.png","./js/materialize.min.js","./js/jquery-3.2.1.min.js","./manifest.json"],"additional":[],"optional":[]},"externals":["./android-chrome-192x192.png","./android-chrome-512x512.png","./favicon-32x32.png","./favicon-16x16.png","./js/materialize.min.js","./js/jquery-3.2.1.min.js","./manifest.json"],"hashesMap":{"82424aea903cf46a248789fb1f275af42d795d79":"./embedEn.html","20c2951d279befe6f61f82e3123ecdf92c0214d9":"./","02acf9a6077c6fd0ba37b5f16499365bf05eb7c9":"./fonts/materialdesignicons-webfont.eot","f70e244175be4f96a237a748577f28f39dd3c7cb":"./fonts/materialdesignicons-webfont.svg","0d237a357a6428d90612b24e71a74deb9a1b062a":"./fonts/materialdesignicons-webfont.ttf","ae356d6811285df99e5efa432a27a1ae2efb19b5":"./fonts/materialdesignicons-webfont.woff2","5b560e4a95f2e1efea1b4d2b39d9d545b012ca22":"./fonts/materialdesignicons-webfont.woff","e0655b6097eddf9df88cd194eff08436ea086a1c":"./fonts/roboto/Roboto-Bold.woff","5a8465896222227807ff29908d8648db510561a5":"./fonts/roboto/Roboto-Bold.woff2","c7494493f62984e2f581598739b5dd340e9e891b":"./fonts/roboto/Roboto-Light.woff","f6daab924b79b4822dc9faa56bbefe1d1efa3e42":"./fonts/roboto/Roboto-Light.woff2","b17bd60107c9ec0fd8c58a9e1fd222da7f1b99f4":"./fonts/roboto/Roboto-Medium.woff","7c512e2ebddd4dbd08d0f7bfb5b772501f707078":"./fonts/roboto/Roboto-Medium.woff2","6cfb2a5eb3a601ba450dda2d80bacef26c5ba873":"./fonts/roboto/Roboto-Regular.woff","c193deaa915e7183828400922700567900fb6cc3":"./fonts/roboto/Roboto-Regular.woff2","cb8f61464f349af887ba96f6a2ae1e318b3cc8d9":"./fonts/roboto/Roboto-Thin.woff","c321aeb611cf1dcb25717484a4ced717d8ca76fa":"./fonts/roboto/Roboto-Thin.woff2","710706f3a6769eedeaff43f7fe529530df5c9ead":"./bundle.js"},"strategy":"all","responseStrategy":"network-first","version":"6/8/2017, 1:26:06 PM","name":"webpack-offline","pluginVersion":"4.8.1","relativePaths":true};
+var __wpo = {
+  "assets": {
+    "main": [
+      "./embedEn.html",
+      "./",
+      "./fonts/materialdesignicons-webfont.eot",
+      "./fonts/materialdesignicons-webfont.svg",
+      "./fonts/materialdesignicons-webfont.ttf",
+      "./fonts/materialdesignicons-webfont.woff2",
+      "./fonts/materialdesignicons-webfont.woff",
+      "./fonts/roboto/Roboto-Bold.woff",
+      "./fonts/roboto/Roboto-Bold.woff2",
+      "./fonts/roboto/Roboto-Light.woff",
+      "./fonts/roboto/Roboto-Light.woff2",
+      "./fonts/roboto/Roboto-Medium.woff",
+      "./fonts/roboto/Roboto-Medium.woff2",
+      "./fonts/roboto/Roboto-Regular.woff",
+      "./fonts/roboto/Roboto-Regular.woff2",
+      "./fonts/roboto/Roboto-Thin.woff",
+      "./fonts/roboto/Roboto-Thin.woff2",
+      "./bundle.js",
+      "./android-chrome-192x192.png",
+      "./android-chrome-512x512.png",
+      "./favicon-32x32.png",
+      "./favicon-16x16.png",
+      "./js/materialize.min.js",
+      "./js/jquery-3.2.1.min.js",
+      "./manifest.json"
+    ],
+    "additional": [],
+    "optional": []
+  },
+  "externals": [
+    "./android-chrome-192x192.png",
+    "./android-chrome-512x512.png",
+    "./favicon-32x32.png",
+    "./favicon-16x16.png",
+    "./js/materialize.min.js",
+    "./js/jquery-3.2.1.min.js",
+    "./manifest.json"
+  ],
+  "hashesMap": {
+    "82424aea903cf46a248789fb1f275af42d795d79": "./embedEn.html",
+    "fda461cbbe1f5b4ee36581da69e294e38602cd83": "./",
+    "02acf9a6077c6fd0ba37b5f16499365bf05eb7c9": "./fonts/materialdesignicons-webfont.eot",
+    "f70e244175be4f96a237a748577f28f39dd3c7cb": "./fonts/materialdesignicons-webfont.svg",
+    "0d237a357a6428d90612b24e71a74deb9a1b062a": "./fonts/materialdesignicons-webfont.ttf",
+    "ae356d6811285df99e5efa432a27a1ae2efb19b5": "./fonts/materialdesignicons-webfont.woff2",
+    "5b560e4a95f2e1efea1b4d2b39d9d545b012ca22": "./fonts/materialdesignicons-webfont.woff",
+    "e0655b6097eddf9df88cd194eff08436ea086a1c": "./fonts/roboto/Roboto-Bold.woff",
+    "5a8465896222227807ff29908d8648db510561a5": "./fonts/roboto/Roboto-Bold.woff2",
+    "c7494493f62984e2f581598739b5dd340e9e891b": "./fonts/roboto/Roboto-Light.woff",
+    "f6daab924b79b4822dc9faa56bbefe1d1efa3e42": "./fonts/roboto/Roboto-Light.woff2",
+    "b17bd60107c9ec0fd8c58a9e1fd222da7f1b99f4": "./fonts/roboto/Roboto-Medium.woff",
+    "7c512e2ebddd4dbd08d0f7bfb5b772501f707078": "./fonts/roboto/Roboto-Medium.woff2",
+    "6cfb2a5eb3a601ba450dda2d80bacef26c5ba873": "./fonts/roboto/Roboto-Regular.woff",
+    "c193deaa915e7183828400922700567900fb6cc3": "./fonts/roboto/Roboto-Regular.woff2",
+    "cb8f61464f349af887ba96f6a2ae1e318b3cc8d9": "./fonts/roboto/Roboto-Thin.woff",
+    "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
+    "bd8cfc9fefce38801d4d402634b2370557ffdc39": "./bundle.js"
+  },
+  "strategy": "all",
+  "responseStrategy": "network-first",
+  "version": "6/10/2017, 12:43:05 AM",
+  "name": "webpack-offline",
+  "pluginVersion": "4.8.1",
+  "relativePaths": true
+};
 
-!function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t={};n.m=e,n.c=t,n.i=function(e){return e},n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="",n(n.s=1)}([function(e,n){},function(e,n,t){"use strict";function r(e,n){return caches.match(e,{cacheName:n}).then(function(t){return c()?t:a(t).then(function(t){return caches.open(n).then(function(n){return n.put(e,t)}).then(function(){return t})})}).catch(function(){})}function o(e,n){return e+(-1!==e.indexOf("?")?"&":"?")+"__uncache="+encodeURIComponent(n)}function i(e){return"navigate"===e.mode||e.headers.get("Upgrade-Insecure-Requests")||-1!==(e.headers.get("Accept")||"").indexOf("text/html")}function c(e){return!e||!e.redirected||!e.ok||"opaqueredirect"===e.type}function a(e){return c(e)?Promise.resolve(e):("body"in e?Promise.resolve(e.body):e.blob()).then(function(n){return new Response(n,{headers:e.headers,status:e.status})})}function u(e){return Object.keys(e).reduce(function(n,t){return n[t]=e[t],n},{})}function s(e,n){console.groupCollapsed("[SW]:",e),n.forEach(function(e){console.log("Asset:",e)}),console.groupEnd()}if(function(){var e=ExtendableEvent.prototype.waitUntil,n=FetchEvent.prototype.respondWith,t=new WeakMap;ExtendableEvent.prototype.waitUntil=function(n){var r=this,o=t.get(r);return o?void o.push(Promise.resolve(n)):(o=[Promise.resolve(n)],t.set(r,o),e.call(r,Promise.resolve().then(function e(){var n=o.length;return Promise.all(o.map(function(e){return e.catch(function(){})})).then(function(){return o.length!=n?e():(t.delete(r),Promise.all(o))})})))},FetchEvent.prototype.respondWith=function(e){return this.waitUntil(e),n.call(this,e)}}(),void 0===f)var f=!1;!function(e,n){function t(){if(!S.additional.length)return Promise.resolve();f&&console.log("[SW]:","Caching additional");var e=void 0;return e="changed"===b?l("additional"):c("additional"),e.catch(function(e){console.error("[SW]:","Cache section `additional` failed to load")})}function c(n){var t=S[n];return caches.open(E).then(function(n){return w(n,t,{bust:e.version,request:e.prefetchRequest})}).then(function(){s("Cached assets: "+n,t)}).catch(function(e){throw console.error(e),e})}function l(n){return d().then(function(t){if(!t)return c(n);var r=t[0],o=t[1],i=t[2],a=i.hashmap,u=i.version;if(!i.hashmap||u===e.version)return c(n);var f=Object.keys(a).map(function(e){return a[e]}),l=o.map(function(e){var n=new URL(e.url);return n.search="",n.toString()}),h=S[n],d=[],p=h.filter(function(e){return-1===l.indexOf(e)||-1===f.indexOf(e)});Object.keys(W).forEach(function(e){var n=W[e];if(-1!==h.indexOf(n)&&-1===p.indexOf(n)&&-1===d.indexOf(n)){var t=a[e];t&&-1!==l.indexOf(t)?d.push([t,n]):p.push(n)}}),s("Changed assets: "+n,p),s("Moved assets: "+n,d);var v=Promise.all(d.map(function(e){return r.match(e[0]).then(function(n){return[e[1],n]})}));return caches.open(E).then(function(n){var t=v.then(function(e){return Promise.all(e.map(function(e){return n.put(e[0],e[1])}))});return Promise.all([t,w(n,p,{bust:e.version,request:e.prefetchRequest})])})})}function h(){return caches.keys().then(function(e){var n=e.map(function(e){if(0===e.indexOf(P)&&0!==e.indexOf(E))return console.log("[SW]:","Delete cache:",e),caches.delete(e)});return Promise.all(n)})}function d(){return caches.keys().then(function(e){for(var n=e.length,t=void 0;n--&&(t=e[n],0!==t.indexOf(P)););if(t){var r=void 0;return caches.open(t).then(function(e){return r=e,e.match(new URL(j,location).toString())}).then(function(e){if(e)return Promise.all([r,r.keys(),e.json()])})}})}function p(){return caches.open(E).then(function(n){var t=new Response(JSON.stringify({version:e.version,hashmap:W}));return n.put(new URL(j,location).toString(),t)})}function v(e,n,t){return r(t,E).then(function(r){return r?(f&&console.log("[SW]:","URL ["+t+"]("+n+") from cache"),r):fetch(e.request).then(function(r){return r.ok?(f&&console.log("[SW]:","URL ["+n+"] from network"),t===n&&function(){var t=r.clone(),o=caches.open(E).then(function(e){return e.put(n,t)}).then(function(){console.log("[SW]:","Cache asset: "+n)});e.waitUntil(o)}(),r):(f&&console.log("[SW]:","URL ["+n+"] wrong response: ["+r.status+"] "+r.type),r)})})}function m(e,n,t){return fetch(e.request).then(function(e){if(e.ok)return f&&console.log("[SW]:","URL ["+n+"] from network"),e;throw new Error("Response is not ok")}).catch(function(){return f&&console.log("[SW]:","URL ["+n+"] from cache if possible"),r(t,E)})}function g(e){return e.catch(function(){}).then(function(e){var n=e&&e.ok,t=e&&"opaqueredirect"===e.type;return n||t&&!F?e:(f&&console.log("[SW]:","Loading navigation fallback ["+C+"] from cache"),r(C,E))})}function w(e,n,t){var r=!1!==t.allowLoaders,i=t&&t.bust,c=t.request||{credentials:"omit",mode:"cors"};return Promise.all(n.map(function(e){return i&&(e=o(e,i)),fetch(e,c).then(a)})).then(function(o){if(o.some(function(e){return!e.ok}))return Promise.reject(new Error("Wrong response status"));var i=[],c=o.map(function(t,o){return r&&i.push(y(n[o],t)),e.put(n[o],t)});return i.length?function(){var r=u(t);r.allowLoaders=!1;var o=c;c=Promise.all(i).then(function(t){var i=[].concat.apply([],t);return n.length&&(o=o.concat(w(e,i,r))),Promise.all(o)})}():c=Promise.all(c),c})}function y(e,n){var t=Object.keys(U).map(function(t){if(-1!==U[t].indexOf(e)&&O[t])return O[t](n.clone())}).filter(function(e){return!!e});return Promise.all(t).then(function(e){return[].concat.apply([],e)})}function x(e){var n=e.url,t=new URL(n),r=void 0;r="navigate"===e.mode?"navigate":t.origin===location.origin?"same-origin":"cross-origin";for(var o=0;o<k.length;o++){var i=k[o];if(i&&(!i.requestTypes||-1!==i.requestTypes.indexOf(r))){var c=void 0;if((c="function"==typeof i.match?i.match(t,e):n.replace(i.match,i.to))&&c!==n)return c}}}var O=n.loaders,k=n.cacheMaps,b=e.strategy,R=e.responseStrategy,S=e.assets,U=e.loaders||{},W=e.hashesMap,L=e.externals,P=e.name,q=e.version,E=P+":"+q,j="__offline_webpack__data";!function(){Object.keys(S).forEach(function(e){S[e]=S[e].map(function(e){var n=new URL(e,location);return-1===L.indexOf(e)?n.search="":n.hash="",n.toString()})}),Object.keys(U).forEach(function(e){U[e]=U[e].map(function(e){var n=new URL(e,location);return-1===L.indexOf(e)?n.search="":n.hash="",n.toString()})}),W=Object.keys(W).reduce(function(e,n){var t=new URL(W[n],location);return t.search="",e[n]=t.toString(),e},{}),L=L.map(function(e){var n=new URL(e,location);return n.hash="",n.toString()})}();var _=[].concat(S.main,S.additional,S.optional),C=e.navigateFallbackURL,F=e.navigateFallbackForRedirects;self.addEventListener("install",function(e){console.log("[SW]:","Install event");var n=void 0;n="changed"===b?l("main"):c("main"),e.waitUntil(n)}),self.addEventListener("activate",function(e){console.log("[SW]:","Activate event");var n=t();n=n.then(p),n=n.then(h),n=n.then(function(){if(self.clients&&self.clients.claim)return self.clients.claim()}),e.waitUntil(n)}),self.addEventListener("fetch",function(e){var n=e.request.url,t=new URL(n),r=void 0;-1!==L.indexOf(n)?r=n:(t.search="",r=t.toString());var o="GET"===e.request.method,c=-1!==_.indexOf(r),a=r;if(!c){var u=x(e.request);u&&(a=u,c=!0)}if(!c&&o&&C&&i(e.request))return void e.respondWith(g(fetch(e.request)));if(!c||!o)return void(t.origin!==location.origin&&-1!==navigator.userAgent.indexOf("Firefox/44.")&&e.respondWith(fetch(e.request)));var s=void 0;s="network-first"===R?m(e,r,a):v(e,r,a),C&&i(e.request)&&(s=g(s)),e.respondWith(s)}),self.addEventListener("message",function(e){var n=e.data;if(n)switch(n.action){case"skipWaiting":self.skipWaiting&&self.skipWaiting()}})}(__wpo,{loaders:{},cacheMaps:[]}),e.exports=t(0)}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+(function () {
+  var waitUntil = ExtendableEvent.prototype.waitUntil;
+  var respondWith = FetchEvent.prototype.respondWith;
+  var promisesMap = new WeakMap();
+
+  ExtendableEvent.prototype.waitUntil = function (promise) {
+    var extendableEvent = this;
+    var promises = promisesMap.get(extendableEvent);
+
+    if (promises) {
+      promises.push(Promise.resolve(promise));
+      return;
+    }
+
+    promises = [Promise.resolve(promise)];
+    promisesMap.set(extendableEvent, promises);
+
+    // call original method
+    return waitUntil.call(extendableEvent, Promise.resolve().then(function processPromises() {
+      var len = promises.length;
+
+      // wait for all to settle
+      return Promise.all(promises.map(function (p) {
+        return p["catch"](function () {});
+      })).then(function () {
+        // have new items been added? If so, wait again
+        if (promises.length != len) return processPromises();
+        // we're done!
+        promisesMap["delete"](extendableEvent);
+        // reject if one of the promises rejected
+        return Promise.all(promises);
+      });
+    }));
+  };
+
+  FetchEvent.prototype.respondWith = function (promise) {
+    this.waitUntil(promise);
+    return respondWith.call(this, promise);
+  };
+})();;
+        'use strict';
+
+if (typeof DEBUG === 'undefined') {
+  var DEBUG = false;
+}
+
+function WebpackServiceWorker(params, helpers) {
+  var loaders = helpers.loaders;
+  var cacheMaps = helpers.cacheMaps;
+
+  var strategy = params.strategy;
+  var responseStrategy = params.responseStrategy;
+
+  var assets = params.assets;
+  var loadersMap = params.loaders || {};
+
+  var hashesMap = params.hashesMap;
+  var externals = params.externals;
+
+  // Not used yet
+  // const alwaysRevalidate = params.alwaysRevalidate;
+  // const ignoreSearch = params.ignoreSearch;
+  // const preferOnline = params.preferOnline;
+
+  var CACHE_PREFIX = params.name;
+  var CACHE_TAG = params.version;
+  var CACHE_NAME = CACHE_PREFIX + ':' + CACHE_TAG;
+
+  var STORED_DATA_KEY = '__offline_webpack__data';
+
+  mapAssets();
+
+  var allAssets = [].concat(assets.main, assets.additional, assets.optional);
+  var navigateFallbackURL = params.navigateFallbackURL;
+  var navigateFallbackForRedirects = params.navigateFallbackForRedirects;
+
+  self.addEventListener('install', function (event) {
+    console.log('[SW]:', 'Install event');
+
+    var installing = undefined;
+
+    if (strategy === 'changed') {
+      installing = cacheChanged('main');
+    } else {
+      installing = cacheAssets('main');
+    }
+
+    event.waitUntil(installing);
+  });
+
+  self.addEventListener('activate', function (event) {
+    console.log('[SW]:', 'Activate event');
+
+    var activation = cacheAdditional();
+
+    // Delete all assets which name starts with CACHE_PREFIX and
+    // is not current cache (CACHE_NAME)
+    activation = activation.then(storeCacheData);
+    activation = activation.then(deleteObsolete);
+    activation = activation.then(function () {
+      if (self.clients && self.clients.claim) {
+        return self.clients.claim();
+      }
+    });
+
+    event.waitUntil(activation);
+  });
+
+  function cacheAdditional() {
+    if (!assets.additional.length) {
+      return Promise.resolve();
+    }
+
+    if (DEBUG) {
+      console.log('[SW]:', 'Caching additional');
+    }
+
+    var operation = undefined;
+
+    if (strategy === 'changed') {
+      operation = cacheChanged('additional');
+    } else {
+      operation = cacheAssets('additional');
+    }
+
+    // Ignore fail of `additional` cache section
+    return operation['catch'](function (e) {
+      console.error('[SW]:', 'Cache section `additional` failed to load');
+    });
+  }
+
+  function cacheAssets(section) {
+    var batch = assets[section];
+
+    return caches.open(CACHE_NAME).then(function (cache) {
+      return addAllNormalized(cache, batch, {
+        bust: params.version,
+        request: params.prefetchRequest
+      });
+    }).then(function () {
+      logGroup('Cached assets: ' + section, batch);
+    })['catch'](function (e) {
+      console.error(e);
+      throw e;
+    });
+  }
+
+  function cacheChanged(section) {
+    return getLastCache().then(function (args) {
+      if (!args) {
+        return cacheAssets(section);
+      }
+
+      var lastCache = args[0];
+      var lastKeys = args[1];
+      var lastData = args[2];
+
+      var lastMap = lastData.hashmap;
+      var lastVersion = lastData.version;
+
+      if (!lastData.hashmap || lastVersion === params.version) {
+        return cacheAssets(section);
+      }
+
+      var lastHashedAssets = Object.keys(lastMap).map(function (hash) {
+        return lastMap[hash];
+      });
+
+      var lastUrls = lastKeys.map(function (req) {
+        var url = new URL(req.url);
+        url.search = '';
+
+        return url.toString();
+      });
+
+      var sectionAssets = assets[section];
+      var moved = [];
+      var changed = sectionAssets.filter(function (url) {
+        if (lastUrls.indexOf(url) === -1 || lastHashedAssets.indexOf(url) === -1) {
+          return true;
+        }
+
+        return false;
+      });
+
+      Object.keys(hashesMap).forEach(function (hash) {
+        var asset = hashesMap[hash];
+
+        // Return if not in sectionAssets or in changed or moved array
+        if (sectionAssets.indexOf(asset) === -1 || changed.indexOf(asset) !== -1 || moved.indexOf(asset) !== -1) return;
+
+        var lastAsset = lastMap[hash];
+
+        if (lastAsset && lastUrls.indexOf(lastAsset) !== -1) {
+          moved.push([lastAsset, asset]);
+        } else {
+          changed.push(asset);
+        }
+      });
+
+      logGroup('Changed assets: ' + section, changed);
+      logGroup('Moved assets: ' + section, moved);
+
+      var movedResponses = Promise.all(moved.map(function (pair) {
+        return lastCache.match(pair[0]).then(function (response) {
+          return [pair[1], response];
+        });
+      }));
+
+      return caches.open(CACHE_NAME).then(function (cache) {
+        var move = movedResponses.then(function (responses) {
+          return Promise.all(responses.map(function (pair) {
+            return cache.put(pair[0], pair[1]);
+          }));
+        });
+
+        return Promise.all([move, addAllNormalized(cache, changed, {
+          bust: params.version,
+          request: params.prefetchRequest
+        })]);
+      });
+    });
+  }
+
+  function deleteObsolete() {
+    return caches.keys().then(function (keys) {
+      var all = keys.map(function (key) {
+        if (key.indexOf(CACHE_PREFIX) !== 0 || key.indexOf(CACHE_NAME) === 0) return;
+
+        console.log('[SW]:', 'Delete cache:', key);
+        return caches['delete'](key);
+      });
+
+      return Promise.all(all);
+    });
+  }
+
+  function getLastCache() {
+    return caches.keys().then(function (keys) {
+      var index = keys.length;
+      var key = undefined;
+
+      while (index--) {
+        key = keys[index];
+
+        if (key.indexOf(CACHE_PREFIX) === 0) {
+          break;
+        }
+      }
+
+      if (!key) return;
+
+      var cache = undefined;
+
+      return caches.open(key).then(function (_cache) {
+        cache = _cache;
+        return _cache.match(new URL(STORED_DATA_KEY, location).toString());
+      }).then(function (response) {
+        if (!response) return;
+
+        return Promise.all([cache, cache.keys(), response.json()]);
+      });
+    });
+  }
+
+  function storeCacheData() {
+    return caches.open(CACHE_NAME).then(function (cache) {
+      var data = new Response(JSON.stringify({
+        version: params.version,
+        hashmap: hashesMap
+      }));
+
+      return cache.put(new URL(STORED_DATA_KEY, location).toString(), data);
+    });
+  }
+
+  self.addEventListener('fetch', function (event) {
+    var requestUrl = event.request.url;
+    var url = new URL(requestUrl);
+    var urlString = undefined;
+
+    if (externals.indexOf(requestUrl) !== -1) {
+      urlString = requestUrl;
+    } else {
+      url.search = '';
+      urlString = url.toString();
+    }
+
+    // Handle only GET requests
+    var isGET = event.request.method === 'GET';
+    var assetMatches = allAssets.indexOf(urlString) !== -1;
+    var cacheUrl = urlString;
+
+    if (!assetMatches) {
+      var cacheRewrite = matchCacheMap(event.request);
+
+      if (cacheRewrite) {
+        cacheUrl = cacheRewrite;
+        assetMatches = true;
+      }
+    }
+
+    if (!assetMatches && isGET) {
+      // If isn't a cached asset and is a navigation request,
+      // fallback to navigateFallbackURL if available
+      if (navigateFallbackURL && isNavigateRequest(event.request)) {
+        event.respondWith(handleNavigateFallback(fetch(event.request)));
+
+        return;
+      }
+    }
+
+    if (!assetMatches || !isGET) {
+      // Fix for https://twitter.com/wanderview/status/696819243262873600
+      if (url.origin !== location.origin && navigator.userAgent.indexOf('Firefox/44.') !== -1) {
+        event.respondWith(fetch(event.request));
+      }
+
+      return;
+    }
+
+    // Logic of caching / fetching is here
+    // * urlString -- url to match from the CACHE_NAME
+    // * event.request -- original Request to perform fetch() if necessary
+    var resource = undefined;
+
+    if (responseStrategy === 'network-first') {
+      resource = networkFirstResponse(event, urlString, cacheUrl);
+    }
+    // 'cache-first'
+    // (responseStrategy has been validated before)
+    else {
+        resource = cacheFirstResponse(event, urlString, cacheUrl);
+      }
+
+    if (navigateFallbackURL && isNavigateRequest(event.request)) {
+      resource = handleNavigateFallback(resource);
+    }
+
+    event.respondWith(resource);
+  });
+
+  self.addEventListener('message', function (e) {
+    var data = e.data;
+    if (!data) return;
+
+    switch (data.action) {
+      case 'skipWaiting':
+        {
+          if (self.skipWaiting) self.skipWaiting();
+        }break;
+    }
+  });
+
+  function cacheFirstResponse(event, urlString, cacheUrl) {
+    return cachesMatch(cacheUrl, CACHE_NAME).then(function (response) {
+      if (response) {
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + cacheUrl + '](' + urlString + ') from cache');
+        }
+
+        return response;
+      }
+
+      // Load and cache known assets
+      var fetching = fetch(event.request).then(function (response) {
+        if (!response.ok) {
+          if (DEBUG) {
+            console.log('[SW]:', 'URL [' + urlString + '] wrong response: [' + response.status + '] ' + response.type);
+          }
+
+          return response;
+        }
+
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + urlString + '] from network');
+        }
+
+        if (cacheUrl === urlString) {
+          (function () {
+            var responseClone = response.clone();
+            var storing = caches.open(CACHE_NAME).then(function (cache) {
+              return cache.put(urlString, responseClone);
+            }).then(function () {
+              console.log('[SW]:', 'Cache asset: ' + urlString);
+            });
+
+            event.waitUntil(storing);
+          })();
+        }
+
+        return response;
+      });
+
+      return fetching;
+    });
+  }
+
+  function networkFirstResponse(event, urlString, cacheUrl) {
+    return fetch(event.request).then(function (response) {
+      if (response.ok) {
+        if (DEBUG) {
+          console.log('[SW]:', 'URL [' + urlString + '] from network');
+        }
+
+        return response;
+      }
+
+      // Throw to reach the code in the catch below
+      throw new Error('Response is not ok');
+    })
+    // This needs to be in a catch() and not just in the then() above
+    // cause if your network is down, the fetch() will throw
+    ['catch'](function () {
+      if (DEBUG) {
+        console.log('[SW]:', 'URL [' + urlString + '] from cache if possible');
+      }
+
+      return cachesMatch(cacheUrl, CACHE_NAME);
+    });
+  }
+
+  function handleNavigateFallback(fetching) {
+    return fetching['catch'](function () {}).then(function (response) {
+      var isOk = response && response.ok;
+      var isRedirect = response && response.type === 'opaqueredirect';
+
+      if (isOk || isRedirect && !navigateFallbackForRedirects) {
+        return response;
+      }
+
+      if (DEBUG) {
+        console.log('[SW]:', 'Loading navigation fallback [' + navigateFallbackURL + '] from cache');
+      }
+
+      return cachesMatch(navigateFallbackURL, CACHE_NAME);
+    });
+  }
+
+  function mapAssets() {
+    Object.keys(assets).forEach(function (key) {
+      assets[key] = assets[key].map(function (path) {
+        var url = new URL(path, location);
+
+        if (externals.indexOf(path) === -1) {
+          url.search = '';
+        } else {
+          // Remove hash from possible passed externals
+          url.hash = '';
+        }
+
+        return url.toString();
+      });
+    });
+
+    Object.keys(loadersMap).forEach(function (key) {
+      loadersMap[key] = loadersMap[key].map(function (path) {
+        var url = new URL(path, location);
+
+        if (externals.indexOf(path) === -1) {
+          url.search = '';
+        } else {
+          // Remove hash from possible passed externals
+          url.hash = '';
+        }
+
+        return url.toString();
+      });
+    });
+
+    hashesMap = Object.keys(hashesMap).reduce(function (result, hash) {
+      var url = new URL(hashesMap[hash], location);
+      url.search = '';
+
+      result[hash] = url.toString();
+      return result;
+    }, {});
+
+    externals = externals.map(function (path) {
+      var url = new URL(path, location);
+      url.hash = '';
+
+      return url.toString();
+    });
+  }
+
+  function addAllNormalized(cache, requests, options) {
+    var allowLoaders = options.allowLoaders !== false;
+    var bustValue = options && options.bust;
+    var requestInit = options.request || {
+      credentials: 'omit',
+      mode: 'cors'
+    };
+
+    return Promise.all(requests.map(function (request) {
+      if (bustValue) {
+        request = applyCacheBust(request, bustValue);
+      }
+
+      return fetch(request, requestInit).then(fixRedirectedResponse);
+    })).then(function (responses) {
+      if (responses.some(function (response) {
+        return !response.ok;
+      })) {
+        return Promise.reject(new Error('Wrong response status'));
+      }
+
+      var extracted = [];
+      var addAll = responses.map(function (response, i) {
+        if (allowLoaders) {
+          extracted.push(extractAssetsWithLoaders(requests[i], response));
+        }
+
+        return cache.put(requests[i], response);
+      });
+
+      if (extracted.length) {
+        (function () {
+          var newOptions = copyObject(options);
+          newOptions.allowLoaders = false;
+
+          var waitAll = addAll;
+
+          addAll = Promise.all(extracted).then(function (all) {
+            var extractedRequests = [].concat.apply([], all);
+
+            if (requests.length) {
+              waitAll = waitAll.concat(addAllNormalized(cache, extractedRequests, newOptions));
+            }
+
+            return Promise.all(waitAll);
+          });
+        })();
+      } else {
+        addAll = Promise.all(addAll);
+      }
+
+      return addAll;
+    });
+  }
+
+  function extractAssetsWithLoaders(request, response) {
+    var all = Object.keys(loadersMap).map(function (key) {
+      var loader = loadersMap[key];
+
+      if (loader.indexOf(request) !== -1 && loaders[key]) {
+        return loaders[key](response.clone());
+      }
+    }).filter(function (a) {
+      return !!a;
+    });
+
+    return Promise.all(all).then(function (all) {
+      return [].concat.apply([], all);
+    });
+  }
+
+  function matchCacheMap(request) {
+    var urlString = request.url;
+    var url = new URL(urlString);
+
+    var requestType = undefined;
+
+    if (request.mode === 'navigate') {
+      requestType = 'navigate';
+    } else if (url.origin === location.origin) {
+      requestType = 'same-origin';
+    } else {
+      requestType = 'cross-origin';
+    }
+
+    for (var i = 0; i < cacheMaps.length; i++) {
+      var map = cacheMaps[i];
+
+      if (!map) continue;
+      if (map.requestTypes && map.requestTypes.indexOf(requestType) === -1) {
+        continue;
+      }
+
+      var newString = undefined;
+
+      if (typeof map.match === 'function') {
+        newString = map.match(url, request);
+      } else {
+        newString = urlString.replace(map.match, map.to);
+      }
+
+      if (newString && newString !== urlString) {
+        return newString;
+      }
+    }
+  }
+}
+
+function cachesMatch(request, cacheName) {
+  return caches.match(request, {
+    cacheName: cacheName
+  }).then(function (response) {
+    if (isNotRedirectedResponse()) {
+      return response;
+    }
+
+    // Fix already cached redirected responses
+    return fixRedirectedResponse(response).then(function (fixedResponse) {
+      return caches.open(cacheName).then(function (cache) {
+        return cache.put(request, fixedResponse);
+      }).then(function () {
+        return fixedResponse;
+      });
+    });
+  })
+  // Return void if error happened (cache not found)
+  ['catch'](function () {});
+}
+
+function applyCacheBust(asset, key) {
+  var hasQuery = asset.indexOf('?') !== -1;
+  return asset + (hasQuery ? '&' : '?') + '__uncache=' + encodeURIComponent(key);
+}
+
+function getClientsURLs() {
+  if (!self.clients) {
+    return Promise.resolve([]);
+  }
+
+  return self.clients.matchAll({
+    includeUncontrolled: true
+  }).then(function (clients) {
+    if (!clients.length) return [];
+
+    var result = [];
+
+    clients.forEach(function (client) {
+      var url = new URL(client.url);
+      url.search = '';
+      url.hash = '';
+      var urlString = url.toString();
+
+      if (!result.length || result.indexOf(urlString) === -1) {
+        result.push(urlString);
+      }
+    });
+
+    return result;
+  });
+}
+
+function isNavigateRequest(request) {
+  return request.mode === 'navigate' || request.headers.get('Upgrade-Insecure-Requests') || (request.headers.get('Accept') || '').indexOf('text/html') !== -1;
+}
+
+function isNotRedirectedResponse(response) {
+  return !response || !response.redirected || !response.ok || response.type === 'opaqueredirect';
+}
+
+// Based on https://github.com/GoogleChrome/sw-precache/pull/241/files#diff-3ee9060dc7a312c6a822cac63a8c630bR85
+function fixRedirectedResponse(response) {
+  if (isNotRedirectedResponse(response)) {
+    return Promise.resolve(response);
+  }
+
+  var body = 'body' in response ? Promise.resolve(response.body) : response.blob();
+
+  return body.then(function (data) {
+    return new Response(data, {
+      headers: response.headers,
+      status: response.status
+    });
+  });
+}
+
+function copyObject(original) {
+  return Object.keys(original).reduce(function (result, key) {
+    result[key] = original[key];
+    return result;
+  }, {});
+}
+
+function logGroup(title, assets) {
+  console.groupCollapsed('[SW]:', title);
+
+  assets.forEach(function (asset) {
+    console.log('Asset:', asset);
+  });
+
+  console.groupEnd();
+}
+        WebpackServiceWorker(__wpo, {
+loaders: {},
+cacheMaps: [],
+});
+        module.exports = __webpack_require__(0)
+      
+
+/***/ })
+/******/ ]);

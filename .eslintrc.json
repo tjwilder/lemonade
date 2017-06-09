@@ -17,10 +17,10 @@
     "constructor-super": "warn",
     "valid-typeof": "warn",
     "comma-dangle": "off",
-    "prefer-arrow-callback": "off",
+    "prefer-arrow-callback": "warn",
     "linebreak-style": "off",
-    "func-names": "off",
-    "prefer-template": "off",
+    "func-names": "warn",
+    "prefer-template": "warn",
     "no-plusplus": "off",
     "max-len": "off"
   },
