@@ -8,7 +8,11 @@
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "runtimeArgs": [
-        "--incognito"
+        "--incognito",
+        "--allow-running-insecure-content",
+        "--allow-file-access-from-files",
+        "--allow-file-access",
+        "--allow-cross-origin-auth-prompt"
       ],
       "sourceMapPathOverrides": {
         "webpack:///*": "${workspaceRoot}/*"
