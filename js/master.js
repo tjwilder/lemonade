@@ -5,20 +5,35 @@ window.lemonade = {
   allTimeProfit: 20,
   dailyProfit: 0,
   confidence: 3,
+  whenLoaded: () => {
+    // lemonade.cheat(); // Enable cheating
+  },
+  cheat: () => {
+    lemonade.cheating = true;
+    lemonade.day = 1000;
+    lemonade.allTimeProfit = 2000;
+    lemonade.confidence = 3;
+    lemonade.tomorrowForecast = lemonade.cheatWeather;
+    cups.valueAsNumber = 150;
+    signs.valueAsNumber = 20;
+    price.valueAsNumber = 1;
+    lemonade.cheatWeather = 1;
+    lemonade.displayUpdate();
+    lemonade.nextDay();
+    lemonade.nextDay();
+    lemonade.nextDay();
+    Materialize.toast('Cheat enabled', 4000);
+    return 'You are cheating!';
+  },
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
   marketingResult: () => {
-    const signs = lemonade.signs * 6;
+    const signs = lemonade.signs ** 2;
     const confidence = lemonade.randomNumber(1, 3) * lemonade.confidence;
-    const price = lemonade.price * 3;
+    const price = (lemonade.price ** 2) + 1;
     const weather = lemonade.todayWeatherVariant * 3;
     const result = ((signs + confidence) / price) * weather;
     return result + 0.08;
-    // const marketingResult = (
-    //     ((lemonade.signs * 6) +
-    //       (lemonade.randomNumber(1, 3) * lemonade.confidence)
-    //     ) /
-    //     (lemonade.price * 3)) * ((lemonade.todayWeatherVariant * 3) + 0.08);
   },
   determineConfidence: () => {
     if (lemonade.allTimeProfit < 10) {
@@ -43,7 +58,7 @@ window.lemonade = {
     }
     return lemonade.confidence;
   },
-  clearToast: function clearToast() {
+  clearToast: () => {
     document.getElementById('toast-container')
       .innerHTML = '';
   },
@@ -144,7 +159,7 @@ window.lemonade = {
   stringRound: equation => equation.toFixed(2),
   twoDecimals: equation => Math.round(equation * 100) / 100,
   average: () => ((lemonade.allTimeProfit - lemonade.dailyProfit) / lemonade.day),
-  nextDay: function nextDay() {
+  nextDay: () => {
     lemonade.cups = document.getElementById('cups')
       .valueAsNumber;
     lemonade.price = document.getElementById('price')
@@ -179,7 +194,7 @@ window.lemonade = {
         3000);
       lemonade.determineConfidence();
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
-      // lemonade.tomorrowWeatherVariant = 1;
+      if (lemonade.cheating) { lemonade.tomorrowWeatherVariant = lemonade.cheatWeather; }
       lemonade.day++;
       lemonade.displayUpdate();
     }
@@ -203,4 +218,5 @@ window.onload = () => {
   play.className += ' scale-in';
   lemonade.pourIn('');
   Materialize.toast("It's a nice day to sell Lemonade!", 5000);
+  lemonade.whenLoaded();
 };
