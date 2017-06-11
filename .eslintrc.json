@@ -21,7 +21,7 @@
     "linebreak-style": "off",
     "func-names": "warn",
     "prefer-template": "warn",
-    "no-plusplus": "off",
+    "no-plusplus": "warn",
     "max-len": "off"
   },
   "globals": {

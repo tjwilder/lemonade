@@ -1,19 +1,34 @@
 window.lemonade = {
-  day: 500,
+  day: 0,
   cupCost: 1,
   signCost: 0.50,
-  allTimeProfit: 2000,
+  allTimeProfit: 20,
   dailyProfit: 0,
   confidence: 3,
   tomorrowWeatherVariant: 3,
   tomorrowForecast: '',
   todayWeatherVariant: 3,
   todayForecast: '',
-  emotion: document.getElementById('emotionDisplay'),
   sold: 0,
+  emotion: document.getElementById('emotionDisplay'),
   forecastDisplay: document.getElementById('forecastDisplay'),
+  bar: document.getElementById('percentageBar'),
+  play: document.getElementById('play'),
+  weather: ['mdi mdi-weather-lightning-rainy mdi-36px', 'mdi mdi-weather-cloudy mdi-36px',
+    'mdi mdi-weather-partlycloudy mdi-36px', 'mdi mdi-weather-sunny mdi-36px'
+  ],
+  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-sad mdi-36px',
+    'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px',
+    'mdi mdi-emoticon-cool mdi-36px'
+  ],
   whenLoaded: () => {
     // lemonade.cheat(); // Enable cheating
+    lemonade.play.addEventListener('click', lemonade.nextDay);
+    lemonade.displayUpdate();
+    loader.remove();
+    play.className += ' scale-in';
+    lemonade.pourIn('');
+    Materialize.toast("It's a nice day to sell Lemonade!", 5000);
   },
   cheat: () => {
     lemonade.cheating = true;
@@ -32,15 +47,6 @@ window.lemonade = {
     Materialize.toast('Cheat enabled', 4000);
     return 'You are cheating!';
   },
-  bar: document.getElementById('percentageBar'),
-  play: document.getElementById('play'),
-  weather: ['mdi mdi-weather-lightning-rainy mdi-36px', 'mdi mdi-weather-cloudy mdi-36px',
-    'mdi mdi-weather-partlycloudy mdi-36px', 'mdi mdi-weather-sunny mdi-36px'
-  ],
-  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-sad mdi-36px',
-    'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px',
-    'mdi mdi-emoticon-cool mdi-36px'
-  ],
   randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
   stringRound: equation => equation.toFixed(2),
   twoDecimals: equation => Math.round(equation * 100) / 100,
@@ -95,7 +101,7 @@ window.lemonade = {
     lemon.classList.remove('lemon2');
     lemonade1.classList.remove('liquid2');
     lemonade2.classList.remove('liquid2');
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i += 1) {
       document.getElementById(`cube${i}`)
         .classList.remove('cubes2');
     }
@@ -105,7 +111,7 @@ window.lemonade = {
     glassBottom.classList.remove('glass');
     lemonade1.classList.remove('liquid');
     lemonade2.classList.remove('liquid');
-    for (let cubesOut = 1; cubesOut < 6; cubesOut++) {
+    for (let cubesOut = 1; cubesOut < 6; cubesOut += 1) {
       document.getElementById(`cube${cubesOut}`)
         .classList.remove('cubes');
     }
@@ -117,7 +123,7 @@ window.lemonade = {
       lemon.classList.add('lemon');
       lemonade1.classList.add('liquid');
       lemonade2.classList.add('liquid');
-      for (let i = 1; i < 6; i++) {
+      for (let i = 1; i < 6; i += 1) {
         document.getElementById(`cube${i}`)
           .classList.add('cubes');
       }
@@ -132,7 +138,7 @@ window.lemonade = {
       glassBottom.classList.add('glass2');
       lemonade1.classList.add('liquid2');
       lemonade2.classList.add('liquid2');
-      for (let cubesIn = 1; cubesIn < 6; cubesIn++) {
+      for (let cubesIn = 1; cubesIn < 6; cubesIn += 1) {
         document.getElementById(`cube${cubesIn}`)
           .classList.add('cubes2');
       }
@@ -195,7 +201,7 @@ window.lemonade = {
       lemonade.determineConfidence();
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
       if (lemonade.cheating) { lemonade.tomorrowWeatherVariant = lemonade.cheatWeather; }
-      lemonade.day++;
+      lemonade.day += 1;
       lemonade.displayUpdate();
     }
   },
@@ -211,12 +217,6 @@ window.lemonade = {
       .innerText = `$${lemonade.stringRound(lemonade.allTimeProfit)}`;
   }
 };
-lemonade.play.addEventListener('click', lemonade.nextDay);
-lemonade.displayUpdate();
 window.onload = () => {
-  loader.remove();
-  play.className += ' scale-in';
-  lemonade.pourIn('');
-  Materialize.toast("It's a nice day to sell Lemonade!", 5000);
   lemonade.whenLoaded();
 };
