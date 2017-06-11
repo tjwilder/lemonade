@@ -1,17 +1,34 @@
 window.lemonade = {
-  day: 0,
+  day: 500,
   cupCost: 1,
   signCost: 0.50,
-  allTimeProfit: 20,
+  allTimeProfit: 2000,
   dailyProfit: 0,
   confidence: 3,
+  tomorrowWeatherVariant: 3,
+  tomorrowForecast: '',
+  todayWeatherVariant: 3,
+  todayForecast: '',
+  emotion: document.getElementById('emotionDisplay'),
+  sold: 0,
+  forecastDisplay: document.getElementById('forecastDisplay'),
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
+  weather: ['mdi mdi-weather-lightning-rainy mdi-36px', 'mdi mdi-weather-cloudy mdi-36px',
+    'mdi mdi-weather-partlycloudy mdi-36px', 'mdi mdi-weather-sunny mdi-36px'
+  ],
+  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-sad mdi-36px',
+    'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px',
+    'mdi mdi-emoticon-cool mdi-36px'
+  ],
+  randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
+  stringRound: equation => equation.toFixed(2),
+  twoDecimals: equation => Math.round(equation * 100) / 100,
   marketingResult: () => {
-    const signs = lemonade.signs * 6;
+    const signs = lemonade.signs ** 5;
     const confidence = lemonade.randomNumber(1, 3) * lemonade.confidence;
-    const price = lemonade.price * 3;
-    const weather = lemonade.todayWeatherVariant * 3;
+    const price = (lemonade.price) ** 6;
+    const weather = lemonade.todayWeatherVariant ** 2;
     const result = ((signs + confidence) / price) * weather;
     return result + 0.08;
     // const marketingResult = (
@@ -43,11 +60,22 @@ window.lemonade = {
     }
     return lemonade.confidence;
   },
-  clearToast: function clearToast() {
+  clearToast: () => {
     document.getElementById('toast-container')
       .innerHTML = '';
   },
-  resetAnimation: function resetAnimation() {
+  clean: () => {
+    if (range1.children.length > 1) {
+      range1.children[1].remove();
+    }
+    if (range2.children.length > 1) {
+      range2.children[1].remove();
+    }
+    if (range3.children.length > 1) {
+      range3.children[1].remove();
+    }
+  },
+  resetAnimation: () => {
     straw.classList.remove('straw2');
     lemon.classList.remove('lemon2');
     lemonade1.classList.remove('liquid2');
@@ -67,7 +95,7 @@ window.lemonade = {
         .classList.remove('cubes');
     }
   },
-  pourIn: function pourIn() {
+  pourIn: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
       straw.classList.add('straw');
@@ -80,7 +108,7 @@ window.lemonade = {
       }
     }, 5);
   },
-  pourOut: function pourOut() {
+  pourOut: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
       straw.classList.add('straw2');
@@ -95,19 +123,7 @@ window.lemonade = {
       }
     }, 5);
   },
-  randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
-  weather: ['mdi mdi-weather-lightning-rainy mdi-36px', 'mdi mdi-weather-cloudy mdi-36px',
-    'mdi mdi-weather-partlycloudy mdi-36px', 'mdi mdi-weather-sunny mdi-36px'
-  ],
-  tomorrowWeatherVariant: 3,
-  tomorrowForecast: '',
-  todayWeatherVariant: 3,
-  todayForecast: '',
-  emotionBank: ['mdi mdi-emoticon-dead mdi-36px', 'mdi mdi-emoticon-sad mdi-36px',
-    'mdi mdi-emoticon-neutral mdi-36px', 'mdi mdi-emoticon mdi-36px', 'mdi mdi-emoticon-excited mdi-36px',
-    'mdi mdi-emoticon-cool mdi-36px'
-  ],
-  newGame: function newGame() {
+  newGame: () => {
     lemonade.clearToast();
     lemonade.day = 0;
     lemonade.tomorrowWeatherVariant = 3;
@@ -127,24 +143,8 @@ window.lemonade = {
     lemonade.pourIn();
     Materialize.toast("It's a nice day to sell Lemonade!", 5000);
   },
-  emotion: document.getElementById('emotionDisplay'),
-  sold: 0,
-  forecastDisplay: document.getElementById('forecastDisplay'),
-  clean: () => {
-    if (range1.children.length > 1) {
-      range1.children[1].remove();
-    }
-    if (range2.children.length > 1) {
-      range2.children[1].remove();
-    }
-    if (range3.children.length > 1) {
-      range3.children[1].remove();
-    }
-  },
-  stringRound: equation => equation.toFixed(2),
-  twoDecimals: equation => Math.round(equation * 100) / 100,
   average: () => ((lemonade.allTimeProfit - lemonade.dailyProfit) / lemonade.day),
-  nextDay: function nextDay() {
+  nextDay: () => {
     lemonade.cups = document.getElementById('cups')
       .valueAsNumber;
     lemonade.price = document.getElementById('price')
@@ -179,7 +179,7 @@ window.lemonade = {
         3000);
       lemonade.determineConfidence();
       lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
-      // lemonade.tomorrowWeatherVariant = 1;
+      lemonade.tomorrowWeatherVariant = 3;
       lemonade.day++;
       lemonade.displayUpdate();
     }
