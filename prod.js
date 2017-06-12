@@ -4,6 +4,7 @@ const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
 const ClosureCompiler = require('google-closure-compiler-js')
   .webpack;
 const OfflinePlugin = require('offline-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
 module.exports = function prod(env) {
   return {
     entry: './entry.js',
@@ -74,6 +75,9 @@ module.exports = function prod(env) {
         },
         makeSourceMaps: true,
         concurrency: 4,
+      }),
+      new OptimizeJsPlugin({
+        sourceMap: true,
       }),
       new OfflinePlugin({
         externals: ['./android-chrome-192x192.png',
