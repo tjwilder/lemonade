@@ -1,8 +1,6 @@
 {
   "extends": "airbnb-base",
-  "plugins": [
-    "import"
-  ],
+  "plugins": ["import"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -18,7 +16,7 @@
     "valid-typeof": "warn",
     "comma-dangle": "warn",
     "prefer-arrow-callback": "warn",
-    "linebreak-style": "warn",
+    "linebreak-style": "off",
     "func-names": "warn",
     "prefer-template": "warn",
     "no-plusplus": "warn",

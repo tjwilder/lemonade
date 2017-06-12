@@ -1,4 +1,4 @@
-window.lemonade = {
+const lemonade = {
   day: 0,
   cupCost: 1,
   signCost: 0.50,
@@ -54,12 +54,13 @@ window.lemonade = {
       .remove();
     document.getElementById('play')
       .className += ' scale-in';
-    Materialize.toast("It's a nice day to sell Lemonade!", 5000);
+    window.Materialize.toast("It's a nice day to sell Lemonade!",
+      5000);
     // lemonade.cheat(); // Enable cheating
   },
   cheat: () => {
     lemonade.cheating = true;
-    Materialize.toast('Cheat enabled', 4000);
+    window.Materialize.toast('Cheat enabled', 4000);
     lemonade.day = 40000;
     lemonade.allTimeProfit = 40000;
     lemonade.confidence = 3;
@@ -101,7 +102,8 @@ window.lemonade = {
     if (lemonade.allTimeProfit < 10) {
       lemonade.confidence = 0;
       lemonade.clearToast();
-      Materialize.toast('Bankrupt! Better luck next time!', 30000);
+      window.Materialize.toast('Bankrupt! Better luck next time!',
+        30000);
       lemonade.play.removeEventListener('click', lemonade.nextDay);
       lemonade.play.addEventListener('click', lemonade.newGame);
       lemonade.pourOut();
@@ -136,7 +138,8 @@ window.lemonade = {
     lemonade.signsVar.valueAsNumber = 10;
     lemonade.priceVar.valueAsNumber = 4;
     lemonade.clearToast();
-    Materialize.toast("It's a nice day to sell Lemonade!", 5000);
+    window.Materialize.toast("It's a nice day to sell Lemonade!",
+      5000);
     lemonade.displayUpdate();
     lemonade.pourIn();
     lemonade.play.addEventListener('click', lemonade.nextDay);
@@ -153,10 +156,10 @@ window.lemonade = {
         lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
-      Materialize.toast(
+      window.Materialize.toast(
         `You can't afford $${lemonade.stringRound(lemonade.expenses)}!`,
         2000);
-      Materialize.toast(
+      window.Materialize.toast(
         `$${lemonade.stringRound(lemonade.cupCost)
         } per Cup | $${lemonade.stringRound(lemonade.signCost)} per Sign`,
         6000);
@@ -180,7 +183,7 @@ window.lemonade = {
         lemonade.expenses);
       lemonade.allTimeProfit += lemonade.dailyProfit;
       lemonade.allTimeProfit = lemonade.twoDecimals(lemonade.allTimeProfit);
-      Materialize.toast(
+      window.Materialize.toast(
         `Profit: $${lemonade.stringRound(lemonade.profits)
         } | Expense: $${lemonade.stringRound(lemonade.expenses)}`,
         6000);
