@@ -10,7 +10,7 @@
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",
-    "exportp": "webpack --env=prod --profile --progress"
+    "exportp": "webpack --env=prod --profile"
   },
   "repository": {
     "type": "git",

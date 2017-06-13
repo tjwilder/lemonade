@@ -65,16 +65,10 @@ module.exports = function prod(env) {
         },
       }),
       // ... other plugins
-      new ExtractTextPlugin('[name].css'),
-      new PurifyCSSPlugin({
-        minimize: true,
-        // Give paths to parse for rules. These should be absolute!
-        paths: glob.sync([
-          path.join(__dirname, '*.html'),
-          path.join(__dirname, 'js/*.js'),
-        ]),
-      }),
       new HtmlMinifierPlugin({}),
+      new OptimizeJsPlugin({
+        sourceMap: true,
+      }),
       new ClosureCompiler({
         compiler: {
           language_in: 'ECMASCRIPT6',
@@ -93,8 +87,14 @@ module.exports = function prod(env) {
         makeSourceMaps: true,
         concurrency: 6,
       }),
-      new OptimizeJsPlugin({
-        sourceMap: true,
+      new ExtractTextPlugin('[name].css'),
+      new PurifyCSSPlugin({
+        minimize: true,
+        // Give paths to parse for rules. These should be absolute!
+        paths: glob.sync([
+          path.join(__dirname, '*.html'),
+          path.join(__dirname, 'js/*.js'),
+        ]),
       }),
       new OfflinePlugin({
         externals: ['./android-chrome-192x192.png',
@@ -103,9 +103,12 @@ module.exports = function prod(env) {
           './js/jquery-3.2.1.min.js', './manifest.json',
         ],
         caches: 'all',
-        responseStrategy: 'network-first',
-        updateStrategy: 'all',
+        responseStrategy: 'cache-first',
+        updateStrategy: 'changed',
         minify: 'true',
+        ServiceWorker: {
+          events: 'true',
+        },
       }),
     ],
   };
