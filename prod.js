@@ -103,10 +103,13 @@ module.exports = function prod(env) {
           './js/jquery-3.2.1.min.js', './manifest.json',
         ],
         caches: 'all',
-        responseStrategy: 'cache-first',
-        updateStrategy: 'changed',
+        responseStrategy: 'network-first',
+        updateStrategy: 'all',
         minify: 'true',
         ServiceWorker: {
+          events: 'true',
+        },
+        AppCache: {
           events: 'true',
         },
       }),

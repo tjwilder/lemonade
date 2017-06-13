@@ -58,12 +58,12 @@ var __wpo = {
     "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
     "fe47d11b398955df661ae39d70776327a022735d": "./embedEn.html",
     "d08b84cb7c485e48a621e4f9689f2ebfde2dfbbd": "./",
-    "cd4040627d7d65afe40e3d1f1a571fcf0b7996ed": "./bundle.js",
+    "721b17aeeb0baedc9f26ea62d1d80572b4e21de9": "./bundle.js",
     "77c6cc394ca1b5dfc0242b26d11e58263126aad9": "./main.css"
   },
-  "strategy": "changed",
-  "responseStrategy": "cache-first",
-  "version": "6/13/2017, 12:39:51 PM",
+  "strategy": "all",
+  "responseStrategy": "network-first",
+  "version": "6/13/2017, 2:01:41 PM",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
