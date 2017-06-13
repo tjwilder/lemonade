@@ -47,7 +47,7 @@ const lemonade = {
     );
   },
   whenLoaded: () => {
-    lemonade.pourIn('');
+    lemonade.pourIn();
     lemonade.play.addEventListener('click', lemonade.nextDay);
     lemonade.displayUpdate();
     document.getElementById('loader')
@@ -66,8 +66,8 @@ const lemonade = {
     lemonade.confidence = 3;
     lemonade.tomorrowForecast = lemonade.cheatWeather;
     lemonade.cupsVar.valueAsNumber = 300;
-    lemonade.signsVar.valueAsNumber = 10;
-    lemonade.priceVar.valueAsNumber = 0.50;
+    lemonade.signsVar.valueAsNumber = 0;
+    lemonade.priceVar.valueAsNumber = 2.50;
     lemonade.cheatWeather = 2;
     // lemonade.randomNumber = () => 3;
     lemonade.displayUpdate();
@@ -84,11 +84,11 @@ const lemonade = {
       ((lemonade.signs) ** 2) / Math.log1p(lemonade.signs));
     if (isNaN(signs) || signs < 1) signs = 0;
     if (lemonade.cheating) lemonade.diagnostic(signs);
-    const confidence = (lemonade.randomNumber(1.1, 4.5) * lemonade.confidence);
+    const confidence = (lemonade.randomNumber(1, 3.5) * lemonade.confidence);
     const price = (lemonade.price);
     const weather = (lemonade.todayWeatherVariant ** 2) + 1;
     const result = ((signs + confidence) / price) * weather;
-    return result + 0.08;
+    return result;
   },
   toastVar: () => document.getElementById('toast-container')
     .innerHTML,
@@ -284,3 +284,4 @@ const lemonade = {
 window.onload = () => {
   lemonade.whenLoaded();
 };
+window.lemonade = lemonade;
