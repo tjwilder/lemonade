@@ -16,18 +16,17 @@
     "valid-typeof": "warn",
     "comma-dangle": "warn",
     "prefer-arrow-callback": "warn",
-    "linebreak-style": "off",
     "func-names": "warn",
     "prefer-template": "warn",
     "no-plusplus": "warn",
-    "max-len": "warn"
+    "max-len": "warn",
+    "linebreak-style": "off",
+    "no-console": "off"
   },
   "globals": {
     "Materialize": true,
-    "jQuery": true,
     "$": true,
-    "window": true,
-    "navigator": true,
-    "lemonade": true
+    "lemonade": true,
+    "env": true
   }
 }

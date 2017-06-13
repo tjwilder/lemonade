@@ -10,7 +10,7 @@
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",
-    "exportp": "webpack --env=prod --profile"
+    "exportp": "webpack --env=prod --profile --progress"
   },
   "repository": {
     "type": "git",
@@ -34,18 +34,19 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "extract-loader": "^0.1.0",
-    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.10.1",
     "html-loader": "^0.4.5",
-    "optimize-js-plugin": "0.0.4",
     "purify-css": "^1.2.5",
-    "purifycss-webpack": "^0.7.0",
     "style-loader": "^0.13.2",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "webpack-lighthouse-plugin": "^1.0.2"
   },
   "dependencies": {
+    "extract-text-webpack-plugin": "^2.1.2",
+    "purifycss-webpack": "^0.7.0",
+    "optimize-js-plugin": "0.0.4",
     "glob-all": "^3.1.0",
     "google-closure-compiler-js": "^20170521.0.0",
     "html-minifier-webpack-plugin": "^1.0.1",

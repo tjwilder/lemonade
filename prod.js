@@ -9,6 +9,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const glob = require('glob-all');
+//
 module.exports = function prod(env) {
   return {
     entry: './entry.js',
@@ -36,7 +37,7 @@ module.exports = function prod(env) {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader',
-        })
+        }),
       }, {
         test: /\.(png|gif|jpg|webp)$/,
         use: ['file-loader?name=[path][name].[ext]'],
@@ -90,7 +91,7 @@ module.exports = function prod(env) {
                ` }],
         },
         makeSourceMaps: true,
-        concurrency: 4,
+        concurrency: 6,
       }),
       new OptimizeJsPlugin({
         sourceMap: true,
