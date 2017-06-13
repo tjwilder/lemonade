@@ -5,6 +5,10 @@ const ClosureCompiler = require('google-closure-compiler-js')
   .webpack;
 const OfflinePlugin = require('offline-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const glob = require('glob-all');
 module.exports = function prod(env) {
   return {
     entry: './entry.js',
@@ -29,7 +33,10 @@ module.exports = function prod(env) {
         ],
       }, {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader',
+        })
       }, {
         test: /\.(png|gif|jpg|webp)$/,
         use: ['file-loader?name=[path][name].[ext]'],
@@ -57,6 +64,15 @@ module.exports = function prod(env) {
         },
       }),
       // ... other plugins
+      new ExtractTextPlugin('[name].css'),
+      new PurifyCSSPlugin({
+        minimize: true,
+        // Give paths to parse for rules. These should be absolute!
+        paths: glob.sync([
+          path.join(__dirname, '*.html'),
+          path.join(__dirname, 'js/*.js'),
+        ]),
+      }),
       new HtmlMinifierPlugin({}),
       new ClosureCompiler({
         compiler: {

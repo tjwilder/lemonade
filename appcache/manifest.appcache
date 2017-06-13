@@ -1,10 +1,8 @@
 CACHE MANIFEST
-#ver:6/13/2017, 1:24:45 AM
+#ver:6/13/2017, 2:19:55 AM
 #plugin:4.8.1
 
 CACHE:
-../embedEn.html
-../
 ../fonts/materialdesignicons-webfont.eot
 ../fonts/materialdesignicons-webfont.svg
 ../fonts/materialdesignicons-webfont.ttf
@@ -20,7 +18,10 @@ CACHE:
 ../fonts/roboto/Roboto-Regular.woff2
 ../fonts/roboto/Roboto-Thin.woff
 ../fonts/roboto/Roboto-Thin.woff2
+../embedEn.html
+../
 ../bundle.js
+../main.css
 ../android-chrome-192x192.png
 ../android-chrome-512x512.png
 ../favicon-32x32.png

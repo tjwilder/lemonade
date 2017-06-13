@@ -1,8 +1,6 @@
 var __wpo = {
   "assets": {
     "main": [
-      "./embedEn.html",
-      "./",
       "./fonts/materialdesignicons-webfont.eot",
       "./fonts/materialdesignicons-webfont.svg",
       "./fonts/materialdesignicons-webfont.ttf",
@@ -18,7 +16,10 @@ var __wpo = {
       "./fonts/roboto/Roboto-Regular.woff2",
       "./fonts/roboto/Roboto-Thin.woff",
       "./fonts/roboto/Roboto-Thin.woff2",
+      "./embedEn.html",
+      "./",
       "./bundle.js",
+      "./main.css",
       "./android-chrome-192x192.png",
       "./android-chrome-512x512.png",
       "./favicon-32x32.png",
@@ -40,8 +41,6 @@ var __wpo = {
     "./manifest.json"
   ],
   "hashesMap": {
-    "2222031f6757ba2c69623e7a7aa4f2cac27f2e93": "./embedEn.html",
-    "d08b84cb7c485e48a621e4f9689f2ebfde2dfbbd": "./",
     "02acf9a6077c6fd0ba37b5f16499365bf05eb7c9": "./fonts/materialdesignicons-webfont.eot",
     "f70e244175be4f96a237a748577f28f39dd3c7cb": "./fonts/materialdesignicons-webfont.svg",
     "0d237a357a6428d90612b24e71a74deb9a1b062a": "./fonts/materialdesignicons-webfont.ttf",
@@ -57,11 +56,14 @@ var __wpo = {
     "c193deaa915e7183828400922700567900fb6cc3": "./fonts/roboto/Roboto-Regular.woff2",
     "cb8f61464f349af887ba96f6a2ae1e318b3cc8d9": "./fonts/roboto/Roboto-Thin.woff",
     "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
-    "d4e09daa77dc0d59a324bc3920d44d08f8969736": "./bundle.js"
+    "fe47d11b398955df661ae39d70776327a022735d": "./embedEn.html",
+    "d08b84cb7c485e48a621e4f9689f2ebfde2dfbbd": "./",
+    "6480b9ed0245ce5ff6899f8033203aa50a87cbca": "./bundle.js",
+    "77c6cc394ca1b5dfc0242b26d11e58263126aad9": "./main.css"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "6/13/2017, 1:24:45 AM",
+  "version": "6/13/2017, 2:19:55 AM",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
