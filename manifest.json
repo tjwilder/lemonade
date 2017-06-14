@@ -1,7 +1,7 @@
 {
   "name": "Lemonade",
   "short_name": "Lemonade",
-  "start_url": "./index.html",
+  "start_url": "./",
   "icons": [{
     "src": "https://xtreemze.github.io/Lemonade/android-chrome-192x192.png",
     "sizes": "192x192",
