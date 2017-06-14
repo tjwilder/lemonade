@@ -39,7 +39,11 @@ module.exports = function dev(env) {
         exclude: [/node_modules/],
         use: [{
           loader: 'babel-loader',
-          options: { presets: ['es2015'] },
+          options: {
+            presets: [
+              ['es2015', { modules: false }],
+            ],
+          },
         }],
       }],
     },
