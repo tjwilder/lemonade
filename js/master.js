@@ -15,12 +15,12 @@ const lemonade = {
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
   cupsVar: document.getElementById('cups'),
-  signsVar: document.getElementById('signs'),
-  priceVar: document.getElementById('price'),
-  strawVar: document.getElementById('straw'),
-  lemonVar: document.getElementById('lemon'),
-  glassTopVar: document.getElementById('glassTop'),
-  glassBottom: document.getElementById('glassBottom'),
+  signsVar: () => document.getElementById('signs'),
+  priceVar: () => document.getElementById('price'),
+  strawVar: () => document.getElementById('straw'),
+  lemonVar: () => document.getElementById('lemon'),
+  glassTopVar: () => document.getElementById('glassTop'),
+  glassBottomVar: () => document.getElementById('glassBottom'),
   lemonade1: document.getElementById('lemonade1'),
   lemonade2: document.getElementById('lemonade2'),
   dayDisplayVar: document.getElementById('dayDisplay'),
@@ -227,8 +227,10 @@ const lemonade = {
     }
   },
   resetAnimation: () => {
-    lemonade.strawVar.classList.remove('straw2');
-    lemonade.lemonVar.classList.remove('lemon2');
+    lemonade.strawVar()
+      .classList.remove('straw2');
+    lemonade.lemonVar()
+      .classList.remove('lemon2');
     document.getElementById('lemonade1')
       .classList.remove('liquid2');
     document.getElementById('lemonade2')
@@ -237,10 +239,14 @@ const lemonade = {
       document.getElementById(`cube${i}`)
         .classList.remove('cubes2');
     }
-    lemonade.strawVar.classList.remove('straw');
-    lemonade.lemonVar.classList.remove('lemon');
-    lemonade.glassTopVar.classList.remove('glass');
-    lemonade.glassBottom.classList.remove('glass');
+    lemonade.strawVar()
+      .classList.remove('straw');
+    lemonade.lemonVar()
+      .classList.remove('lemon');
+    lemonade.glassTopVar()
+      .classList.remove('glass');
+    lemonade.glassBottomVar()
+      .classList.remove('glass');
     document.getElementById('lemonade1')
       .classList.remove('liquid');
     document.getElementById('lemonade2')
@@ -253,8 +259,10 @@ const lemonade = {
   pourIn: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
-      lemonade.strawVar.classList.add('straw');
-      lemonade.lemonVar.classList.add('lemon');
+      lemonade.strawVar()
+        .classList.add('straw');
+      lemonade.lemonVar()
+        .classList.add('lemon');
       document.getElementById('lemonade1')
         .classList.add('liquid');
       document.getElementById('lemonade2')
@@ -268,12 +276,18 @@ const lemonade = {
   pourOut: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
-      lemonade.strawVar.classList.add('straw2');
-      lemonade.lemonVar.classList.add('lemon2');
-      lemonade.glassTopVar.classList.add('glass2');
-      lemonade.glassBottom.classList.add('glass2');
-      lemonade.lemonade1.classList.add('liquid2');
-      lemonade.lemonade2.classList.add('liquid2');
+      lemonade.strawVar()
+        .classList.add('straw2');
+      lemonade.lemonVar()
+        .classList.add('lemon2');
+      lemonade.glassTopVar()
+        .classList.add('glass2');
+      lemonade.glassBottomVar()
+        .classList.add('glass2');
+      lemonade.lemonade1()
+        .classList.add('liquid2');
+      lemonade.lemonade2()
+        .classList.add('liquid2');
       for (let cubesIn = 1; cubesIn < 6; cubesIn += 1) {
         document.getElementById(`cube${cubesIn}`)
           .classList.add('cubes2');
