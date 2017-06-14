@@ -41,7 +41,11 @@
     z-index: 100;
     bottom: 1vh;
     right: 2vw;
+    -webkit-transition: -webkit-transform 90ms;
+    transition: -webkit-transform 90ms;
     transition: transform 90ms;
+    transition: transform 90ms, -webkit-transform 90ms;
+    -webkit-transform-origin: bottom center;
     transform-origin: bottom center;
 }
 
@@ -50,6 +54,7 @@
 }
 
 .play:active {
+    -webkit-transform: scale(0.95);
     transform: scale(0.95);
 }
 
@@ -90,6 +95,7 @@ input#price[type=range]::-webkit-slider-thumb {
     width: 24px;
     height: 24px;
     box-shadow: none;
+    -webkit-transform: scale(2.4) translateY(-1.4px);
     transform: scale(2.4) translateY(-1.4px);
 }
 
@@ -118,79 +124,156 @@ input[type=range]+.thumb .value {
 }
 
 .glass {
+    -webkit-animation-name: appear;
     animation-name: appear;
+    -webkit-animation-duration: 1s;
     animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
     animation-direction: normal;
+    -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+    -webkit-animation-delay: 0s;
     animation-delay: 0s;
 }
 
 .liquid {
+    -webkit-animation: pour 10s ease-in-out, gravity 5s infinite alternate ease-in-out 10s;
     animation: pour 10s ease-in-out, gravity 5s infinite alternate ease-in-out 10s;
+    -webkit-transform-origin: bottom center;
     transform-origin: bottom center;
 }
 
 .liquid2 {
+    -webkit-animation: pour 13s reverse ease-in-out, dissapearInfinite 1s infinite 13s;
     animation: pour 13s reverse ease-in-out, dissapearInfinite 1s infinite 13s;
+    -webkit-transform-origin: bottom center;
     transform-origin: bottom center;
 }
 
 .cubes {
+    -webkit-animation: dissapearInfinite 10s, appear 1s 10s, appearInfinite 1s infinite 11s;
     animation: dissapearInfinite 10s, appear 1s 10s, appearInfinite 1s infinite 11s;
 }
 
 .cubes2 {
+    -webkit-animation: appear 3s reverse, dissapearInfinite 1s infinite 3s;
     animation: appear 3s reverse, dissapearInfinite 1s infinite 3s;
 }
 
 .lemon {
+    -webkit-animation: dissapearInfinite 10s, comeDown 7s 1 normal ease-in-out 10s;
     animation: dissapearInfinite 10s, comeDown 7s 1 normal ease-in-out 10s;
 }
 
 .lemon2 {
+    -webkit-animation: comeDown 5s reverse ease-in-out, dissapearInfinite 1s infinite 5s;
     animation: comeDown 5s reverse ease-in-out, dissapearInfinite 1s infinite 5s;
 }
 
 .straw {
+    -webkit-animation: dissapearInfinite 10s, comeDown 5s 1 ease-in-out 10s, bob 4s infinite ease-in-out alternate 15s;
     animation: dissapearInfinite 10s, comeDown 5s 1 ease-in-out 10s, bob 4s infinite ease-in-out alternate 15s;
 }
 
 .straw2 {
+    -webkit-animation: bob 6s reverse ease-in-out, comeDown 5s reverse ease-in-out 6s, dissapearInfinite 1s infinite 11s;
     animation: bob 6s reverse ease-in-out, comeDown 5s reverse ease-in-out 6s, dissapearInfinite 1s infinite 11s;
+}
+
+@-webkit-keyframes pour {
+    0% {
+        -webkit-transform: scaleX(0.1) scaleY(18) translateY(-10em);
+        transform: scaleX(0.1) scaleY(18) translateY(-10em);
+    }
+    30% {
+        -webkit-transform: scaleX(0.05) scaleY(12);
+        transform: scaleX(0.05) scaleY(12);
+    }
+    45% {
+        -webkit-transform: scaleX(0.08) scaleY(2);
+        transform: scaleX(0.08) scaleY(2);
+    }
+    50% {
+        -webkit-transform: scaleX(0.05) scaleY(.02) translateY(0em);
+        transform: scaleX(0.05) scaleY(.02) translateY(0em);
+    }
+    58% {
+        -webkit-transform: scaleX(0.8) scaleY(0.02);
+        transform: scaleX(0.8) scaleY(0.02);
+    }
+    100% {
+        -webkit-transform: scaleX(1) scaleY(1) translateY(0em);
+        transform: scaleX(1) scaleY(1) translateY(0em);
+    }
 }
 
 @keyframes pour {
     0% {
+        -webkit-transform: scaleX(0.1) scaleY(18) translateY(-10em);
         transform: scaleX(0.1) scaleY(18) translateY(-10em);
     }
     30% {
+        -webkit-transform: scaleX(0.05) scaleY(12);
         transform: scaleX(0.05) scaleY(12);
     }
     45% {
+        -webkit-transform: scaleX(0.08) scaleY(2);
         transform: scaleX(0.08) scaleY(2);
     }
     50% {
+        -webkit-transform: scaleX(0.05) scaleY(.02) translateY(0em);
         transform: scaleX(0.05) scaleY(.02) translateY(0em);
     }
     58% {
+        -webkit-transform: scaleX(0.8) scaleY(0.02);
         transform: scaleX(0.8) scaleY(0.02);
     }
     100% {
+        -webkit-transform: scaleX(1) scaleY(1) translateY(0em);
         transform: scaleX(1) scaleY(1) translateY(0em);
+    }
+}
+
+@-webkit-keyframes gravity {
+    0% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    50% {
+        -webkit-transform: scaleY(.97);
+        transform: scaleY(.97);
+    }
+    100% {
+        -webkit-transform: scaleY(1.03);
+        transform: scaleY(1.03);
     }
 }
 
 @keyframes gravity {
     0% {
+        -webkit-transform: scaleY(1);
         transform: scaleY(1);
     }
     50% {
+        -webkit-transform: scaleY(.97);
         transform: scaleY(.97);
     }
     100% {
+        -webkit-transform: scaleY(1.03);
         transform: scaleY(1.03);
+    }
+}
+
+@-webkit-keyframes appearInfinite {
+    0% {
+        fill-opacity: 1;
+    }
+    100% {
+        fill-opacity: 1;
     }
 }
 
@@ -203,12 +286,30 @@ input[type=range]+.thumb .value {
     }
 }
 
+@-webkit-keyframes dissapearInfinite {
+    0% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 0;
+    }
+}
+
 @keyframes dissapearInfinite {
     0% {
         fill-opacity: 0;
     }
     100% {
         fill-opacity: 0;
+    }
+}
+
+@-webkit-keyframes appear {
+    0% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 1;
     }
 }
 
@@ -221,32 +322,82 @@ input[type=range]+.thumb .value {
     }
 }
 
-@keyframes comeDown {
+@-webkit-keyframes comeDown {
     0% {
+        -webkit-transform: translateY(-96em);
         transform: translateY(-96em);
     }
     50% {
+        -webkit-transform: translateY(-2em);
         transform: translateY(-2em);
     }
     80% {
+        -webkit-transform: rotate(3deg);
         transform: rotate(3deg);
     }
     100% {
+        -webkit-transform: translateY(0em);
         transform: translateY(0em);
+    }
+}
+
+@keyframes comeDown {
+    0% {
+        -webkit-transform: translateY(-96em);
+        transform: translateY(-96em);
+    }
+    50% {
+        -webkit-transform: translateY(-2em);
+        transform: translateY(-2em);
+    }
+    80% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+    100% {
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+    }
+}
+
+@-webkit-keyframes bob {
+    0% {
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+        -webkit-transform: translateX(0em);
+        transform: translateX(0em);
+    }
+    50% {
+        -webkit-transform: translateX(.19em);
+        transform: translateX(.19em);
+        -webkit-transform: rotate(2deg);
+        transform: rotate(2deg);
+    }
+    100% {
+        -webkit-transform: translateY(.2em);
+        transform: translateY(.2em);
+        -webkit-transform: translateX(.1em);
+        transform: translateX(.1em);
     }
 }
 
 @keyframes bob {
     0% {
+        -webkit-transform: translateY(0em);
         transform: translateY(0em);
+        -webkit-transform: translateX(0em);
         transform: translateX(0em);
     }
     50% {
+        -webkit-transform: translateX(.19em);
         transform: translateX(.19em);
+        -webkit-transform: rotate(2deg);
         transform: rotate(2deg);
     }
     100% {
+        -webkit-transform: translateY(.2em);
         transform: translateY(.2em);
+        -webkit-transform: translateX(.1em);
         transform: translateX(.1em);
     }
 }
