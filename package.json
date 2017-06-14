@@ -6,7 +6,7 @@
   "scripts": {
     "test": "none",
     "dev": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile --open",
-    "hotDebug": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
+    "debugHot": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
     "devHTML": "webpack-dev-server --progress --colors --host localhost --port 8080 --env=dev --profile --open",
     "watch": "webpack --progress --colors --env=dev --profile --watch",

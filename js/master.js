@@ -107,6 +107,7 @@ const lemonade = {
       lemonade.play.removeEventListener('click', lemonade.nextDay);
       lemonade.play.addEventListener('click', lemonade.newGame);
       lemonade.pourOut();
+      lemonade.clean();
     } else if (lemonade.dailyProfit === 0) {
       lemonade.confidence = 2;
       // console.log('option 0 ' + lemonade.confidence);
@@ -148,7 +149,6 @@ const lemonade = {
     lemonade.cups = lemonade.cupsVar.valueAsNumber;
     lemonade.signs = lemonade.signsVar.valueAsNumber;
     lemonade.price = lemonade.priceVar.valueAsNumber;
-    lemonade.clean();
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
     lemonade.expenses = lemonade.twoDecimals(
@@ -156,6 +156,7 @@ const lemonade = {
         lemonade.cupCost));
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
+      lemonade.clean();
       window.Materialize.toast(
         `You can't afford $${lemonade.stringRound(lemonade.expenses)}!`,
         2000);
