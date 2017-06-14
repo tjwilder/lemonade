@@ -15,8 +15,8 @@ const lemonade = {
   bar: document.getElementById('percentageBar'),
   play: document.getElementById('play'),
   cupsVar: document.getElementById('cups'),
-  signsVar: () => document.getElementById('signs'),
-  priceVar: () => document.getElementById('price'),
+  signsVar: document.getElementById('signs'),
+  priceVar: document.getElementById('price'),
   strawVar: () => document.getElementById('straw'),
   lemonVar: () => document.getElementById('lemon'),
   glassTopVar: () => document.getElementById('glassTop'),
@@ -146,8 +146,8 @@ const lemonade = {
   },
   nextDay: () => {
     lemonade.cups = lemonade.cupsVar.valueAsNumber;
-    lemonade.price = lemonade.priceVar.valueAsNumber;
     lemonade.signs = lemonade.signsVar.valueAsNumber;
+    lemonade.price = lemonade.priceVar.valueAsNumber;
     lemonade.clean();
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
@@ -284,10 +284,8 @@ const lemonade = {
         .classList.add('glass2');
       lemonade.glassBottomVar()
         .classList.add('glass2');
-      lemonade.lemonade1()
-        .classList.add('liquid2');
-      lemonade.lemonade2()
-        .classList.add('liquid2');
+      lemonade.lemonade1.classList.add('liquid2');
+      lemonade.lemonade2.classList.add('liquid2');
       for (let cubesIn = 1; cubesIn < 6; cubesIn += 1) {
         document.getElementById(`cube${cubesIn}`)
           .classList.add('cubes2');
