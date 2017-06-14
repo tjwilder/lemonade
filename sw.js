@@ -56,14 +56,14 @@ var __wpo = {
     "c193deaa915e7183828400922700567900fb6cc3": "./fonts/roboto/Roboto-Regular.woff2",
     "cb8f61464f349af887ba96f6a2ae1e318b3cc8d9": "./fonts/roboto/Roboto-Thin.woff",
     "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
-    "fe47d11b398955df661ae39d70776327a022735d": "./embedEn.html",
+    "ecbcb22f99304e6d7cbbcf6c8735a35a2d6957fc": "./embedEn.html",
     "d08b84cb7c485e48a621e4f9689f2ebfde2dfbbd": "./",
     "5f2a12ec7a9bb1a4a70c01a2a028d3a8d95c3d6a": "./bundle.js",
     "7b4296943ea2f24e2ea0ec0aa32c744ebb477b09": "./main.css"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-14 17:23:17",
+  "version": "2017-6-14 17:54:17",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true

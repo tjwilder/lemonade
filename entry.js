@@ -1,11 +1,9 @@
 require('./indexB.html');
 require('./embedEnB.html');
 require('./css/materialize.min.css');
-require('./css/materialdesignicons.min.css');
+require('./css/materialdesignicons.css');
 require('./css/master.css');
 require('./js/master.js');
-
-
 // 888     888               888          888                     
 // 888     888               888          888                     
 // 888     888               888          888                     
@@ -17,11 +15,7 @@ require('./js/master.js');
 //             888                                                
 //             888                                                
 //             888                                                
-
-
-
 const runtime = require('offline-plugin/runtime');
-
 runtime.install({
   onUpdating: () => {
     console.log('SW Event:', 'onUpdating');
@@ -36,7 +30,6 @@ runtime.install({
     // Reload the webpage to load into the new version
     window.location.reload();
   },
-
   onUpdateFailed: () => {
     console.log('SW Event:', 'onUpdateFailed');
   }
