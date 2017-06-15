@@ -21,13 +21,16 @@
 }
 
 .emotion {
+    -webkit-transform: scale(1.5);
     transform: scale(1.5);
+    -webkit-transform-origin: center center;
     transform-origin: center center;
 }
 
 .forecastDisplay {
     -webkit-transform-origin: center top;
     transform-origin: center top;
+    -webkit-transform: scale(4);
     transform: scale(4);
     z-index: 3;
 }
