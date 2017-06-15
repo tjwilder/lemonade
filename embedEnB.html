@@ -21,19 +21,13 @@
   <div id="loader" style="position: fixed; background-color:#81d4fa; width: 100%; height: 100%; z-index: 1;">
   </div>
   <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
-  <div class="row bold">
-    <div id="emotion" class="light-blue-text text-darken-2 col s2 btn-flat btn-large tooltipped"
-      data-position="bottom" data-delay="50" data-tooltip="Confidence Level">
-    <i id="emotionDisplay"></i> </div>
-    <div id="dayDisplay" class="light-blue-text text-darken-2  col s4 btn-flat btn-large tooltipped"
-      data-position="bottom" data-delay="50" data-tooltip="Days in Business"></div>
-    <div id="grandTotalDisplay" class="light-blue-text  text-darken-2  col s4 btn-flat btn-large tooltipped"
-      data-position="bottom" data-delay="50" data-tooltip="Net Total Earnings"></div>
-    <div id="weatherDisplay" class="light-blue-text text-darken-2 col s2 btn-flat btn-large tooltipped"
-      data-position="bottom" data-delay="50" data-tooltip="Tomorrow's Forecast">
-    <i id="forecastDisplay"></i></div>
-  </div>
-  <main id="main"> <i id="play" class="play">
+  <main id="main" class="tooltipped" data-position="top" data-delay="50"
+    data-tooltip="Tomorrow's Forecast">
+    <section class="clip">
+      <div id="weatherDisplay" class="light-blue-text text-lighten-2 center forecastDisplay">
+      <i id="forecastDisplay"></i></div>
+    </section>
+  </main> <i id="play" class="play">
     <svg id="Lemonade" class="picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.61377 128">
   <title>Lemonade</title>
   <g id="lemon">
@@ -68,7 +62,7 @@
     <path id="highlight" class="cls-22" d="M62.395,57h68.35278a3.50382,3.50382,0,0,1,3.471,3.03351l.01984-.23364A3.50341,3.50341,0,0,0,130.74774,56H62.395a3.50341,3.50341,0,0,0-3.49085,3.79987l.01984.23364A3.50382,3.50382,0,0,1,62.395,57Z" transform="translate(-33.38623 -33)"/>
   </g>
 </svg>
-</i> </main>
+</i>
   <footer class="page-footer fixed-footer noBackground">
     <form class="container operations">
       <section class="row"> <label class="light-blue-text text-darken-2 col s8 offset-s2" for="cups">Cups
@@ -83,14 +77,26 @@
           <p id="range3" class="range-field"><input name="price" type="range" id="price" min="0.01" max="7.99" step="0.01"
           /></p></label> </section>
     </form>
-    <div class="results tooltipped" data-position="top" data-delay="50" data-tooltip="Today's Sales">
-      <div>
-        <div id="cupsSoldDisplay" class="light-blue-text text-darken-2 bold center-align"></div>
+    <section class="row noBottom">
+      <div id="emotion" class="col s3 light-blue-text text-accent-2 tooltipped center emotion"
+        data-position="top" data-delay="50" data-tooltip="Confidence Level">
+      <i id="emotionDisplay"></i> </div>
+      <div class="results col s6 bold">
+        <div class="col s12">
+          <div id="cupsSoldDisplay" class="light-blue-text text-darken-2 center-align tooltipped"
+            data-position="top" data-delay="50" data-tooltip="Today's Sales"></div>
+        </div>
+        <div class="progress col s12">
+          <div id="percentageBar" class="determinate light-blue accent-2" style="width: 100%"></div>
+        </div>
+        <section class="col s12">
+          <div id="dayDisplay" class="light-blue-text text-darken-2 col s6 tooltipped center"
+            data-position="top" data-delay="50" data-tooltip="Days in Business"></div>
+          <div id="grandTotalDisplay" class="light-blue-text text-darken-2 col s6 tooltipped center"
+            data-position="top" data-delay="50" data-tooltip="Net Total Earnings"></div>
+        </section>
       </div>
-      <div class="progress">
-        <div id="percentageBar" class="determinate light-blue accent-2" style="width: 100%"></div>
-      </div>
-    </div>
+    </section>
   </footer>
   <link rel="stylesheet" href="main.css">
   <script src="js/materialize.min.js" charset="utf-8" async></script>
