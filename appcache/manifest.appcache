@@ -1,25 +1,25 @@
 CACHE MANIFEST
-#ver:2017-6-15 13:58:00
+#ver:2017-6-21 17:16:38
 #plugin:4.8.1
 
 CACHE:
 ../fonts/materialdesignicons-webfont.eot
-../fonts/materialdesignicons-webfont.svg
-../fonts/materialdesignicons-webfont.ttf
 ../fonts/materialdesignicons-webfont.woff2
 ../fonts/materialdesignicons-webfont.woff
-../fonts/roboto/Roboto-Bold.woff
-../fonts/roboto/Roboto-Bold.woff2
-../fonts/roboto/Roboto-Light.woff
-../fonts/roboto/Roboto-Light.woff2
-../fonts/roboto/Roboto-Medium.woff
-../fonts/roboto/Roboto-Medium.woff2
-../fonts/roboto/Roboto-Regular.woff
-../fonts/roboto/Roboto-Regular.woff2
-../fonts/roboto/Roboto-Thin.woff
+../fonts/materialdesignicons-webfont.ttf
+../fonts/materialdesignicons-webfont.svg
 ../fonts/roboto/Roboto-Thin.woff2
-../embedEn.html
+../fonts/roboto/Roboto-Thin.woff
+../fonts/roboto/Roboto-Light.woff2
+../fonts/roboto/Roboto-Light.woff
+../fonts/roboto/Roboto-Regular.woff2
+../fonts/roboto/Roboto-Regular.woff
+../fonts/roboto/Roboto-Medium.woff2
+../fonts/roboto/Roboto-Medium.woff
+../fonts/roboto/Roboto-Bold.woff2
+../fonts/roboto/Roboto-Bold.woff
 ../
+../embedEn.html
 ../bundle.js
 ../main.css
 ../android-chrome-192x192.png

@@ -20,7 +20,7 @@ module.exports = function prod(env) {
     stats: {
       warnings: false,
     },
-    devtool: 'cheap-module-source-map',
+    // devtool: 'cheap-module-source-map',
     module: {
       rules: [{
         test: /indexB.html$/,
@@ -71,7 +71,7 @@ module.exports = function prod(env) {
       // ... other plugins
       new HtmlMinifierPlugin({}),
       new OptimizeJsPlugin({
-        sourceMap: true,
+        // sourceMap: true,
       }),
       new ClosureCompiler({
         compiler: {
@@ -80,15 +80,14 @@ module.exports = function prod(env) {
           compilation_level: 'ADVANCED',
           warning_level: 'QUIET',
           externs: [{ src: `
-                      var jQuery = {};
+                      let jQuery = {};
                       
-                      var $ = {}  
+                      let $ = {}  
 
-                      var Materialize;  
-                      Materialize.toast();
+                      let Materialize.toast();
                ` }],
         },
-        makeSourceMaps: true,
+        // makeSourceMaps: true,
         concurrency: 6,
       }),
       new ExtractTextPlugin('[name].css'),
