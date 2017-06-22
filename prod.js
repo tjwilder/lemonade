@@ -10,6 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const glob = require('glob-all');
 //
+//
 module.exports = function prod(env) {
   return {
     entry: './entry.js',
