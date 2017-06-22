@@ -1,10 +1,15 @@
+::-moz-selection {
+    background: rgba(0, 0, 0, 0);
+    /* WebKit/Blink Browsers */
+}
+
 ::selection {
-    background: #ffb7b7;
+    background: rgba(0, 0, 0, 0);
     /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-    background: #ffb7b7;
+    background: rgba(0, 0, 0, 0);
     /* Gecko Browsers */
 }
 

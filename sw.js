@@ -59,11 +59,11 @@ var __wpo = {
     "a81fdb60859f9ae223da7ecc4544416136671eac": "./embedEn.html",
     "be19b30f02d6a30875dbc8cd66f9bb28328fd300": "./",
     "3bfd63c8b50e0416b11cb5c050ab94701270d2db": "./bundle.js",
-    "44cd44d82ea8372ed32bb5fcf5e0bc91b279baca": "./main.css"
+    "ff7b43887eb435ec44708d4bfaeb267ba93689bf": "./main.css"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-22 16:58:19",
+  "version": "2017-6-22 17:00:53",
   "name": "webpack-offline",
   "pluginVersion": "4.8.1",
   "relativePaths": true
