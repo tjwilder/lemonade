@@ -1,25 +1,29 @@
 CACHE MANIFEST
+<<<<<<< HEAD
 #ver:2017-6-22 14:07:42
+=======
+#ver:2017-6-15 13:58:00
+>>>>>>> parent of adf591f... update to webpack 3
 #plugin:4.8.1
 
 CACHE:
 ../fonts/materialdesignicons-webfont.eot
+../fonts/materialdesignicons-webfont.svg
+../fonts/materialdesignicons-webfont.ttf
 ../fonts/materialdesignicons-webfont.woff2
 ../fonts/materialdesignicons-webfont.woff
-../fonts/materialdesignicons-webfont.ttf
-../fonts/materialdesignicons-webfont.svg
-../fonts/roboto/Roboto-Thin.woff2
-../fonts/roboto/Roboto-Thin.woff
-../fonts/roboto/Roboto-Light.woff2
-../fonts/roboto/Roboto-Light.woff
-../fonts/roboto/Roboto-Regular.woff2
-../fonts/roboto/Roboto-Regular.woff
-../fonts/roboto/Roboto-Medium.woff2
-../fonts/roboto/Roboto-Medium.woff
-../fonts/roboto/Roboto-Bold.woff2
 ../fonts/roboto/Roboto-Bold.woff
-../
+../fonts/roboto/Roboto-Bold.woff2
+../fonts/roboto/Roboto-Light.woff
+../fonts/roboto/Roboto-Light.woff2
+../fonts/roboto/Roboto-Medium.woff
+../fonts/roboto/Roboto-Medium.woff2
+../fonts/roboto/Roboto-Regular.woff
+../fonts/roboto/Roboto-Regular.woff2
+../fonts/roboto/Roboto-Thin.woff
+../fonts/roboto/Roboto-Thin.woff2
 ../embedEn.html
+../
 ../bundle.js
 ../main.css
 ../android-chrome-192x192.png
