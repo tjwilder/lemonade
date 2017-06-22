@@ -1,14 +1,9 @@
-::-moz-selection {
+body::selection {
     background: rgba(0, 0, 0, 0);
     /* WebKit/Blink Browsers */
 }
 
-::selection {
-    background: rgba(0, 0, 0, 0);
-    /* WebKit/Blink Browsers */
-}
-
-::-moz-selection {
+body::-moz-selection {
     background: rgba(0, 0, 0, 0);
     /* Gecko Browsers */
 }
