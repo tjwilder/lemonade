@@ -1,5 +1,5 @@
-const ImageminPlugin = require('imagemin-webpack-plugin')
-  .default;
+// const ImageminPlugin = require('imagemin-webpack-plugin')
+//   .default;
 const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
 const ClosureCompiler = require('google-closure-compiler-js')
   .webpack;
@@ -63,11 +63,11 @@ module.exports = function prod(env) {
       }],
     },
     plugins: [
-      new ImageminPlugin({
-        pngquant: {
-          quality: '95-100',
-        },
-      }),
+      // new ImageminPlugin({
+      //   pngquant: {
+      //     quality: '95-100',
+      //   },
+      // }),
       // ... other plugins
       new HtmlMinifierPlugin({}),
       new OptimizeJsPlugin({
@@ -84,7 +84,6 @@ module.exports = function prod(env) {
                       
                       var $ = {}  
 
-                      var Materialize;  
                       Materialize.toast();
                ` }],
         },
