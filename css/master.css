@@ -2,14 +2,6 @@
     z-index: 20000;
 }
 
-
-/*
-.results {
-    width: 40vw;
-    margin: 0 30vw;
-}
-*/
-
 .noBottom {
     margin-bottom: 1vh;
 }
@@ -41,6 +33,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 #toast-container {
@@ -75,6 +68,7 @@
     transition: transform 90ms, -webkit-transform 90ms;
     -webkit-transform-origin: bottom center;
     transform-origin: bottom center;
+    cursor: pointer;
 }
 
 .operations {
@@ -93,6 +87,7 @@
 input[type=range]+.thumb {
     background: #e64a19;
     margin-top: .5em;
+    cursor: pointer;
 }
 
 input[type=range] {

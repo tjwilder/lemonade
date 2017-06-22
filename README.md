@@ -1,10 +1,18 @@
 # Lemonade
 
-### Lemonade Stand JavaScript Game
+## Objective
+The purpose of this game is to quickly and efficiently earn money by carefully balancing three elments: the price of lemonade cups, the amount of signs to market your lemonade stand and the price of each cup.
 
-The purpose of this game is to quickly and efficiently earn money by carefully balancing only three elments: the price of lemonade cups, the amount of signs to market your lemonade stand and the price of each cup. While the source code for the original Lemonade Stand game was used as inspiration, the code for this game is original and developed to insert more randomness and unpredictability into the while maintaining the need for sound business, marketting and economic practices.
+#### How to Play
+1. Use the first slider with the cup icon to set the number of cups you want to make. Each cup will cost you $1.
+2. Use the next slider to set the number of signs you want to make to market your lemonade stand. Each sign will cost you $0.50.
+3. Use the last slider to set the price for each lemonade cup.
+4. Press the lemonade to start the simulation and get the results for your business day!
 
-## How to Play
-1. Observe the weather and finances. People are more likely to buy lemonade on hot and sunny days and not very likely to do so on rainy days. It is wise to adjust to your past sales results.
-2. Set the number of cups signs and the price per cup for the next sales day using the three respective sliders.
-3. Press the lemonade to simulate the day and evaluate the results for the day.
+#### Tips
+* Observe the weather and finances. People are more likely to buy lemonade on hot and sunny days and not very likely to do so on rainy days.
+* Keep track of your previous sales. You will start to notice the correlation between weather and sales.
+* Try selling in bulk for low prices or selling few items at a higher price.
+
+#### About Lemonade
+While the source code for the original Lemonade Stand game was used as inspiration, the code for this game was developed to insert more randomness and unpredictability into the daily sales while maintaining the need for sound business, marketting and economic practices.

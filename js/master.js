@@ -294,7 +294,4 @@ const lemonade = {
     }, 5);
   },
 };
-window.onload = () => {
-  lemonade.whenLoaded();
-};
 window.lemonade = lemonade;
