@@ -57,6 +57,7 @@ var __wpo = {
     "cb8f61464f349af887ba96f6a2ae1e318b3cc8d9": "./fonts/roboto/Roboto-Thin.woff",
     "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
     "a81fdb60859f9ae223da7ecc4544416136671eac": "./embedEn.html",
+<<<<<<< HEAD
     "4f9e6a79f51ffc79fbf9321bed0d6aa929bec428": "./",
     "9f8b244b57ec4549f6162869368576dc439cb0bb": "./bundle.js",
     "d8c411a01eae65c026fe0a0946193da6f1d133b4": "./main.css"
@@ -64,6 +65,15 @@ var __wpo = {
   "strategy": "all",
   "responseStrategy": "network-first",
   "version": "2017-7-20 15:42:04",
+=======
+    "350f31f71718ada3340105069a4211a8866ca541": "./",
+    "3bfd63c8b50e0416b11cb5c050ab94701270d2db": "./bundle.js",
+    "91c0bb4f40fd78cdf16036a5eaaded081ad70cec": "./main.css"
+  },
+  "strategy": "all",
+  "responseStrategy": "network-first",
+  "version": "2017-6-25 23:30:19",
+>>>>>>> e4b1dbc95f035257e4a23e0c6ce807fe70ee54d7
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
