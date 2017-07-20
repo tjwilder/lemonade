@@ -146,6 +146,7 @@ const lemonade = {
     lemonade.play.addEventListener('click', lemonade.nextDay);
   },
   nextDay: () => {
+    window.navigator.vibrate(60);
     lemonade.cups = lemonade.cupsVar.valueAsNumber;
     lemonade.signs = lemonade.signsVar.valueAsNumber;
     lemonade.price = lemonade.priceVar.valueAsNumber;

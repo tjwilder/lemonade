@@ -58,14 +58,14 @@ var __wpo = {
     "c321aeb611cf1dcb25717484a4ced717d8ca76fa": "./fonts/roboto/Roboto-Thin.woff2",
     "a81fdb60859f9ae223da7ecc4544416136671eac": "./embedEn.html",
     "4f9e6a79f51ffc79fbf9321bed0d6aa929bec428": "./",
-    "3bfd63c8b50e0416b11cb5c050ab94701270d2db": "./bundle.js",
-    "91c0bb4f40fd78cdf16036a5eaaded081ad70cec": "./main.css"
+    "9f8b244b57ec4549f6162869368576dc439cb0bb": "./bundle.js",
+    "d8c411a01eae65c026fe0a0946193da6f1d133b4": "./main.css"
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-6-22 17:26:07",
+  "version": "2017-7-20 15:42:04",
   "name": "webpack-offline",
-  "pluginVersion": "4.8.1",
+  "pluginVersion": "4.8.3",
   "relativePaths": true
 };
 
@@ -321,6 +321,7 @@ function WebpackServiceWorker(params, helpers) {
       var lastUrls = lastKeys.map(function (req) {
         var url = new URL(req.url);
         url.search = '';
+        url.hash = '';
 
         return url.toString();
       });
@@ -427,13 +428,14 @@ function WebpackServiceWorker(params, helpers) {
   }
 
   self.addEventListener('fetch', function (event) {
-    var requestUrl = event.request.url;
-    var url = new URL(requestUrl);
-    var urlString = undefined;
+    var url = new URL(event.request.url);
+    url.hash = '';
 
-    if (externals.indexOf(requestUrl) !== -1) {
-      urlString = requestUrl;
-    } else {
+    var urlString = url.toString();
+
+    // Not external, so search part of the URL should be stripped,
+    // if it's external URL, the search part should be kept
+    if (externals.indexOf(urlString) === -1) {
       url.search = '';
       urlString = url.toString();
     }
@@ -594,11 +596,10 @@ function WebpackServiceWorker(params, helpers) {
       assets[key] = assets[key].map(function (path) {
         var url = new URL(path, location);
 
+        url.hash = '';
+
         if (externals.indexOf(path) === -1) {
           url.search = '';
-        } else {
-          // Remove hash from possible passed externals
-          url.hash = '';
         }
 
         return url.toString();
@@ -609,11 +610,10 @@ function WebpackServiceWorker(params, helpers) {
       loadersMap[key] = loadersMap[key].map(function (path) {
         var url = new URL(path, location);
 
+        url.hash = '';
+
         if (externals.indexOf(path) === -1) {
           url.search = '';
-        } else {
-          // Remove hash from possible passed externals
-          url.hash = '';
         }
 
         return url.toString();
@@ -623,6 +623,7 @@ function WebpackServiceWorker(params, helpers) {
     hashesMap = Object.keys(hashesMap).reduce(function (result, hash) {
       var url = new URL(hashesMap[hash], location);
       url.search = '';
+      url.hash = '';
 
       result[hash] = url.toString();
       return result;
