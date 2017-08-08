@@ -1,3 +1,7 @@
+@import "./materialize.min.css";
+
+/* require('./css/materialize.min.css'); */
+
 body::selection {
   background: rgba(0, 0, 0, 0);
   /* WebKit/Blink Browsers */
