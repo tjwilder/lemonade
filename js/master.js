@@ -141,7 +141,9 @@ const lemonade = {
     lemonade.play.addEventListener("click", lemonade.nextDay);
   },
   nextDay: () => {
-    window.navigator.vibrate(60);
+    if (window.navigator.vibrate) {
+      window.navigator.vibrate(60);
+    }
     lemonade.cups = lemonade.cupsVar.valueAsNumber;
     lemonade.signs = lemonade.signsVar.valueAsNumber;
     lemonade.price = lemonade.priceVar.valueAsNumber;
@@ -276,11 +278,13 @@ const lemonade = {
       if (lemonade.level < 1) {
         window.Materialize.toast("Level 1", 5000);
         lemonade.level = 1;
+        lemonade.clean();
       }
       if (lemonade.level > 1) {
         window.Materialize.toast("Level 1 Downgrade", 5000);
         window.Materialize.toast("Less cups, signs and lower price.", 5000);
         lemonade.level = 1;
+        lemonade.clean();
       }
     } else if (lemonade.allTimeProfit < 500) {
       lemonade.cupsVar.max = 60;
@@ -290,11 +294,13 @@ const lemonade = {
         window.Materialize.toast("Level 2 Upgrade!", 5000);
         window.Materialize.toast("More cups, signs and higher price!", 5000);
         lemonade.level = 2;
+        lemonade.clean();
       }
       if (lemonade.level > 2) {
         window.Materialize.toast("Level 2 Downgrade", 5000);
         window.Materialize.toast("Less cups, signs and lower price.", 5000);
         lemonade.level = 2;
+        lemonade.clean();
       }
     } else {
       lemonade.cupsVar.max = 300;
@@ -304,6 +310,7 @@ const lemonade = {
         window.Materialize.toast("Level 3 Upgrade!", 5000);
         window.Materialize.toast("More cups, signs and higher price!", 5000);
         lemonade.level = 3;
+        lemonade.clean();
       }
     }
   },
