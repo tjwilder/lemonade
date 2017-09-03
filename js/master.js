@@ -2,7 +2,7 @@ const lemonade = {
   day: 0,
   cupCost: 1,
   signCost: 0.5,
-  allTimeProfit: 20,
+  allTimeProfit: 10,
   dailyProfit: 0,
   confidence: 3,
   tomorrowWeatherVariant: 3,
@@ -272,23 +272,23 @@ const lemonade = {
   },
   values: () => {
     if (lemonade.allTimeProfit < 100) {
-      lemonade.cupsVar.max = 10;
-      lemonade.signsVar.max = 5;
-      lemonade.priceVar.max = 1.99;
+      lemonade.cupsVar.max = 15;
+      lemonade.signsVar.max = 3;
+      lemonade.priceVar.max = 2.99;
       if (lemonade.level < 1) {
-        window.Materialize.toast("Level 1", 5000);
+        window.Materialize.toast("Level 1", 6000);
         lemonade.level = 1;
         lemonade.clean();
       }
       if (lemonade.level > 1) {
-        window.Materialize.toast("Level 1 Downgrade", 5000);
-        window.Materialize.toast("Less cups, signs and lower price.", 5000);
+        window.Materialize.toast("Level 1 Downgrade", 6000);
+        window.Materialize.toast("Less cups, signs and lower price.", 6000);
         lemonade.level = 1;
         lemonade.clean();
       }
     } else if (lemonade.allTimeProfit < 500) {
-      lemonade.cupsVar.max = 60;
-      lemonade.signsVar.max = 15;
+      lemonade.cupsVar.max = 50;
+      lemonade.signsVar.max = 10;
       lemonade.priceVar.max = 3.99;
       if (lemonade.level < 2) {
         window.Materialize.toast("Level 2 Upgrade!", 6000);
