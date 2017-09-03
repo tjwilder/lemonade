@@ -291,25 +291,47 @@ const lemonade = {
       lemonade.signsVar.max = 15;
       lemonade.priceVar.max = 3.99;
       if (lemonade.level < 2) {
-        window.Materialize.toast("Level 2 Upgrade!", 5000);
-        window.Materialize.toast("More cups, signs and higher price!", 5000);
+        window.Materialize.toast("Level 2 Upgrade!", 6000);
+        window.Materialize.toast("More cups, signs and higher price!", 6000);
         lemonade.level = 2;
         lemonade.clean();
       }
       if (lemonade.level > 2) {
-        window.Materialize.toast("Level 2 Downgrade", 5000);
-        window.Materialize.toast("Less cups, signs and lower price.", 5000);
+        window.Materialize.toast("Level 2 Downgrade", 6000);
+        window.Materialize.toast("Less cups, signs and lower price.", 6000);
         lemonade.level = 2;
         lemonade.clean();
       }
-    } else {
-      lemonade.cupsVar.max = 300;
-      lemonade.signsVar.max = 30;
+    } else if (lemonade.allTimeProfit < 5000) {
+      lemonade.cupsVar.max = 120;
+      lemonade.signsVar.max = 40;
       lemonade.priceVar.max = 5.99;
       if (lemonade.level < 3) {
-        window.Materialize.toast("Level 3 Upgrade!", 5000);
-        window.Materialize.toast("More cups, signs and higher price!", 5000);
+        window.Materialize.toast("Level 3 Upgrade!", 6000);
+        window.Materialize.toast("More cups, signs and higher price!", 6000);
         lemonade.level = 3;
+        lemonade.clean();
+      }
+      if (lemonade.level > 3) {
+        window.Materialize.toast("Level 3 Downgrade", 6000);
+        window.Materialize.toast("Less cups, signs and lower price.", 6000);
+        lemonade.level = 3;
+        lemonade.clean();
+      }
+    } else if (lemonade.allTimeProfit < 10000) {
+      lemonade.cupsVar.max = 400;
+      lemonade.signsVar.max = 60;
+      lemonade.priceVar.max = 6.99;
+      if (lemonade.level < 4) {
+        window.Materialize.toast("Level 4 Upgrade!", 6000);
+        window.Materialize.toast("More cups, signs and higher price!", 6000);
+        lemonade.level = 4;
+        lemonade.clean();
+      }
+      if (lemonade.level > 4) {
+        window.Materialize.toast("Level 4 Downgrade", 6000);
+        window.Materialize.toast("Less cups, signs and lower price.", 6000);
+        lemonade.level = 4;
         lemonade.clean();
       }
     }
