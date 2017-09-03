@@ -303,9 +303,9 @@ const lemonade = {
         lemonade.clean();
       }
     } else if (lemonade.allTimeProfit < 5000) {
-      lemonade.cupsVar.max = 120;
-      lemonade.signsVar.max = 40;
-      lemonade.priceVar.max = 5.99;
+      lemonade.cupsVar.max = 140;
+      lemonade.signsVar.max = 25;
+      lemonade.priceVar.max = 6.99;
       if (lemonade.level < 3) {
         window.Materialize.toast("Level 3 Upgrade!", 6000);
         window.Materialize.toast("More cups, signs and higher price!", 6000);
@@ -320,8 +320,8 @@ const lemonade = {
       }
     } else if (lemonade.allTimeProfit < 10000) {
       lemonade.cupsVar.max = 400;
-      lemonade.signsVar.max = 60;
-      lemonade.priceVar.max = 6.99;
+      lemonade.signsVar.max = 40;
+      lemonade.priceVar.max = 9.99;
       if (lemonade.level < 4) {
         window.Materialize.toast("Level 4 Upgrade!", 6000);
         window.Materialize.toast("More cups, signs and higher price!", 6000);
