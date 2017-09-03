@@ -195,9 +195,9 @@ const lemonade = {
       lemonade.day += 1;
       lemonade.displayUpdate();
     }
-    lemonade.values();
   },
   displayUpdate: () => {
+    lemonade.values();
     lemonade.tomorrowForecast =
       lemonade.weather[lemonade.tomorrowWeatherVariant];
     lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
