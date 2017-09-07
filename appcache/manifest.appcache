@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#ver:2017-9-4 00:28:51
+#ver:2017-9-7 18:51:44
 #plugin:4.8.3
 
 CACHE:
@@ -22,13 +22,8 @@ CACHE:
 ../embedEn.html
 ../bundle.js
 ../main.css
-../android-chrome-192x192.png
-../android-chrome-512x512.png
-../favicon-32x32.png
-../favicon-16x16.png
 ../js/materialize.min.js
 ../js/jquery-3.2.1.min.js
-../manifest.json
 
 NETWORK:
 *

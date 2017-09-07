@@ -20,25 +20,15 @@ var __wpo = {
       "./embedEn.html",
       "./bundle.js",
       "./main.css",
-      "./android-chrome-192x192.png",
-      "./android-chrome-512x512.png",
-      "./favicon-32x32.png",
-      "./favicon-16x16.png",
       "./js/materialize.min.js",
-      "./js/jquery-3.2.1.min.js",
-      "./manifest.json"
+      "./js/jquery-3.2.1.min.js"
     ],
     "additional": [],
     "optional": []
   },
   "externals": [
-    "./android-chrome-192x192.png",
-    "./android-chrome-512x512.png",
-    "./favicon-32x32.png",
-    "./favicon-16x16.png",
     "./js/materialize.min.js",
-    "./js/jquery-3.2.1.min.js",
-    "./manifest.json"
+    "./js/jquery-3.2.1.min.js"
   ],
   "hashesMap": {
     "02acf9a6077c6fd0ba37b5f16499365bf05eb7c9": "./fonts/materialdesignicons-webfont.eot",
@@ -63,7 +53,7 @@ var __wpo = {
   },
   "strategy": "all",
   "responseStrategy": "network-first",
-  "version": "2017-9-4 00:28:51",
+  "version": "2017-9-7 18:51:44",
   "name": "webpack-offline",
   "pluginVersion": "4.8.3",
   "relativePaths": true
