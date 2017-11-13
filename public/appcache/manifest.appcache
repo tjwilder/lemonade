@@ -1,24 +1,19 @@
 CACHE MANIFEST
-#ver:2017-11-13 20:46:15
+#ver:2017-11-13 21:34:02
 #plugin:4.8.4
 
 CACHE:
-../3bd364e5b4f5c3e57a7376091996d4b4.eot
-../9b9f2c447d27a622fcb78f6b7f38a095.woff2
-../eec7f0f7c8944b878af8fb7fcc091ade.woff
-../3ef6639a4cce5b903e4031b1b0102675.ttf
-../f89ba2d89e5710c9ff4d03829963cf2d.svg
-../js/vendor.js?ec649c4d476cf2473679
-../js/entry.js?ef51c68682da7045916f
-../js/manifest.js?a070fa07900770989125
-../css/vendor.css?ec649c4d476cf2473679
-../css/entry.css?ef51c68682da7045916f
-../js/vendor.js.map?ec649c4d476cf2473679
-../css/vendor.css.map?ec649c4d476cf2473679
-../js/entry.js.map?ef51c68682da7045916f
-../css/entry.css.map?ef51c68682da7045916f
-../js/manifest.js.map?a070fa07900770989125
-../
+./js/vendor.js?83c477ef5b538d32b0f0
+./js/entry.js?0c03ed6e7d27acd8fb61
+./js/manifest.js?60ef8c1c554f2b05d896
+./css/vendor.css?83c477ef5b538d32b0f0
+./css/entry.css?0c03ed6e7d27acd8fb61
+./js/vendor.js.map?83c477ef5b538d32b0f0
+./css/vendor.css.map?83c477ef5b538d32b0f0
+./js/entry.js.map?0c03ed6e7d27acd8fb61
+./css/entry.css.map?0c03ed6e7d27acd8fb61
+./js/manifest.js.map?60ef8c1c554f2b05d896
+./
 
 NETWORK:
 *

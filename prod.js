@@ -9,9 +9,9 @@ module.exports = function prod(env) {
   return {
     entry: {
       vendor: [
-        "./node_modules/materialize-css/dist/js/materialize.min.js",
-        "./node_modules/materialize-css/dist/css/materialize.min.css",
-        "./node_modules/mdi/css/materialdesignicons.min.css",
+        "./node_modules/materialize-css/dist/js/materialize.js",
+        "./node_modules/materialize-css/dist/css/materialize.css",
+        "./node_modules/mdi/css/materialdesignicons.css",
         // "./app/css/materialdesignicons.min.css",
         "./app/js/offlineRuntimeInstall.js"
       ],
@@ -19,6 +19,7 @@ module.exports = function prod(env) {
     },
     output: {
       path: __dirname + "/public/",
+      publicPath: "./",
       filename: "./js/[name].js?[chunkhash]",
       chunkFilename: "./js/[id].js?[chunkhash]"
     },
@@ -28,6 +29,10 @@ module.exports = function prod(env) {
     devtool: "cheap-module-source-map",
     module: {
       rules: [
+        {
+          test: /\.(woff|woff2|svg|eot|ttf)$/,
+          loader: "url-loader?limit=1000000000?"
+        },
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
@@ -74,10 +79,6 @@ module.exports = function prod(env) {
               }
             }
           ]
-        },
-        {
-          test: /\.(|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-          loader: "url-loader?limit=100000"
         },
         {
           test: /\.js$/,

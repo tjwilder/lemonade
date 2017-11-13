@@ -6,9 +6,9 @@ module.exports = function e(env) {
   return {
     entry: {
       vendor: [
-        "./node_modules/materialize-css/dist/js/materialize.min.js",
-        "./node_modules/materialize-css/dist/css/materialize.min.css",
-        "./node_modules/mdi/css/materialdesignicons.min.css",
+        "./node_modules/materialize-css/dist/js/materialize.js",
+        "./node_modules/materialize-css/dist/css/materialize.css",
+        "./node_modules/mdi/css/materialdesignicons.css",
         // "./app/css/materialdesignicons.min.css",
         "./app/js/offlineRuntimeInstall.js"
       ],
@@ -59,7 +59,7 @@ module.exports = function e(env) {
           ]
         },
         {
-          test: /\.(eot|ttf|woff|woff2|ico|svg)$/,
+          test: /\.(ttf|woff|woff2|ico|svg)$/,
           loader: "url-loader?limit=1000000"
         },
         {
