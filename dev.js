@@ -6,11 +6,12 @@ module.exports = function e(env) {
   return {
     entry: {
       vendor: [
-        // "./node_modules/materialize-css/dist/js/materialize",
-        // "./node_modules/materialize-css/dist/css/materialize.css",
-        "./app/js/offlineRuntimeInstall"
+        "./node_modules/materialize-css/dist/js/materialize.min.js",
+        "./node_modules/materialize-css/dist/css/materialize.min.css",
+        "./app/css/materialdesignicons.min.css",
+        "./app/js/offlineRuntimeInstall.js"
       ],
-      app: "./entry.js"
+      entry: "./entry.js"
     },
     output: {
       path: __dirname + "/public/",

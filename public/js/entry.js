@@ -1,13 +1,30 @@
 webpackJsonp([1],{
 
 /***/ 10:
+/***/ (function(module, exports, __webpack_require__) {
+
+// require("./node_modules/materialize-css/dist/js/materialize");
+__webpack_require__(1);
+__webpack_require__(3);
+__webpack_require__(2);
+__webpack_require__(4);
+// require("../node_modules/mdi/fonts/materialdesignicons-webfont.svg");
+// require("../node_modules/mdi/css/materialdesignicons.min.css");
+__webpack_require__(11);
+__webpack_require__(12);
+// require("./js/startGame");
+
+
+/***/ }),
+
+/***/ 11:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 11:
+/***/ 12:
 /***/ (function(module, exports) {
 
 window.lemonade = {
@@ -354,24 +371,7 @@ window.lemonade = lemonade;
 lemonade.values();
 
 
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
-
-// require("./node_modules/materialize-css/dist/js/materialize");
-__webpack_require__(1);
-// require("./node_modules/materialize-css/dist/css/materialize.css");
-__webpack_require__(2);
-__webpack_require__(3);
-// require("../node_modules/mdi/fonts/materialdesignicons-webfont.svg");
-// require("../node_modules/mdi/css/materialdesignicons.min.css");
-__webpack_require__(10);
-__webpack_require__(11);
-// require("./js/startGame");
-
-
 /***/ })
 
-},[9]);
-//# sourceMappingURL=entry.js.map?ea61822d99cf15f723b9
+},[10]);
+//# sourceMappingURL=entry.js.map?be2f81fbfe72924fc2b0

@@ -11,6 +11,7 @@ module.exports = function prod(env) {
       vendor: [
         "./node_modules/materialize-css/dist/js/materialize.min.js",
         "./node_modules/materialize-css/dist/css/materialize.min.css",
+        "./app/css/materialdesignicons.min.css",
         "./app/js/offlineRuntimeInstall.js"
       ],
       entry: "./entry.js"
