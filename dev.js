@@ -28,7 +28,7 @@ module.exports = function e(env) {
           use: ["style-loader", "css-loader"]
         },
         {
-          test: /\.(gif|png|jpe?g|svg)$/i,
+          test: /\.(gif|png|jpe?g)$/i,
           loaders: [
             "file-loader?name=./img/[name].[ext]?[hash]",
             {
