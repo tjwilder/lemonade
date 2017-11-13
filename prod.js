@@ -45,7 +45,7 @@ module.exports = function prod(env) {
           })
         },
         {
-          test: /\.(gif|png|jpe?g|svg)$/i,
+          test: /\.(gif|png|jpe?g)$/i,
           loaders: [
             "file-loader?name=./img/[name].[ext]?[hash]",
             {
