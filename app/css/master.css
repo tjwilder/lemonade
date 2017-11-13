@@ -137,15 +137,15 @@ input#price[type="range"]::-webkit-slider-thumb {
 }
 
 input#cups[type="range"]::-webkit-slider-thumb {
-  background: url("https://xtreemze.github.io/Lemonade/img/cup.svg");
+  background: url("../img/cup.svg");
 }
 
 input#signs[type="range"]::-webkit-slider-thumb {
-  background: url("https://xtreemze.github.io/Lemonade/img/sign.svg");
+  background: url("../img/sign.svg");
 }
 
 input#price[type="range"]::-webkit-slider-thumb {
-  background: url("https://xtreemze.github.io/Lemonade/img/usd.svg");
+  background: url("../img/usd.svg");
 }
 
 input[type="range"] + .thumb.active .value {
