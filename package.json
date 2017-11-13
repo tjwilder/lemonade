@@ -42,6 +42,7 @@
     "image-webpack-loader": "^3.4.2",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
+    "mdi": "^2.0.46",
     "offline-plugin": "^4.8.4",
     "postcss": "^6.0.14",
     "postcss-loader": "^2.0.8",
