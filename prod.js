@@ -9,8 +9,8 @@ module.exports = function prod(env) {
   return {
     entry: {
       vendor: [
-        // "./node_modules/materialize-css/dist/js/materialize",
-        // "./node_modules/matmaterialize-css/dist/css/materialize.css",
+        "./node_modules/materialize-css/dist/js/materialize",
+        "./node_modules/matmaterialize-css/dist/css/materialize.css",
         "./app/js/offlineRuntimeInstall"
       ],
       entry: "./entry.js"
@@ -45,7 +45,7 @@ module.exports = function prod(env) {
           })
         },
         {
-          test: /\.(gif|png|jpe?g)$/i,
+          test: /\.(gif|png|jpe?g|svg)$/i,
           loaders: [
             "file-loader?name=./img/[name].[ext]?[hash]",
             {
