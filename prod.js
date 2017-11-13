@@ -9,9 +9,9 @@ module.exports = function prod(env) {
   return {
     entry: {
       vendor: [
-        "./node_modules/materialize-css/dist/js/materialize",
-        "./node_modules/matmaterialize-css/dist/css/materialize.css",
-        "./app/js/offlineRuntimeInstall"
+        "./node_modules/materialize-css/dist/js/materialize.min.js",
+        "./node_modules/materialize-css/dist/css/materialize.min.css",
+        "./app/js/offlineRuntimeInstall.js"
       ],
       entry: "./entry.js"
     },
