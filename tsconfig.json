@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    // "module": "es6",
+    "target": "es6",
+    // "allowJs": true,
+    // "removeComments": true,
+    // "declaration": true,
+    "pretty": true
+    // "strict": true
+  },
+  "include": ["app"],
+  "exclude": ["node_modules"],
+  "types": []
+}

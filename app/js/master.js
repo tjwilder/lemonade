@@ -1,4 +1,4 @@
-window.lemonade = {
+const lemonade = {
   day: 0,
   cupCost: 1,
   signCost: 0.5,
@@ -86,7 +86,7 @@ window.lemonade = {
     const confidence = lemonade.randomNumber(1, 3.5) * lemonade.confidence;
     const price = lemonade.price;
     const weather = lemonade.todayWeatherVariant ** 2 + 1;
-    const result = (signs + confidence) / price * weather;
+    const result = ((signs + confidence) / price) * weather;
     return result;
   },
   toastVar: () => document.getElementById("toast-container").innerHTML,
@@ -170,12 +170,12 @@ window.lemonade = {
     } else {
       lemonade.sold = Math.round(lemonade.marketingResult());
       if (lemonade.sold > 0 && lemonade.sold < lemonade.cups) {
-        lemonade.bar.style.width = `${lemonade.sold / lemonade.cups * 100}%`;
+        lemonade.bar.style.width = `${(lemonade.sold / lemonade.cups) * 100}%`;
       } else if (lemonade.sold === 0) {
         lemonade.bar.style.width = 0;
       } else {
         lemonade.sold = lemonade.cups;
-        lemonade.bar.style.width = `${lemonade.sold / lemonade.cups * 100}%`;
+        lemonade.bar.style.width = `${(lemonade.sold / lemonade.cups) * 100}%`;
       }
       lemonade.profits = lemonade.twoDecimals(lemonade.sold * lemonade.price);
       lemonade.dailyProfit = lemonade.twoDecimals(
@@ -205,9 +205,9 @@ window.lemonade = {
     lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
     lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
     lemonade.dayDisplayVar.innerText = `Day ${lemonade.day}`;
-    lemonade.cupsSoldDisplayVar.innerText = `${lemonade.sold} Cups | $${lemonade.stringRound(
-      lemonade.dailyProfit
-    )}`;
+    lemonade.cupsSoldDisplayVar.innerText = `${
+      lemonade.sold
+    } Cups | $${lemonade.stringRound(lemonade.dailyProfit)}`;
     lemonade.grandTotalDisplayVar.innerText = `$${lemonade.stringRound(
       lemonade.allTimeProfit
     )}`;

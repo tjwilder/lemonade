@@ -1,15 +1,15 @@
 import * as OfflinePluginRuntime from "offline-plugin/runtime";
 
 OfflinePluginRuntime.install({
-  onInstalled: function() {},
+  onInstalled() {},
 
-  onUpdating: function() {},
+  onUpdating() {},
 
-  onUpdateReady: function() {
+  onUpdateReady() {
     OfflinePluginRuntime.applyUpdate();
   },
-  onUpdated: function() {
-    setTimeout(function() {
+  onUpdated() {
+    setTimeout(() => {
       window.location.reload();
     }, 10000);
   }

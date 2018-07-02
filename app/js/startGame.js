@@ -1,6 +1,6 @@
 let site = {};
 site.section = document.getElementById("gameSection");
-site.head = `
+site.head = /* html */ `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +24,7 @@ site.head = `
 <div id="loader" style="position: fixed; background-color:#81d4fa; width: 100%; height: 100%; z-index: 1;">
 </div>
 `;
-site.content = `<main id="main" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Tomorrow's Forecast">
+site.content = /* html */ `<main id="main" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Tomorrow's Forecast">
   <section class="clip">
     <div id="weatherDisplay" class="light-blue-text text-lighten-2 center forecastDisplay">
       <i id="forecastDisplay"></i>
@@ -135,7 +135,7 @@ site.content = `<main id="main" class="tooltipped" data-position="top" data-dela
 </script>
 `;
 
-site.footer = `
+site.footer = /* html */ `
 <script>
 (function (i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {

@@ -1,16 +1,16 @@
 var __wpo = {
   "assets": {
     "main": [
-      "./js/vendor.js?83c477ef5b538d32b0f0",
-      "./js/entry.js?0c03ed6e7d27acd8fb61",
-      "./js/manifest.js?60ef8c1c554f2b05d896",
-      "./css/vendor.css?83c477ef5b538d32b0f0",
-      "./css/entry.css?0c03ed6e7d27acd8fb61",
-      "./js/vendor.js.map?83c477ef5b538d32b0f0",
-      "./css/vendor.css.map?83c477ef5b538d32b0f0",
-      "./js/entry.js.map?0c03ed6e7d27acd8fb61",
-      "./css/entry.css.map?0c03ed6e7d27acd8fb61",
-      "./js/manifest.js.map?60ef8c1c554f2b05d896",
+      "./js/vendor.js?eabb04e8aa6ecf2c80e7",
+      "./js/entry.js?1cb837db8af137ce7034",
+      "./js/manifest.js?9b7d75f4126e24d1f4d2",
+      "./css/vendor.css?eabb04e8aa6ecf2c80e7",
+      "./css/entry.css?1cb837db8af137ce7034",
+      "./js/vendor.js.map?eabb04e8aa6ecf2c80e7",
+      "./css/vendor.css.map?eabb04e8aa6ecf2c80e7",
+      "./js/entry.js.map?1cb837db8af137ce7034",
+      "./css/entry.css.map?1cb837db8af137ce7034",
+      "./js/manifest.js.map?9b7d75f4126e24d1f4d2",
       "./",
       "https://fonts.googleapis.com/icon?family=Material+Icons"
     ],
@@ -21,23 +21,23 @@ var __wpo = {
     "https://fonts.googleapis.com/icon?family=Material+Icons"
   ],
   "hashesMap": {
-    "cd82c8098c4bd00a36191830507ff08456e31630": "./js/vendor.js?83c477ef5b538d32b0f0",
-    "44b5eff15ef4e29f7fed4a129b03e40286ac2a5d": "./js/entry.js?0c03ed6e7d27acd8fb61",
-    "bac6d7dfac78464551f80b272a6222be32edc8cb": "./js/manifest.js?60ef8c1c554f2b05d896",
-    "fdfc0b1b3d06a505864294a9c53634d90626aada": "./css/vendor.css?83c477ef5b538d32b0f0",
-    "927c4cac6b7f97236838081f67412a887b9b754b": "./css/entry.css?0c03ed6e7d27acd8fb61",
-    "34e1516a8016c07a5db3886c7d22a4649a34fb14": "./js/vendor.js.map?83c477ef5b538d32b0f0",
-    "8359ce30cfd198fb73d752eefc236e4246fb7e97": "./css/vendor.css.map?83c477ef5b538d32b0f0",
-    "8e639fe368af29ac00f399fd7fe68241a972232d": "./js/entry.js.map?0c03ed6e7d27acd8fb61",
-    "a4d4f51624f309f02cd00a59ea61c9cadea9b4ad": "./css/entry.css.map?0c03ed6e7d27acd8fb61",
-    "d755708b033599503b4ddfda9324ed6bf2e0ea62": "./js/manifest.js.map?60ef8c1c554f2b05d896",
-    "d29796fbd3b46be9edbd5443d779ffc2938175e2": "./"
+    "41e5424c8d5f1d5548b84d59cbbd1d9bc8bc8c8f": "./js/vendor.js?eabb04e8aa6ecf2c80e7",
+    "e1b15c9eac941826e54b5249d0bde49a606a355b": "./js/entry.js?1cb837db8af137ce7034",
+    "2a72fc13f1e6cabf280c66c226f4e85ac5746ad4": "./js/manifest.js?9b7d75f4126e24d1f4d2",
+    "63ba563583ef355b9667dc959d829e4a0a4fdd6e": "./css/vendor.css?eabb04e8aa6ecf2c80e7",
+    "6bfe1461689b132d5bb944596dc17e4abc9da454": "./css/entry.css?1cb837db8af137ce7034",
+    "677eb08e2e46518cdb6a453a5344fc1c35cf2046": "./js/vendor.js.map?eabb04e8aa6ecf2c80e7",
+    "d7a155214ae55f26a38414386b40e1d5577661d6": "./css/vendor.css.map?eabb04e8aa6ecf2c80e7",
+    "8c6e2453469d1ae4b353492f57e5b298be446d4b": "./js/entry.js.map?1cb837db8af137ce7034",
+    "fe060a39c3249a6159f67649caa01a01c3f1d0de": "./css/entry.css.map?1cb837db8af137ce7034",
+    "f6427ce9d9211af24333387c8ccea67d78947d5f": "./js/manifest.js.map?9b7d75f4126e24d1f4d2",
+    "e8c4b9169a124043022038724bb1c5a7f0b913b1": "./"
   },
-  "strategy": "changed",
-  "responseStrategy": "cache-first",
-  "version": "2017-11-13 21:34:01",
+  "strategy": "all",
+  "responseStrategy": "network-first",
+  "version": "2018-7-2 15:24:47",
   "name": "webpack-offline",
-  "pluginVersion": "4.8.4",
+  "pluginVersion": "4.9.1",
   "relativePaths": false
 };
 
@@ -162,8 +162,12 @@ if (typeof DEBUG === 'undefined') {
 function WebpackServiceWorker(params, helpers) {
   var loaders = helpers.loaders;
   var cacheMaps = helpers.cacheMaps;
+  // navigationPreload: true, { map: (URL) => URL, test: (URL) => boolean }
+  var navigationPreload = helpers.navigationPreload;
 
+  // (update)strategy: changed, all
   var strategy = params.strategy;
+  // responseStrategy: cache-first, network-first
   var responseStrategy = params.responseStrategy;
 
   var assets = params.assets;
@@ -172,22 +176,21 @@ function WebpackServiceWorker(params, helpers) {
   var hashesMap = params.hashesMap;
   var externals = params.externals;
 
-  // Not used yet
-  // const alwaysRevalidate = params.alwaysRevalidate;
-  // const ignoreSearch = params.ignoreSearch;
-  // const preferOnline = params.preferOnline;
-
   var CACHE_PREFIX = params.name;
   var CACHE_TAG = params.version;
   var CACHE_NAME = CACHE_PREFIX + ':' + CACHE_TAG;
 
+  var PRELOAD_CACHE_NAME = CACHE_PREFIX + '$preload';
   var STORED_DATA_KEY = '__offline_webpack__data';
 
   mapAssets();
 
   var allAssets = [].concat(assets.main, assets.additional, assets.optional);
+
+  // Deprecated {
   var navigateFallbackURL = params.navigateFallbackURL;
   var navigateFallbackForRedirects = params.navigateFallbackForRedirects;
+  // }
 
   self.addEventListener('install', function (event) {
     console.log('[SW]:', 'Install event');
@@ -217,6 +220,10 @@ function WebpackServiceWorker(params, helpers) {
         return self.clients.claim();
       }
     });
+
+    if (navigationPreload && self.registration.navigationPreload) {
+      activation = Promise.all([activation, self.registration.navigationPreload.enable()]);
+    }
 
     event.waitUntil(activation);
   });
@@ -419,12 +426,34 @@ function WebpackServiceWorker(params, helpers) {
 
     if (!assetMatches && isGET) {
       // If isn't a cached asset and is a navigation request,
-      // fallback to navigateFallbackURL if available
+      // perform network request and fallback to navigateFallbackURL if available.
+      //
+      // Requesting with fetchWithPreload().
+      // Preload is used only if navigationPreload is enabled and
+      // navigationPreload mapping is not used.
       if (navigateFallbackURL && isNavigateRequest(event.request)) {
-        event.respondWith(handleNavigateFallback(fetch(event.request)));
+        event.respondWith(handleNavigateFallback(fetchWithPreload(event)));
 
         return;
       }
+
+      if (navigationPreload === true) {
+        event.respondWith(fetchWithPreload(event));
+        return;
+      }
+
+      // Something else, positive, but not `true`
+      if (navigationPreload) {
+        var preloadedResponse = retrivePreloadedResponse(event);
+
+        if (preloadedResponse) {
+          event.respondWith(preloadedResponse);
+          return;
+        }
+      }
+
+      // Logic exists here if no cache match, or no preload
+      return;
     }
 
     if (!assetMatches || !isGET) {
@@ -433,18 +462,18 @@ function WebpackServiceWorker(params, helpers) {
         event.respondWith(fetch(event.request));
       }
 
+      // Logic exists here if no cache match
       return;
     }
 
-    // Logic of caching / fetching is here
-    // * urlString -- url to match from the CACHE_NAME
-    // * event.request -- original Request to perform fetch() if necessary
+    // Cache handling/storing/fetching starts here
+
     var resource = undefined;
 
     if (responseStrategy === 'network-first') {
       resource = networkFirstResponse(event, urlString, cacheUrl);
     }
-    // 'cache-first'
+    // 'cache-first' otherwise
     // (responseStrategy has been validated before)
     else {
         resource = cacheFirstResponse(event, urlString, cacheUrl);
@@ -470,6 +499,8 @@ function WebpackServiceWorker(params, helpers) {
   });
 
   function cacheFirstResponse(event, urlString, cacheUrl) {
+    handleNavigationPreload(event);
+
     return cachesMatch(cacheUrl, CACHE_NAME).then(function (response) {
       if (response) {
         if (DEBUG) {
@@ -514,7 +545,7 @@ function WebpackServiceWorker(params, helpers) {
   }
 
   function networkFirstResponse(event, urlString, cacheUrl) {
-    return fetch(event.request).then(function (response) {
+    return fetchWithPreload(event).then(function (response) {
       if (response.ok) {
         if (DEBUG) {
           console.log('[SW]:', 'URL [' + urlString + '] from network');
@@ -534,6 +565,116 @@ function WebpackServiceWorker(params, helpers) {
       }
 
       return cachesMatch(cacheUrl, CACHE_NAME);
+    });
+  }
+
+  function handleNavigationPreload(event) {
+    if (navigationPreload && typeof navigationPreload.map === 'function' &&
+    // Use request.mode === 'navigate' instead of isNavigateRequest
+    // because everything what supports navigationPreload supports
+    // 'navigate' request.mode
+    event.preloadResponse && event.request.mode === 'navigate') {
+      var mapped = navigationPreload.map(new URL(event.request.url), event.request);
+
+      if (mapped) {
+        storePreloadedResponse(mapped, event);
+      }
+    }
+  }
+
+  // Temporary in-memory store for faster access
+  var navigationPreloadStore = new Map();
+
+  function storePreloadedResponse(_url, event) {
+    var url = new URL(_url, location);
+    var preloadResponsePromise = event.preloadResponse;
+
+    navigationPreloadStore.set(preloadResponsePromise, {
+      url: url,
+      response: preloadResponsePromise
+    });
+
+    var isSamePreload = function isSamePreload() {
+      return navigationPreloadStore.has(preloadResponsePromise);
+    };
+
+    var storing = preloadResponsePromise.then(function (res) {
+      // Return if preload isn't enabled or hasn't happened
+      if (!res) return;
+
+      // If navigationPreloadStore already consumed
+      // or navigationPreloadStore already contains another preload,
+      // then do not store anything and return
+      if (!isSamePreload()) {
+        return;
+      }
+
+      var clone = res.clone();
+
+      // Storing the preload response for later consume (hasn't yet been consumed)
+      return caches.open(PRELOAD_CACHE_NAME).then(function (cache) {
+        if (!isSamePreload()) return;
+
+        return cache.put(url, clone).then(function () {
+          if (!isSamePreload()) {
+            return caches.open(PRELOAD_CACHE_NAME).then(function (cache) {
+              return cache['delete'](url);
+            });
+          }
+        });
+      });
+    });
+
+    event.waitUntil(storing);
+  }
+
+  function retriveInMemoryPreloadedResponse(url) {
+    if (!navigationPreloadStore) {
+      return;
+    }
+
+    var foundResponse = undefined;
+    var foundKey = undefined;
+
+    navigationPreloadStore.forEach(function (store, key) {
+      if (store.url.href === url.href) {
+        foundResponse = store.response;
+        foundKey = key;
+      }
+    });
+
+    if (foundResponse) {
+      navigationPreloadStore['delete'](foundKey);
+      return foundResponse;
+    }
+  }
+
+  function retrivePreloadedResponse(event) {
+    var url = new URL(event.request.url);
+
+    if (self.registration.navigationPreload && navigationPreload && navigationPreload.test && navigationPreload.test(url, event.request)) {} else {
+      return;
+    }
+
+    var fromMemory = retriveInMemoryPreloadedResponse(url);
+    var request = event.request;
+
+    if (fromMemory) {
+      event.waitUntil(caches.open(PRELOAD_CACHE_NAME).then(function (cache) {
+        return cache['delete'](request);
+      }));
+
+      return fromMemory;
+    }
+
+    return cachesMatch(request, PRELOAD_CACHE_NAME).then(function (response) {
+      if (response) {
+        event.waitUntil(caches.open(PRELOAD_CACHE_NAME).then(function (cache) {
+          return cache['delete'](request);
+        }));
+      }
+
+      return response || fetch(event.request);
     });
   }
 
@@ -677,7 +818,7 @@ function WebpackServiceWorker(params, helpers) {
 
     var requestType = undefined;
 
-    if (request.mode === 'navigate') {
+    if (isNavigateRequest(request)) {
       requestType = 'navigate';
     } else if (url.origin === location.origin) {
       requestType = 'same-origin';
@@ -706,13 +847,23 @@ function WebpackServiceWorker(params, helpers) {
       }
     }
   }
+
+  function fetchWithPreload(event) {
+    if (!event.preloadResponse || navigationPreload !== true) {
+      return fetch(event.request);
+    }
+
+    return event.preloadResponse.then(function (response) {
+      return response || fetch(event.request);
+    });
+  }
 }
 
 function cachesMatch(request, cacheName) {
   return caches.match(request, {
     cacheName: cacheName
   }).then(function (response) {
-    if (isNotRedirectedResponse()) {
+    if (isNotRedirectedResponse(response)) {
       return response;
     }
 
@@ -732,33 +883,6 @@ function cachesMatch(request, cacheName) {
 function applyCacheBust(asset, key) {
   var hasQuery = asset.indexOf('?') !== -1;
   return asset + (hasQuery ? '&' : '?') + '__uncache=' + encodeURIComponent(key);
-}
-
-function getClientsURLs() {
-  if (!self.clients) {
-    return Promise.resolve([]);
-  }
-
-  return self.clients.matchAll({
-    includeUncontrolled: true
-  }).then(function (clients) {
-    if (!clients.length) return [];
-
-    var result = [];
-
-    clients.forEach(function (client) {
-      var url = new URL(client.url);
-      url.search = '';
-      url.hash = '';
-      var urlString = url.toString();
-
-      if (!result.length || result.indexOf(urlString) === -1) {
-        result.push(urlString);
-      }
-    });
-
-    return result;
-  });
 }
 
 function isNavigateRequest(request) {
@@ -804,6 +928,7 @@ function logGroup(title, assets) {
         WebpackServiceWorker(__wpo, {
 loaders: {},
 cacheMaps: [],
+navigationPreload: true,
 });
         module.exports = __webpack_require__(1)
       

@@ -144,18 +144,18 @@ module.exports = function prod(env) {
       new OfflinePlugin({
         externals: ["https://fonts.googleapis.com/icon?family=Material+Icons"],
         caches: "all",
-        // responseStrategy: "network-first",
-        responseStrategy: "cache-first",
-        // updateStrategy: "all",
-        updateStrategy: "changed",
+        responseStrategy: "network-first",
+        // responseStrategy: "cache-first",
+        updateStrategy: "all",
+        // updateStrategy: "changed",
         minify: "true",
         autoUpdate: 1000 * 60 * 60 * 2,
         ServiceWorker: {
           events: "true"
-        },
-        AppCache: {
-          events: "true"
         }
+        // AppCache: {
+        //   events: "true"
+        // }
       })
     ]
   };
