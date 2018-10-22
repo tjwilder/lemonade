@@ -9,8 +9,9 @@ module.exports = function e(env) {
         "./node_modules/materialize-css/dist/js/materialize.js",
         "./node_modules/materialize-css/dist/css/materialize.css",
         "./node_modules/mdi/css/materialdesignicons.css",
-        // "./app/css/materialdesignicons.min.css",
-        "./app/js/offlineRuntimeInstall.js"
+        "./app/css/materialdesignicons.css",
+        "./app/css/master.css",
+        "./app/js/offlineRuntimeInstall.js",
       ],
       entry: "./entry.js"
     },
@@ -27,7 +28,10 @@ module.exports = function e(env) {
       rules: [
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"]
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+          })
         },
         {
           test: /\.(gif|png|jpe?g)$/i,
@@ -59,8 +63,11 @@ module.exports = function e(env) {
           ]
         },
         {
-          test: /\.(ttf|woff|woff2|ico|svg)$/,
-          loader: "url-loader?limit=1000000"
+          test: /\.(eot|ttf|woff|woff2|ico|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          loader: "url-loader?limit=1000000",
+          options: {
+            name: "fonts/[name].[ext]"
+          }
         },
         {
           test: /\.js$/,
@@ -94,7 +101,8 @@ module.exports = function e(env) {
       new webpack.optimize.CommonsChunkPlugin({
         name: "manifest",
         minChunks: Infinity
-      })
+      }),
+      new ExtractTextPlugin("[name].css"),
     ]
   };
 };
