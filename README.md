@@ -4,3 +4,7 @@
 ![Dependency Status](https://david-dm.org/xtreemze/Lemonade/status.svg?branch=master)
 
 ![Dev Dependency Status](https://david-dm.org/xtreemze/Lemonade/dev-status.svg?branch=master)
+
+
+# Startup
+You'll need to at least run `npm install` to install dependencies and then do `npm run dev` to startup a dev server. Once the server starts, you can find the game by going to `localhost:8080/public/index.html`.
