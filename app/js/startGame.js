@@ -153,7 +153,5 @@ ga('send', 'pageview');
 `;
 window.startGame = function() {
   site.section.innerHTML = site.content;
-  require('style-loader!css-loader!mdi/css/materialdesignicons.css');
-  require("./js/master");
   window.lemonade.whenLoaded();
 };

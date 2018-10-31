@@ -128,7 +128,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 input#cups[type="range"]::-webkit-slider-thumb,
 input#signs[type="range"]::-webkit-slider-thumb,
-input#price[type="range"]::-webkit-slider-thumb {
+input#price[type="range"]::-webkit-slider-thumb,
+input#lemons[type="range"]::-webkit-slider-thumb,
+input#sugar[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   box-shadow: none;
@@ -145,6 +147,14 @@ input#signs[type="range"]::-webkit-slider-thumb {
 }
 
 input#price[type="range"]::-webkit-slider-thumb {
+  background: url("../img/usd.svg");
+}
+
+input#lemons[type="range"]::-webkit-slider-thumb {
+  background: url("../img/lemon-simple.svg");
+}
+
+input#sugar[type="range"]::-webkit-slider-thumb {
   background: url("../img/usd.svg");
 }
 

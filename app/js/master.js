@@ -129,7 +129,6 @@ const lemonade = {
     lemonade.allTimeProfit = 20;
     lemonade.dailyProfit = 0;
     lemonade.emotion.className = lemonade.emotionBank[3];
-    lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.confidence = 3;
     lemonade.cupsVar.valueAsNumber = 5;
     lemonade.signsVar.valueAsNumber = 1;
