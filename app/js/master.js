@@ -1,7 +1,9 @@
 const lemonade = {
   day: 0,
-  cupCost: 1,
-  signCost: 0.5,
+  cupCost: 0.5,
+  lemonCost: 0.5,
+  sugarCost: 0.25,
+  iceCost: 0.05,
   allTimeProfit: 10,
   dailyProfit: 0,
   confidence: 3,
@@ -10,12 +12,15 @@ const lemonade = {
   todayWeatherVariant: 3,
   todayForecast: "",
   sold: 0,
+  eventList: [],
   emotion: document.getElementById("emotionDisplay"),
   forecastDisplay: document.getElementById("forecastDisplay"),
   bar: document.getElementById("percentageBar"),
   play: document.getElementById("play"),
   cupsVar: document.getElementById("cups"),
-  signsVar: document.getElementById("signs"),
+  lemonsVar: document.getElementById("lemons"),
+  sugarVar: document.getElementById("sugar"),
+  iceVar: document.getElementById("ice"),
   priceVar: document.getElementById("price"),
   strawVar: () => document.getElementById("straw"),
   lemonVar: () => document.getElementById("lemon"),
@@ -40,24 +45,42 @@ const lemonade = {
     "mdi mdi-emoticon-excited mdi-36px",
     "mdi mdi-emoticon-cool mdi-36px"
   ],
-  diagnostic: signs => {
-    console.debug(
-      `${lemonade.signsVar.valueAsNumber} signs market: ${lemonade.stringRound(
-        signs
-      )} Cost: $${lemonade.stringRound(
-        lemonade.priceVar.valueAsNumber
-      )} Weather ${lemonade.todayWeatherVariant} Sold ${lemonade.sold} cups`
-    );
+  // TJ: Disabled diagnostics
+  // diagnostic: signs => {
+  //   console.debug(
+  //     `${lemonade.signsVar.valueAsNumber} signs market: ${lemonade.stringRound(
+  //       signs
+  //     )} Cost: $${lemonade.stringRound(
+  //       lemonade.priceVar.valueAsNumber
+  //     )} Weather ${lemonade.todayWeatherVariant} Sold ${lemonade.sold} cups`
+  //   );
+  // },
+  changeEvent: (event) => {
+    lemonade.eventList.push({
+      type: "onChange",
+      timestamp: new Date().getTime(),
+      id: event.target.id,
+      value: event.target.value
+    });
+  },
+  addEventListeners: () => {
+    lemonade.play.addEventListener("click", lemonade.nextDay);
+    lemonade.cupsVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.lemonsVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.sugarVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.iceVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.priceVar.addEventListener("change", lemonade.changeEvent);
   },
   whenLoaded: () => {
     lemonade.pourIn();
-    lemonade.play.addEventListener("click", lemonade.nextDay);
+    lemonade.addEventListeners();
     lemonade.displayUpdate();
     document.getElementById("loader").remove();
     document.getElementById("play").className += " scale-in";
     window.Materialize.toast("It's a nice day to sell Lemonade!", 5000);
     // lemonade.cheat(); // Enable cheating
   },
+  // TJ: No need for cheats
   cheat: () => {
     lemonade.cheating = true;
     window.Materialize.toast("Cheat enabled", 4000);
@@ -79,23 +102,24 @@ const lemonade = {
     }
     return "You are cheating!";
   },
-  marketingResult: () => {
-    let signs = lemonade.signs ** 2 / Math.log1p(lemonade.signs);
-    if (isNaN(signs) || signs < 1) signs = 0;
-    if (lemonade.cheating) lemonade.diagnostic(signs);
-    const confidence = lemonade.randomNumber(1, 3.5) * lemonade.confidence;
-    const price = lemonade.price;
-    const weather = lemonade.todayWeatherVariant ** 2 + 1;
-    const result = ((signs + confidence) / price) * weather;
-    return result;
-  },
+  // Disable marketing
+  // marketingResult: () => {
+  //   let signs = lemonade.signs ** 2 / Math.log1p(lemonade.signs);
+  //   if (isNaN(signs) || signs < 1) signs = 0;
+  //   if (lemonade.cheating) lemonade.diagnostic(signs);
+  //   const confidence = lemonade.randomNumber(1, 3.5) * lemonade.confidence;
+  //   const price = lemonade.price;
+  //   const weather = lemonade.todayWeatherVariant ** 2 + 1;
+  //   const result = ((signs + confidence) / price) * weather;
+  //   return result;
+  // },
   toastVar: () => document.getElementById("toast-container").innerHTML,
   randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
   stringRound: equation => equation.toFixed(2),
   twoDecimals: equation => Math.round(equation * 100) / 100,
   average: () => (lemonade.allTimeProfit - lemonade.dailyProfit) / lemonade.day,
   determineConfidence: () => {
-    if (lemonade.allTimeProfit < 10) {
+    if (lemonade.allTimeProfit < 1) {
       lemonade.confidence = 0;
       lemonade.clearToast();
       window.Materialize.toast("Bankrupt! Better luck next time!", 30000);
@@ -128,10 +152,9 @@ const lemonade = {
     lemonade.sold = 0;
     lemonade.allTimeProfit = 20;
     lemonade.dailyProfit = 0;
-    lemonade.emotion.className = lemonade.emotionBank[3];
+    // lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.confidence = 3;
     lemonade.cupsVar.valueAsNumber = 5;
-    lemonade.signsVar.valueAsNumber = 1;
     lemonade.priceVar.valueAsNumber = 1.5;
     lemonade.clearToast();
     window.Materialize.toast("It's a nice day to sell Lemonade!", 5000);
@@ -139,35 +162,75 @@ const lemonade = {
     lemonade.pourIn();
     lemonade.play.addEventListener("click", lemonade.nextDay);
   },
+  cupsSold: () => {
+    const cupFactor = 0.5;
+    // At least half as many lemons as cups
+    const lemonFactor = lemonade.lemons / lemonade.cups > 0.5 ? 1.3 : 0.8;
+    // More sugar than lemons
+    const sugarFactor = lemonade.sugar > lemonade.lemons ? 1.3 : 0.8;
+    // Basic check for "enough" ice
+    const lemonIce = (0.5 * (lemonade.ice + lemonade.cups)) / lemonade.ice;
+    const iceFactor = Math.min(1 / lemonIce, 1.3);
+
+    const priceFactor = 1.2 / lemonade.price;
+
+    return Math.ceil(
+      lemonade.cups *
+        cupFactor *
+        lemonFactor *
+        sugarFactor *
+        iceFactor *
+        priceFactor
+    );
+  },
   nextDay: () => {
     if (window.navigator.vibrate) {
       window.navigator.vibrate(60);
     }
     lemonade.cups = lemonade.cupsVar.valueAsNumber;
-    lemonade.signs = lemonade.signsVar.valueAsNumber;
+    lemonade.lemons = lemonade.lemonsVar.valueAsNumber;
+    lemonade.sugar = lemonade.sugarVar.valueAsNumber;
+    lemonade.ice = lemonade.iceVar.valueAsNumber;
     lemonade.price = lemonade.priceVar.valueAsNumber;
+
+    lemonade.eventList.push({
+      type: "nextDay",
+      timestamp: new Date().getTime(),
+      cups: lemonade.cups,
+      lemons: lemonade.lemons,
+      sugar: lemonade.sugar,
+      ice: lemonade.ice,
+      price: lemonade.price
+    });
+
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
     lemonade.expenses = lemonade.twoDecimals(
-      lemonade.signs * lemonade.signCost + lemonade.cups * lemonade.cupCost
+      lemonade.cups * lemonade.cupCost +
+        +lemonade.lemons * lemonade.lemonCost +
+        +lemonade.sugar * lemonade.sugarCost +
+        +lemonade.ice * lemonade.iceCost
     );
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
       lemonade.clean();
+      // TJ: If they can't afford it, just tell them
       window.Materialize.toast(
         `You can't afford $${lemonade.stringRound(lemonade.expenses)}!`,
         2000
       );
-      window.Materialize.toast(
-        `$${lemonade.stringRound(
-          lemonade.cupCost
-        )} per Cup | $${lemonade.stringRound(lemonade.signCost)} per Sign`,
-        6000
-      );
-      lemonade.cupsVar.valueAsNumber = lemonade.allTimeProfit - 2;
-      lemonade.signsVar.valueAsNumber = 2;
+      // window.Materialize.toast(
+      //   `$${lemonade.stringRound(
+      //     lemonade.cupCost
+      //   )} per Cup | $${lemonade.stringRound(lemonade.signCost)} per Sign`,
+      //   6000
+      // );
+      // lemonade.cupsVar.valueAsNumber = lemonade.allTimeProfit - 2;
+      // lemonade.signsVar.valueAsNumber = 2;
     } else {
-      lemonade.sold = Math.round(lemonade.marketingResult());
+      // TJ: changed cups sold to be random
+      // lemonade.sold = Math.round(lemonade.marketingResult());
+      lemonade.sold = lemonade.cupsSold();
       if (lemonade.sold > 0 && lemonade.sold < lemonade.cups) {
         lemonade.bar.style.width = `${(lemonade.sold / lemonade.cups) * 100}%`;
       } else if (lemonade.sold === 0) {
@@ -183,13 +246,14 @@ const lemonade = {
       lemonade.allTimeProfit += lemonade.dailyProfit;
       lemonade.allTimeProfit = lemonade.twoDecimals(lemonade.allTimeProfit);
       window.Materialize.toast(
-        `Profit: $${lemonade.stringRound(
+        `Revenue: $${lemonade.stringRound(
           lemonade.profits
         )} | Expense: $${lemonade.stringRound(lemonade.expenses)}`,
         6000
       );
       lemonade.determineConfidence();
-      lemonade.tomorrowWeatherVariant = lemonade.randomNumber(0, 4);
+      // TJ: Consistent Weather
+      lemonade.tomorrowWeatherVariant = 3; // lemonade.randomNumber(0, 4);
       if (lemonade.cheating) {
         lemonade.tomorrowWeatherVariant = lemonade.cheatWeather;
       }
@@ -202,11 +266,12 @@ const lemonade = {
     lemonade.tomorrowForecast =
       lemonade.weather[lemonade.tomorrowWeatherVariant];
     lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
-    lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
+    // TJ: Disabled updating the confidence emotion
+    // lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
     lemonade.dayDisplayVar.innerText = `Day ${lemonade.day}`;
     lemonade.cupsSoldDisplayVar.innerText = `${
       lemonade.sold
-    } Cups | $${lemonade.stringRound(lemonade.dailyProfit)}`;
+    } Cups | $${lemonade.stringRound(lemonade.dailyProfit)} profit`;
     lemonade.grandTotalDisplayVar.innerText = `$${lemonade.stringRound(
       lemonade.allTimeProfit
     )}`;
@@ -272,68 +337,71 @@ const lemonade = {
   values: () => {
     if (lemonade.allTimeProfit < 100) {
       lemonade.cupsVar.max = 15;
-      lemonade.signsVar.max = 3;
+      lemonade.lemonsVar.max = 15;
+      lemonade.sugarVar.max = 15;
+      lemonade.iceVar.max = 15;
       lemonade.priceVar.max = 2.99;
       if (lemonade.level < 1) {
-        window.Materialize.toast("Level 1", 6000);
+        // window.Materialize.toast("Level 1", 6000);
         lemonade.level = 1;
         lemonade.clean();
       }
       if (lemonade.level > 1) {
-        window.Materialize.toast("Level 1 Downgrade", 6000);
-        window.Materialize.toast("Less cups, signs and lower price.", 6000);
+        // window.Materialize.toast("Level 1 Downgrade", 6000);
+        // window.Materialize.toast("Less cups, signs and lower price.", 6000);
         lemonade.level = 1;
         lemonade.clean();
       }
-    } else if (lemonade.allTimeProfit < 500) {
-      lemonade.cupsVar.max = 50;
-      lemonade.signsVar.max = 10;
-      lemonade.priceVar.max = 3.99;
-      if (lemonade.level < 2) {
-        window.Materialize.toast("Level 2 Upgrade!", 6000);
-        window.Materialize.toast("More cups, signs and higher price!", 6000);
-        lemonade.level = 2;
-        lemonade.clean();
-      }
-      if (lemonade.level > 2) {
-        window.Materialize.toast("Level 2 Downgrade", 6000);
-        window.Materialize.toast("Less cups, signs and lower price.", 6000);
-        lemonade.level = 2;
-        lemonade.clean();
-      }
-    } else if (lemonade.allTimeProfit < 5000) {
-      lemonade.cupsVar.max = 140;
-      lemonade.signsVar.max = 25;
-      lemonade.priceVar.max = 6.99;
-      if (lemonade.level < 3) {
-        window.Materialize.toast("Level 3 Upgrade!", 6000);
-        window.Materialize.toast("More cups, signs and higher price!", 6000);
-        lemonade.level = 3;
-        lemonade.clean();
-      }
-      if (lemonade.level > 3) {
-        window.Materialize.toast("Level 3 Downgrade", 6000);
-        window.Materialize.toast("Less cups, signs and lower price.", 6000);
-        lemonade.level = 3;
-        lemonade.clean();
-      }
-    } else if (lemonade.allTimeProfit < 10000) {
-      lemonade.cupsVar.max = 400;
-      lemonade.signsVar.max = 40;
-      lemonade.priceVar.max = 9.99;
-      if (lemonade.level < 4) {
-        window.Materialize.toast("Level 4 Upgrade!", 6000);
-        window.Materialize.toast("More cups, signs and higher price!", 6000);
-        lemonade.level = 4;
-        lemonade.clean();
-      }
-      if (lemonade.level > 4) {
-        window.Materialize.toast("Level 4 Downgrade", 6000);
-        window.Materialize.toast("Less cups, signs and lower price.", 6000);
-        lemonade.level = 4;
-        lemonade.clean();
-      }
     }
+    // else if (lemonade.allTimeProfit < 500) {
+    //   lemonade.cupsVar.max = 50;
+    //   lemonade.signsVar.max = 10;
+    //   lemonade.priceVar.max = 3.99;
+    //   if (lemonade.level < 2) {
+    //     window.Materialize.toast("Level 2 Upgrade!", 6000);
+    //     window.Materialize.toast("More cups, signs and higher price!", 6000);
+    //     lemonade.level = 2;
+    //     lemonade.clean();
+    //   }
+    //   if (lemonade.level > 2) {
+    //     window.Materialize.toast("Level 2 Downgrade", 6000);
+    //     window.Materialize.toast("Less cups, signs and lower price.", 6000);
+    //     lemonade.level = 2;
+    //     lemonade.clean();
+    //   }
+    // } else if (lemonade.allTimeProfit < 5000) {
+    //   lemonade.cupsVar.max = 140;
+    //   lemonade.signsVar.max = 25;
+    //   lemonade.priceVar.max = 6.99;
+    //   if (lemonade.level < 3) {
+    //     window.Materialize.toast("Level 3 Upgrade!", 6000);
+    //     window.Materialize.toast("More cups, signs and higher price!", 6000);
+    //     lemonade.level = 3;
+    //     lemonade.clean();
+    //   }
+    //   if (lemonade.level > 3) {
+    //     window.Materialize.toast("Level 3 Downgrade", 6000);
+    //     window.Materialize.toast("Less cups, signs and lower price.", 6000);
+    //     lemonade.level = 3;
+    //     lemonade.clean();
+    //   }
+    // } else if (lemonade.allTimeProfit < 10000) {
+    //   lemonade.cupsVar.max = 400;
+    //   lemonade.signsVar.max = 40;
+    //   lemonade.priceVar.max = 9.99;
+    //   if (lemonade.level < 4) {
+    //     window.Materialize.toast("Level 4 Upgrade!", 6000);
+    //     window.Materialize.toast("More cups, signs and higher price!", 6000);
+    //     lemonade.level = 4;
+    //     lemonade.clean();
+    //   }
+    //   if (lemonade.level > 4) {
+    //     window.Materialize.toast("Level 4 Downgrade", 6000);
+    //     window.Materialize.toast("Less cups, signs and lower price.", 6000);
+    //     lemonade.level = 4;
+    //     lemonade.clean();
+    //   }
+    // }
   },
   level: 0
 };

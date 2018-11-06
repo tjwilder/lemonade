@@ -29,6 +29,13 @@
     </div>
   </section>
 </main>
+<div class="recommendation">
+  Recommendation
+  <div class="cups-rec">Cups: 10</div>
+  <div class="lemon-rec">Lemons: 3</div>
+  <div class="sugar-rec">Sugar: 5</div>
+  <div class="ice-rec">Ice: 8</div>
+</div>
 <i id="play" class="play">
   <svg id="Lemonade" class="picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.61377 128">
     <title>Lemonade</title>
@@ -85,8 +92,14 @@
 <footer class="page-footer fixed-footer noBackground" style="background-color:rgba(0, 0, 0, 0);">
   <form class="container operations">
     <section class="row">
+      <label class="light-blue-text text-darken-2 col s8 offset-s2" for="cups">Cups
+        <p id="range1" class="range-field">
+          <input name="cups" class="range" type="range" id="cups" min="0" max="5" /> </p>
+      </label>
+    </section>
+    <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="lemons">Lemons
-        <p id="range3" class="range-field">
+        <p id="range2" class="range-field">
           <input name="lemons" class="range" type="range" id="lemons" min="0" max="5" /> </p>
       </label>
     </section>
@@ -97,16 +110,9 @@
       </label>
     </section>
     <section class="row">
-      <label class="light-blue-text text-darken-2 col s8 offset-s2" for="cups">Cups
-        <p id="range1" class="range-field">
-          <input name="cups" class="range" type="range" id="cups" min="0" max="5" /> </p>
-      </label>
-    </section>
-    <section class="row">
-      <label class="light-blue-text text-darken-2 col s8 offset-s2" for="signs">Signs
-        <p id="range2" class="range-field">
-          <input name="signs" class="range" type="range" id="signs" min="0" max="5" />
-        </p>
+      <label class="light-blue-text text-darken-2 col s8 offset-s2" for="ice">Ice
+        <p id="range5" class="range-field">
+          <input name="ice" class="range" type="range" id="ice" min="0" max="5" /> </p>
       </label>
     </section>
     <section class="row">
@@ -120,7 +126,7 @@
   <section class="row noBottom">
     <div id="emotion" class="col s3 light-blue-text text-accent-2 tooltipped center emotion" data-position="top" data-delay="50"
       data-tooltip="Confidence Level">
-      <i id="emotionDisplay"></i>
+      <!-- <i id="emotionDisplay"></i> -->
     </div>
     <div class="results col s6 bold">
       <div class="col s12">

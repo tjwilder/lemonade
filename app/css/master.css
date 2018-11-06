@@ -85,6 +85,29 @@ body::-moz-selection {
   cursor: pointer;
 }
 
+.recommendation {
+  position: absolute;
+  max-width: 150px;
+  width: 26%;
+  z-index: 100;
+  top: 10vh;
+  left: 10vw;
+  -webkit-transition: -webkit-transform 90ms;
+  transition: -webkit-transform 90ms;
+  transition: transform 90ms;
+  transition: transform 90ms, -webkit-transform 90ms;
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  padding: 2px 2px 2px 2px;
+}
+
+.recommendation div {
+  padding-left: 10px;
+}
+
 .operations {
   margin-bottom: 8vh;
 }
@@ -130,7 +153,8 @@ input#cups[type="range"]::-webkit-slider-thumb,
 input#signs[type="range"]::-webkit-slider-thumb,
 input#price[type="range"]::-webkit-slider-thumb,
 input#lemons[type="range"]::-webkit-slider-thumb,
-input#sugar[type="range"]::-webkit-slider-thumb {
+input#sugar[type="range"]::-webkit-slider-thumb,
+input#ice[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   box-shadow: none;
@@ -155,7 +179,11 @@ input#lemons[type="range"]::-webkit-slider-thumb {
 }
 
 input#sugar[type="range"]::-webkit-slider-thumb {
-  background: url("../img/usd.svg");
+  background: url("../img/sugar-simple.svg");
+}
+
+input#ice[type="range"]::-webkit-slider-thumb {
+  background: url("../img/ice-cubes-simple.svg");
 }
 
 input[type="range"] + .thumb.active .value {

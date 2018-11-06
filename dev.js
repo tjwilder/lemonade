@@ -103,6 +103,10 @@ module.exports = function e(env) {
         minChunks: Infinity
       }),
       new ExtractTextPlugin("[name].css"),
-    ]
+    ],
+    devServer: {
+      compress: true,
+      public: "https://79024ea5.ngrok.io"
+    }
   };
 };
