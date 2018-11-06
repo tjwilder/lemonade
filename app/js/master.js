@@ -232,7 +232,7 @@ const lemonade = {
     const priceFactor = 1.2 / lemonade.price;
 
     // Sell at least one based on the ceiling of the factors
-    return Math.min(Math.ceil(
+    return Math.max(Math.ceil(
         lemonade.cups *
           cupFactor *
           lemonFactor *

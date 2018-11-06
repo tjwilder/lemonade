@@ -87,7 +87,7 @@ body::-moz-selection {
 
 .recommendation {
   position: absolute;
-  max-width: 150px;
+  max-width: 130px;
   width: 26%;
   z-index: 100;
   top: 10vh;
@@ -101,7 +101,7 @@ body::-moz-selection {
   cursor: pointer;
   border-style: solid;
   border-width: 2px 2px 2px 2px;
-  padding: 2px 2px 2px 2px;
+  padding: 4px 4px 4px 4px;
 }
 
 .recommendation div {
