@@ -4,7 +4,7 @@ const lemonade = {
   lemonCost: 0.5,
   sugarCost: 0.25,
   iceCost: 0.05,
-  allTimeProfit: 10,
+  allTimeProfit: 150,
   dailyProfit: 0,
   confidence: 3,
   tomorrowWeatherVariant: 3,
@@ -22,6 +22,11 @@ const lemonade = {
   sugarVar: document.getElementById("sugar"),
   iceVar: document.getElementById("ice"),
   priceVar: document.getElementById("price"),
+  cupsRecVar: document.getElementById("cups-rec"),
+  lemonsRecVar: document.getElementById("lemons-rec"),
+  sugarRecVar: document.getElementById("sugar-rec"),
+  iceRecVar: document.getElementById("ice-rec"),
+  priceRecVar: document.getElementById("price-rec"),
   strawVar: () => document.getElementById("straw"),
   lemonVar: () => document.getElementById("lemon"),
   glassTopVar: () => document.getElementById("glassTop"),
@@ -45,6 +50,58 @@ const lemonade = {
     "mdi mdi-emoticon-excited mdi-36px",
     "mdi mdi-emoticon-cool mdi-36px"
   ],
+  recommendations: [
+    {
+      cups: 5,
+      lemons: 3,
+      sugar: 5,
+      ice: 10,
+      price: 1.3
+    },
+    {
+      cups: 5,
+      lemons: 3,
+      sugar: 3,
+      ice: 2,
+      price: 1.3
+    },
+    {
+      cups: 8,
+      lemons: 3,
+      sugar: 5,
+      ice: 10,
+      price: 1.5
+    },
+    {
+      cups: 3,
+      lemons: 2,
+      sugar: 1,
+      ice: 0,
+      price: 0.6
+    },
+    {
+      cups: 7,
+      lemons: 3,
+      sugar: 5,
+      ice: 10,
+      price: 2.0
+    },
+    {
+      cups: 9,
+      lemons: 4,
+      sugar: 5,
+      ice: 13,
+      price: 1.3
+    },
+    {
+      cups: 10,
+      lemons: 6,
+      sugar: 7,
+      ice: 11,
+      price: 1.8
+    }
+  ],
+  recommendationIndex: 0,
   // TJ: Disabled diagnostics
   // diagnostic: signs => {
   //   console.debug(
@@ -119,7 +176,7 @@ const lemonade = {
   twoDecimals: equation => Math.round(equation * 100) / 100,
   average: () => (lemonade.allTimeProfit - lemonade.dailyProfit) / lemonade.day,
   determineConfidence: () => {
-    if (lemonade.allTimeProfit < 1) {
+    if (lemonade.allTimeProfit < 0) {
       lemonade.confidence = 0;
       lemonade.clearToast();
       window.Materialize.toast("Bankrupt! Better luck next time!", 30000);
@@ -150,7 +207,7 @@ const lemonade = {
     lemonade.tomorrowWeatherVariant = 3;
     lemonade.todayWeatherVariant = 3;
     lemonade.sold = 0;
-    lemonade.allTimeProfit = 20;
+    lemonade.allTimeProfit = 150;
     lemonade.dailyProfit = 0;
     // lemonade.emotion.className = lemonade.emotionBank[3];
     lemonade.confidence = 3;
@@ -174,13 +231,16 @@ const lemonade = {
 
     const priceFactor = 1.2 / lemonade.price;
 
-    return Math.ceil(
-      lemonade.cups *
-        cupFactor *
-        lemonFactor *
-        sugarFactor *
-        iceFactor *
-        priceFactor
+    // Sell at least one based on the ceiling of the factors
+    return Math.min(Math.ceil(
+        lemonade.cups *
+          cupFactor *
+          lemonFactor *
+          sugarFactor *
+          iceFactor *
+          priceFactor
+      ),
+      1
     );
   },
   nextDay: () => {
@@ -275,6 +335,20 @@ const lemonade = {
     lemonade.grandTotalDisplayVar.innerText = `$${lemonade.stringRound(
       lemonade.allTimeProfit
     )}`;
+    lemonade.updateRecommendations();
+  },
+  updateRecommendations: () => {
+    if (lemonade.recommendationIndex >= lemonade.recommendations.length) {
+      lemonade.recommendationIndex = 0;
+    }
+    const recommendation = lemonade.recommendations[lemonade.recommendationIndex];
+    lemonade.recommendationIndex += 1;
+
+    lemonade.cupsRecVar.innerText = `Cups: ${recommendation.cups}`;
+    lemonade.lemonsRecVar.innerText = `Lemons: ${recommendation.lemons}`;
+    lemonade.sugarRecVar.innerText = `Sugar: ${recommendation.sugar}`;
+    lemonade.iceRecVar.innerText = `Ice: ${recommendation.ice}`;
+    lemonade.priceRecVar.innerText = `Price: $${recommendation.price.toFixed(2)}`;
   },
   clearToast: () => {
     lemonade.toastVar = "";
@@ -335,24 +409,12 @@ const lemonade = {
     }, 5);
   },
   values: () => {
-    if (lemonade.allTimeProfit < 100) {
-      lemonade.cupsVar.max = 15;
-      lemonade.lemonsVar.max = 15;
-      lemonade.sugarVar.max = 15;
-      lemonade.iceVar.max = 15;
-      lemonade.priceVar.max = 2.99;
-      if (lemonade.level < 1) {
-        // window.Materialize.toast("Level 1", 6000);
-        lemonade.level = 1;
-        lemonade.clean();
-      }
-      if (lemonade.level > 1) {
-        // window.Materialize.toast("Level 1 Downgrade", 6000);
-        // window.Materialize.toast("Less cups, signs and lower price.", 6000);
-        lemonade.level = 1;
-        lemonade.clean();
-      }
-    }
+    lemonade.cupsVar.max = 15;
+    lemonade.lemonsVar.max = 15;
+    lemonade.sugarVar.max = 15;
+    lemonade.iceVar.max = 15;
+    lemonade.priceVar.max = 2.99;
+    lemonade.level = 1;
     // else if (lemonade.allTimeProfit < 500) {
     //   lemonade.cupsVar.max = 50;
     //   lemonade.signsVar.max = 10;
