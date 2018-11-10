@@ -280,6 +280,8 @@ const lemonade = {
     );
   },
   nextDay: () => {
+    alert("Simulating game and recalculating recommendations");
+
     if (window.navigator.vibrate) {
       window.navigator.vibrate(60);
     }
