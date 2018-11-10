@@ -22,20 +22,31 @@
 <body style="margin: 0;" class="light-blue lighten-3">
 <div id="loader" style="position: fixed; background-color:#81d4fa; width: 100%; height: 100%; z-index: 1;">
 </div>
-<main id="main" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Tomorrow's Forecast">
+<!-- <main id="main" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Tomorrow's Forecast">
   <section class="clip">
     <div id="weatherDisplay" class="light-blue-text text-lighten-2 center forecastDisplay">
       <i id="forecastDisplay"></i>
     </div>
   </section>
-</main>
-<div class="recommendation">
-  Recommendation
-  <div id="cups-rec">Cups: 10</div>
-  <div id="lemons-rec">Lemons: 3</div>
-  <div id="sugar-rec">Sugar: 5</div>
-  <div id="ice-rec">Ice: 8</div>
-  <div id="price-rec">Price: $1.30</div>
+</main> -->
+<div class="recommendation-zone">
+  <div class="recommendation">
+      <!-- <div id="emotion" class="col s3 light-blue-text text-accent-2 tooltipped center emotion" data-position="top" data-delay="50" -->
+    <div id="recommendation-page">
+      <div id="recommendation-label">Recommendation</div>
+      <div id="cups-rec">Cups: 10</div>
+      <div id="lemons-rec">Lemons: 3</div>
+      <div id="sugar-rec">Sugar: 5</div>
+      <div id="ice-rec">Ice: 8</div>
+      <div id="price-rec">Price: $1.30</div>
+    </div>
+    <div id="explanation-page" style="display: none">
+      Recommendations are determined by statistical analysis of past game players
+    </div>
+    <div id="info-button" class="mdi mdi-information-outline mdi-24px" style="display: none"></div>
+  </div>
+  <div id="speech" style="display: none"></div>
+  <div id="agent" class="mdi mdi-emoticon-excited mdi-36px" style="display: none"></div>
 </div>
 <i id="play" class="play">
   <svg id="Lemonade" class="picture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.61377 128">

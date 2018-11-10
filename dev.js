@@ -106,7 +106,6 @@ module.exports = function e(env) {
     ],
     devServer: {
       compress: true,
-      public: "https://79024ea5.ngrok.io",
       disableHostCheck: true
     }
   };

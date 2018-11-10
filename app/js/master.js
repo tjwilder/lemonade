@@ -14,7 +14,7 @@ const lemonade = {
   sold: 0,
   eventList: [],
   emotion: document.getElementById("emotionDisplay"),
-  forecastDisplay: document.getElementById("forecastDisplay"),
+  // forecastDisplay: document.getElementById("forecastDisplay"),
   bar: document.getElementById("percentageBar"),
   play: document.getElementById("play"),
   cupsVar: document.getElementById("cups"),
@@ -22,11 +22,20 @@ const lemonade = {
   sugarVar: document.getElementById("sugar"),
   iceVar: document.getElementById("ice"),
   priceVar: document.getElementById("price"),
+  // Recommendation variables
+  recommendationVar: document.getElementsByClassName("recommendation")[0],
+  recommendationPageVar: document.getElementById("recommendation-page"),
+  explanationPageVar: document.getElementById("explanation-page"),
+  recommendationLabelVar: document.getElementById("recommendation-label"),
+  infoButtonVar: document.getElementById("info-button"),
+  agentVar: document.getElementById("agent"),
+  speechVar: document.getElementById("speech"),
   cupsRecVar: document.getElementById("cups-rec"),
   lemonsRecVar: document.getElementById("lemons-rec"),
   sugarRecVar: document.getElementById("sugar-rec"),
   iceRecVar: document.getElementById("ice-rec"),
   priceRecVar: document.getElementById("price-rec"),
+  // Animation variables
   strawVar: () => document.getElementById("straw"),
   lemonVar: () => document.getElementById("lemon"),
   glassTopVar: () => document.getElementById("glassTop"),
@@ -112,6 +121,32 @@ const lemonade = {
   //     )} Weather ${lemonade.todayWeatherVariant} Sold ${lemonade.sold} cups`
   //   );
   // },
+  setLabel: (label) => {
+    lemonade.recommendationLabelVar.innerText = label;
+  },
+  toggleAgent: () => {
+    if (lemonade.agentVar.style.display === "none") {
+      lemonade.agentVar.style.display = "block";
+      lemonade.recommendationVar.classList.add("bubble");
+      lemonade.speechVar.style.display = "block";
+    } else {
+      lemonade.agentVar.style.display = "none";
+      lemonade.recommendationVar.classList.remove("bubble");
+      lemonade.speechVar.style.display = "none";
+    }
+  },
+  toggleExplanation: () => {
+    if (lemonade.infoButtonVar.style.display === "none") {
+      lemonade.infoButtonVar.style.display = "block";
+    } else {
+      lemonade.infoButtonVar.style.display = "none";
+    }
+  },
+  nextPage: () => {
+    const disp = lemonade.recommendationPageVar.style.display;
+    lemonade.recommendationPageVar.style.display = disp === "none" ? "block" : "none";
+    lemonade.explanationPageVar.style.display = disp === "none" ? "none" : "block";
+  },
   changeEvent: (event) => {
     lemonade.eventList.push({
       type: "onChange",
@@ -121,6 +156,7 @@ const lemonade = {
     });
   },
   addEventListeners: () => {
+    lemonade.infoButtonVar.addEventListener("click", lemonade.nextPage);
     lemonade.play.addEventListener("click", lemonade.nextDay);
     lemonade.cupsVar.addEventListener("change", lemonade.changeEvent);
     lemonade.lemonsVar.addEventListener("change", lemonade.changeEvent);
@@ -325,7 +361,7 @@ const lemonade = {
     lemonade.values();
     lemonade.tomorrowForecast =
       lemonade.weather[lemonade.tomorrowWeatherVariant];
-    lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
+    // lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
     // TJ: Disabled updating the confidence emotion
     // lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
     lemonade.dayDisplayVar.innerText = `Day ${lemonade.day}`;
