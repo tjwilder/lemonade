@@ -35,6 +35,7 @@ const lemonade = {
   sugarRecVar: document.getElementById("sugar-rec"),
   iceRecVar: document.getElementById("ice-rec"),
   priceRecVar: document.getElementById("price-rec"),
+  explanationErrorChanceVar: document.getElementById("explanation-page-error-chance"),
   // Animation variables
   strawVar: () => document.getElementById("straw"),
   lemonVar: () => document.getElementById("lemon"),
@@ -65,49 +66,56 @@ const lemonade = {
       lemons: 3,
       sugar: 5,
       ice: 10,
-      price: 1.3
+      price: 1.3,
+      explanation_error_chance: 4.6
     },
     {
       cups: 5,
       lemons: 3,
       sugar: 3,
       ice: 2,
-      price: 1.3
+      price: 1.3,
+      explanation_error_chance: 5.0
     },
     {
       cups: 8,
       lemons: 3,
       sugar: 5,
       ice: 10,
-      price: 1.5
+      price: 1.5,
+      explanation_error_chance: 4.1
     },
     {
       cups: 3,
       lemons: 2,
       sugar: 1,
       ice: 0,
-      price: 0.6
+      price: 0.6,
+      explanation_error_chance: 4.3
     },
     {
       cups: 7,
       lemons: 3,
       sugar: 5,
       ice: 10,
-      price: 2.0
+      price: 2.0,
+      explanation_error_chance: 4.2
     },
     {
       cups: 9,
       lemons: 4,
       sugar: 5,
       ice: 13,
-      price: 1.3
+      price: 1.3,
+      explanation_error_chance: 5.1
     },
     {
       cups: 10,
       lemons: 6,
       sugar: 7,
       ice: 11,
-      price: 1.8
+      price: 1.8,
+      explanation_error_chance: 4.7
     }
   ],
   recommendationIndex: 0,
@@ -358,6 +366,12 @@ const lemonade = {
       lemonade.day += 1;
       lemonade.displayUpdate();
     }
+
+    // if end of game
+    if (lemonade.day == 7) {
+        console.log(lemonade.loadEndOfGamePage)
+        lemonade.loadEndOfGamePage();
+    }
   },
   displayUpdate: () => {
     lemonade.values();
@@ -382,6 +396,7 @@ const lemonade = {
     const recommendation = lemonade.recommendations[lemonade.recommendationIndex];
     lemonade.recommendationIndex += 1;
 
+    lemonade.explanationErrorChanceVar.innerHTML = recommendation.explanation_error_chance;
     lemonade.cupsRecVar.innerText = `Cups: ${recommendation.cups}`;
     lemonade.lemonsRecVar.innerText = `Lemons: ${recommendation.lemons}`;
     lemonade.sugarRecVar.innerText = `Sugar: ${recommendation.sugar}`;
@@ -430,7 +445,7 @@ const lemonade = {
       for (let i = 1; i < 6; i += 1) {
         document.getElementById(`cube${i}`).classList.add("cubes");
       }
-    }, 5);
+    }, 1);
   },
   pourOut: () => {
     lemonade.resetAnimation();
@@ -444,7 +459,7 @@ const lemonade = {
       for (let cubesIn = 1; cubesIn < 6; cubesIn += 1) {
         document.getElementById(`cube${cubesIn}`).classList.add("cubes2");
       }
-    }, 5);
+    }, 1);
   },
   values: () => {
     lemonade.cupsVar.max = 15;
@@ -503,7 +518,8 @@ const lemonade = {
     //   }
     // }
   },
-  level: 0
+  level: 0,
+  loadEndOfGamePage: null,
 };
 window.lemonade = lemonade;
 lemonade.values();
