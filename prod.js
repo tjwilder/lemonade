@@ -30,7 +30,7 @@ module.exports = function prod(env) {
     module: {
       rules: [
         {
-          test: /\.(woff|woff2|svg|eot|ttf)$/,
+          test: /\.(woff|woff2|svg|eot|ttf|svg)$/,
           loader: "url-loader?limit=1000000000?"
         },
         {
