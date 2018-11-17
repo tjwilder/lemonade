@@ -41,11 +41,11 @@
       <div id="price-rec">Price: $1.30</div>
     </div>
     <div id="explanation-page" style="display: none">
-      Recommendations are determined by statistical analysis of past user's results.
-      From this data, the optimal solution was found. Specifically, a match was found with the pattern of
+      Recommendations are determined by statistical analysis of past user's results
+      to find the optimal solution. Specifically, a match was found with the pattern of
       previous user's that provides optimal revenue outcome using the weather
       forecast, current balance, and day. There is a <span id="explanation-page-error-chance">5.0</span>% chance
-      that the recommendation will not be optimal, this is due to various unaccounted for
+      that the recommendation will not be optimal, due to various unaccounted for
       influences on people purchasing the product.
     </div>
     <div id="info-button" class="mdi mdi-information-outline mdi-24px" style="display: none"></div>
@@ -110,32 +110,41 @@
   <form class="container operations">
     <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="cups">Cups
-        <p id="range1" class="range-field">
-          <input name="cups" class="range" type="range" id="cups" min="0" max="5" /> </p>
+        <div id="range1" class="range-field">
+          <input name="cups" class="range" type="range" id="cups" min="0" max="5" />
+          <output name="cupsVal"></output>
+        </div>
       </label>
     </section>
     <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="lemons">Lemons
         <p id="range2" class="range-field">
-          <input name="lemons" class="range" type="range" id="lemons" min="0" max="5" /> </p>
+          <input name="lemons" class="range" type="range" id="lemons" min="0" max="5" />
+          <output name="lemonsVal"></output>
+        </p>
       </label>
     </section>
     <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="sugar">Sugar
         <p id="range4" class="range-field">
-          <input name="sugar" class="range" type="range" id="sugar" min="0" max="5" /> </p>
+          <input name="sugar" class="range" type="range" id="sugar" min="0" max="5" />
+          <output name="sugarVal"></output>
+        </p>
       </label>
     </section>
     <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="ice">Ice
         <p id="range5" class="range-field">
-          <input name="ice" class="range" type="range" id="ice" min="0" max="5" /> </p>
+          <input name="ice" class="range" type="range" id="ice" min="0" max="5" />
+          <output name="iceVal"></output>
+        </p>
       </label>
     </section>
     <section class="row">
       <label class="light-blue-text text-darken-2 col s8 offset-s2" for="price">Price
         <p id="range3" class="range-field">
           <input name="price" type="range" id="price" min="0.01" max="2.99" step="0.01" />
+          <output name="priceVal" class="price-thumb"></output>
         </p>
       </label>
     </section>

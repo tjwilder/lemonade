@@ -35,7 +35,9 @@ const lemonade = {
   sugarRecVar: document.getElementById("sugar-rec"),
   iceRecVar: document.getElementById("ice-rec"),
   priceRecVar: document.getElementById("price-rec"),
-  explanationErrorChanceVar: document.getElementById("explanation-page-error-chance"),
+  explanationErrorChanceVar: document.getElementById(
+    "explanation-page-error-chance"
+  ),
   // Animation variables
   strawVar: () => document.getElementById("straw"),
   lemonVar: () => document.getElementById("lemon"),
@@ -163,14 +165,46 @@ const lemonade = {
       value: event.target.value
     });
   },
+  inputEvent: (event) => {
+    const { min, max, value } = event.target;
+
+    const range = max - min;
+    const position = ((value - min) / range) * 100;
+    const width = event.target.dataset.thumbwidth;
+    const offset = position / 5;
+
+    const output = event.target.nextSibling.nextSibling.nextSibling;
+
+    output.style.left = `calc(${position}% - ${offset}px)`;
+    output.innerText = value;
+  },
   addEventListeners: () => {
+    // Input event to force first update of thumbs
+    let inputEvent = document.createEvent("HTMLEvents");
+    inputEvent.initEvent("input", true, true);
+
     lemonade.infoButtonVar.addEventListener("click", lemonade.nextPage);
     lemonade.play.addEventListener("click", lemonade.nextDay);
+
     lemonade.cupsVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.cupsVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.cupsVar.dispatchEvent(inputEvent);
+
     lemonade.lemonsVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.lemonsVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.lemonsVar.dispatchEvent(inputEvent);
+
     lemonade.sugarVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.sugarVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.sugarVar.dispatchEvent(inputEvent);
+
     lemonade.iceVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.iceVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.iceVar.dispatchEvent(inputEvent);
+
     lemonade.priceVar.addEventListener("change", lemonade.changeEvent);
+    lemonade.priceVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.priceVar.dispatchEvent(inputEvent);
   },
   whenLoaded: () => {
     lemonade.pourIn();

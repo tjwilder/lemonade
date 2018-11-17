@@ -87,10 +87,10 @@ body::-moz-selection {
 
 .recommendation-zone {
   position: absolute;
-  width: 26%;
+  max-width: 23%;
   z-index: 100;
   top: 10vh;
-  left: 5vw;
+  left: 2vw;
   -webkit-transition: -webkit-transform 90ms;
   transition: -webkit-transform 90ms;
   transition: transform 90ms;
@@ -101,11 +101,18 @@ body::-moz-selection {
 }
 
 .recommendation {
-  max-width: 150px;
   margin-left: 30px;
   border-style: solid;
   border-width: 2px 2px 2px 2px;
   padding: 4px 4px 4px 4px;
+}
+
+#recommendation-page {
+  max-width: 150px;
+}
+
+#explanation-page {
+  max-width: 100%;
 }
 
 .recommendation.bubble {
@@ -152,10 +159,36 @@ body::-moz-selection {
   font-weight: 800;
 }
 
-input[type="range"] + .thumb {
+output {
+  position: absolute;
   background: #e64a19;
-  margin-top: 0.5em;
-  cursor: pointer;
+  color: #fafafa;
+  font-size: 1em;
+  border-radius: 10px;
+  top: -12px;
+  width: 20px;
+  height: 20px;
+  padding-top: .25em;
+  padding-left: .45em;
+}
+
+output.price-thumb {
+  width: 30px;
+  padding-left: .35em;
+  margin-left: -5px;
+}
+
+input[type=range] + .thumb {
+  display: none;
+}
+
+input[type=range] + output {
+  display: block;
+  transform: translateX(-50%);
+}
+
+.range-field {
+  position: relative;
 }
 
 input[type="range"] {
@@ -173,11 +206,6 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: rgba(2, 119, 189, 0.4);
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  border-radius: 0;
-  /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
 }
 
 input#cups[type="range"]::-webkit-slider-thumb,
@@ -215,18 +243,6 @@ input#sugar[type="range"]::-webkit-slider-thumb {
 
 input#ice[type="range"]::-webkit-slider-thumb {
   background: url("../img/ice-cubes-simple.svg");
-}
-
-input[type="range"] + .thumb.active .value {
-  color: #fafafa;
-  margin-left: 0em;
-  margin-top: 0.6em;
-  font-size: 1em;
-}
-
-input[type="range"] + .thumb .value {
-  font-size: 0em;
-  /*transform: rotate(45deg);*/
 }
 
 .glass {
