@@ -14,13 +14,17 @@
   <link rel="shortcut icon" href="./favicon.ico">
   <meta name="msapplication-config" content="./browserconfig.xml">
   <meta name="theme-color" content="#81d4fa">
-  <link rel="stylesheet" href="/public/vendor.css">
-  <link rel="stylesheet" href="/public/entry.css">
 
 </head>
 
 <body style="margin: 0;" class="light-blue lighten-3">
 <div id="loader" style="position: fixed; background-color:#81d4fa; width: 100%; height: 100%; z-index: 1;">
+</div>
+<div id="alert-modal" class="custom-modal" style="display: none">
+  <div class="alert">
+    <span id="alert-text">Simulating game and recalculating recommendations...</span>
+    <div id="alert-close" class="alert-close">Continue</div>
+  </div>
 </div>
 <!-- <main id="main" class="tooltipped" data-position="top" data-delay="50" data-tooltip="Tomorrow's Forecast">
   <section class="clip">

@@ -12,7 +12,8 @@ module.exports = function prod(env) {
         "./node_modules/materialize-css/dist/js/materialize.js",
         "./node_modules/materialize-css/dist/css/materialize.css",
         "./node_modules/mdi/css/materialdesignicons.css",
-        // "./app/css/materialdesignicons.min.css",
+        // "./app/css/materialdesignicons.css",
+        "./app/css/master.css",
         "./app/js/offlineRuntimeInstall.js"
       ],
       entry: "./entry.js"
@@ -37,18 +38,7 @@ module.exports = function prod(env) {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader",
-                options: {
-                  autoprefixer: false,
-                  minimize: true,
-                  sourceMap: true,
-                  importLoaders: 1
-                }
-              },
-              "postcss-loader"
-            ]
+            use: "css-loader"
           })
         },
         {
@@ -103,15 +93,6 @@ module.exports = function prod(env) {
 
       new ExtractTextPlugin("./css/[name].css?[chunkhash]"),
       // ... other plugins
-      new webpack.optimize.CommonsChunkPlugin({
-        name: "vendor",
-
-        minChunks: Infinity
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: "manifest",
-        minChunks: Infinity
-      }),
       new UglifyJSPlugin({
         cache: true,
         parallel: true,

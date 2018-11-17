@@ -38,3 +38,6 @@ jspm_packages
 
 # Public files compiled by webpack
 public/*
+
+# JSON data from experiments
+data/*

@@ -1,5 +1,5 @@
 const lemonade = {
-  day: 0,
+  day: 1,
   cupCost: 0.5,
   lemonCost: 0.5,
   sugarCost: 0.25,
@@ -8,59 +8,64 @@ const lemonade = {
   dailyProfit: 0,
   confidence: 3,
   tomorrowWeatherVariant: 3,
-  tomorrowForecast: "",
+  tomorrowForecast: '',
   todayWeatherVariant: 3,
-  todayForecast: "",
+  todayForecast: '',
   sold: 0,
   eventList: [],
-  emotion: document.getElementById("emotionDisplay"),
+  label: 'Artificial Agent',
+  emotion: document.getElementById('emotionDisplay'),
   // forecastDisplay: document.getElementById("forecastDisplay"),
-  bar: document.getElementById("percentageBar"),
-  play: document.getElementById("play"),
-  cupsVar: document.getElementById("cups"),
-  lemonsVar: document.getElementById("lemons"),
-  sugarVar: document.getElementById("sugar"),
-  iceVar: document.getElementById("ice"),
-  priceVar: document.getElementById("price"),
+  bar: document.getElementById('percentageBar'),
+  play: document.getElementById('play'),
+  cupsVar: document.getElementById('cups'),
+  lemonsVar: document.getElementById('lemons'),
+  sugarVar: document.getElementById('sugar'),
+  iceVar: document.getElementById('ice'),
+  priceVar: document.getElementById('price'),
   // Recommendation variables
-  recommendationVar: document.getElementsByClassName("recommendation")[0],
-  recommendationPageVar: document.getElementById("recommendation-page"),
-  explanationPageVar: document.getElementById("explanation-page"),
-  recommendationLabelVar: document.getElementById("recommendation-label"),
-  infoButtonVar: document.getElementById("info-button"),
-  agentVar: document.getElementById("agent"),
-  speechVar: document.getElementById("speech"),
-  cupsRecVar: document.getElementById("cups-rec"),
-  lemonsRecVar: document.getElementById("lemons-rec"),
-  sugarRecVar: document.getElementById("sugar-rec"),
-  iceRecVar: document.getElementById("ice-rec"),
-  priceRecVar: document.getElementById("price-rec"),
+  recommendationVar: document.getElementsByClassName('recommendation')[0],
+  recommendationPageVar: document.getElementById('recommendation-page'),
+  explanationPageVar: document.getElementById('explanation-page'),
+  recommendationLabelVar: document.getElementById('recommendation-label'),
+  infoButtonVar: document.getElementById('info-button'),
+  agentVar: document.getElementById('agent'),
+  speechVar: document.getElementById('speech'),
+  cupsRecVar: document.getElementById('cups-rec'),
+  lemonsRecVar: document.getElementById('lemons-rec'),
+  sugarRecVar: document.getElementById('sugar-rec'),
+  iceRecVar: document.getElementById('ice-rec'),
+  priceRecVar: document.getElementById('price-rec'),
   explanationErrorChanceVar: document.getElementById(
-    "explanation-page-error-chance"
+    'explanation-page-error-chance',
   ),
+  // Alert variables
+  alertVar: document.getElementById('alert-modal'),
+  alertTextVar: document.getElementById('alert-text'),
+  alertCloseVar: document.getElementById('alert-close'),
   // Animation variables
-  strawVar: () => document.getElementById("straw"),
-  lemonVar: () => document.getElementById("lemon"),
-  glassTopVar: () => document.getElementById("glassTop"),
-  glassBottomVar: () => document.getElementById("glassBottom"),
-  lemonade1: document.getElementById("lemonade1"),
-  lemonade2: document.getElementById("lemonade2"),
-  dayDisplayVar: document.getElementById("dayDisplay"),
-  cupsSoldDisplayVar: document.getElementById("cupsSoldDisplay"),
-  grandTotalDisplayVar: document.getElementById("grandTotalDisplay"),
+  strawVar: () => document.getElementById('straw'),
+  lemonVar: () => document.getElementById('lemon'),
+  glassTopVar: () => document.getElementById('glassTop'),
+  glassBottomVar: () => document.getElementById('glassBottom'),
+  lemonade1: document.getElementById('lemonade1'),
+  lemonade2: document.getElementById('lemonade2'),
+  dayDisplayVar: document.getElementById('dayDisplay'),
+  cupsSoldDisplayVar: document.getElementById('cupsSoldDisplay'),
+  grandTotalDisplayVar: document.getElementById('grandTotalDisplay'),
   weather: [
-    "mdi mdi-weather-lightning-rainy mdi-36px",
-    "mdi mdi-weather-cloudy mdi-36px",
-    "mdi mdi-weather-partlycloudy mdi-36px",
-    "mdi mdi-weather-sunny mdi-36px"
+    'mdi mdi-weather-lightning-rainy mdi-36px',
+    'mdi mdi-weather-cloudy mdi-36px',
+    'mdi mdi-weather-partlycloudy mdi-36px',
+    'mdi mdi-weather-sunny mdi-36px',
   ],
   emotionBank: [
-    "mdi mdi-emoticon-dead mdi-36px",
-    "mdi mdi-emoticon-sad mdi-36px",
-    "mdi mdi-emoticon-neutral mdi-36px",
-    "mdi mdi-emoticon mdi-36px",
-    "mdi mdi-emoticon-excited mdi-36px",
-    "mdi mdi-emoticon-cool mdi-36px"
+    'mdi mdi-emoticon-dead mdi-36px',
+    'mdi mdi-emoticon-sad mdi-36px',
+    'mdi mdi-emoticon-neutral mdi-36px',
+    'mdi mdi-emoticon mdi-36px',
+    'mdi mdi-emoticon-excited mdi-36px',
+    'mdi mdi-emoticon-cool mdi-36px',
   ],
   recommendations: [
     {
@@ -69,7 +74,7 @@ const lemonade = {
       sugar: 5,
       ice: 10,
       price: 1.3,
-      explanation_error_chance: 4.6
+      explanation_error_chance: 4.6,
     },
     {
       cups: 5,
@@ -77,7 +82,7 @@ const lemonade = {
       sugar: 3,
       ice: 2,
       price: 1.3,
-      explanation_error_chance: 5.0
+      explanation_error_chance: 5.0,
     },
     {
       cups: 8,
@@ -85,7 +90,7 @@ const lemonade = {
       sugar: 5,
       ice: 10,
       price: 1.5,
-      explanation_error_chance: 4.1
+      explanation_error_chance: 4.1,
     },
     {
       cups: 3,
@@ -93,7 +98,7 @@ const lemonade = {
       sugar: 1,
       ice: 0,
       price: 0.6,
-      explanation_error_chance: 4.3
+      explanation_error_chance: 4.3,
     },
     {
       cups: 7,
@@ -101,7 +106,7 @@ const lemonade = {
       sugar: 5,
       ice: 10,
       price: 2.0,
-      explanation_error_chance: 4.2
+      explanation_error_chance: 4.2,
     },
     {
       cups: 9,
@@ -109,7 +114,7 @@ const lemonade = {
       sugar: 5,
       ice: 13,
       price: 1.3,
-      explanation_error_chance: 5.1
+      explanation_error_chance: 5.1,
     },
     {
       cups: 10,
@@ -117,8 +122,8 @@ const lemonade = {
       sugar: 7,
       ice: 11,
       price: 1.8,
-      explanation_error_chance: 4.7
-    }
+      explanation_error_chance: 4.7,
+    },
   ],
   recommendationIndex: 0,
   // TJ: Disabled diagnostics
@@ -135,34 +140,34 @@ const lemonade = {
     lemonade.recommendationLabelVar.innerText = label;
   },
   toggleAgent: () => {
-    if (lemonade.agentVar.style.display === "none") {
-      lemonade.agentVar.style.display = "block";
-      lemonade.recommendationVar.classList.add("bubble");
-      lemonade.speechVar.style.display = "block";
+    if (lemonade.agentVar.style.display === 'none') {
+      lemonade.agentVar.style.display = 'block';
+      lemonade.recommendationVar.classList.add('bubble');
+      lemonade.speechVar.style.display = 'block';
     } else {
-      lemonade.agentVar.style.display = "none";
-      lemonade.recommendationVar.classList.remove("bubble");
-      lemonade.speechVar.style.display = "none";
+      lemonade.agentVar.style.display = 'none';
+      lemonade.recommendationVar.classList.remove('bubble');
+      lemonade.speechVar.style.display = 'none';
     }
   },
   toggleExplanation: () => {
-    if (lemonade.infoButtonVar.style.display === "none") {
-      lemonade.infoButtonVar.style.display = "block";
+    if (lemonade.infoButtonVar.style.display === 'none') {
+      lemonade.infoButtonVar.style.display = 'block';
     } else {
-      lemonade.infoButtonVar.style.display = "none";
+      lemonade.infoButtonVar.style.display = 'none';
     }
   },
   nextPage: () => {
     const disp = lemonade.recommendationPageVar.style.display;
-    lemonade.recommendationPageVar.style.display = disp === "none" ? "block" : "none";
-    lemonade.explanationPageVar.style.display = disp === "none" ? "none" : "block";
+    lemonade.recommendationPageVar.style.display = disp === 'none' ? 'block' : 'none';
+    lemonade.explanationPageVar.style.display = disp === 'none' ? 'none' : 'block';
   },
   changeEvent: (event) => {
     lemonade.eventList.push({
-      type: "onChange",
+      type: 'onChange',
       timestamp: new Date().getTime(),
       id: event.target.id,
-      value: event.target.value
+      value: event.target.value,
     });
   },
   inputEvent: (event) => {
@@ -170,7 +175,6 @@ const lemonade = {
 
     const range = max - min;
     const position = ((value - min) / range) * 100;
-    const width = event.target.dataset.thumbwidth;
     const offset = position / 5;
 
     const output = event.target.nextSibling.nextSibling.nextSibling;
@@ -180,45 +184,67 @@ const lemonade = {
   },
   addEventListeners: () => {
     // Input event to force first update of thumbs
-    let inputEvent = document.createEvent("HTMLEvents");
-    inputEvent.initEvent("input", true, true);
+    const inputEvent = document.createEvent('HTMLEvents');
+    inputEvent.initEvent('input', true, true);
 
-    lemonade.infoButtonVar.addEventListener("click", lemonade.nextPage);
-    lemonade.play.addEventListener("click", lemonade.nextDay);
+    lemonade.infoButtonVar.addEventListener('click', lemonade.nextPage);
+    lemonade.play.addEventListener('click', lemonade.alertNextDay);
 
-    lemonade.cupsVar.addEventListener("change", lemonade.changeEvent);
-    lemonade.cupsVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.cupsVar.addEventListener('change', lemonade.changeEvent);
+    lemonade.cupsVar.addEventListener('input', lemonade.inputEvent);
     lemonade.cupsVar.dispatchEvent(inputEvent);
 
-    lemonade.lemonsVar.addEventListener("change", lemonade.changeEvent);
-    lemonade.lemonsVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.lemonsVar.addEventListener('change', lemonade.changeEvent);
+    lemonade.lemonsVar.addEventListener('input', lemonade.inputEvent);
     lemonade.lemonsVar.dispatchEvent(inputEvent);
 
-    lemonade.sugarVar.addEventListener("change", lemonade.changeEvent);
-    lemonade.sugarVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.sugarVar.addEventListener('change', lemonade.changeEvent);
+    lemonade.sugarVar.addEventListener('input', lemonade.inputEvent);
     lemonade.sugarVar.dispatchEvent(inputEvent);
 
-    lemonade.iceVar.addEventListener("change", lemonade.changeEvent);
-    lemonade.iceVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.iceVar.addEventListener('change', lemonade.changeEvent);
+    lemonade.iceVar.addEventListener('input', lemonade.inputEvent);
     lemonade.iceVar.dispatchEvent(inputEvent);
 
-    lemonade.priceVar.addEventListener("change", lemonade.changeEvent);
-    lemonade.priceVar.addEventListener("input", lemonade.inputEvent);
+    lemonade.priceVar.addEventListener('change', lemonade.changeEvent);
+    lemonade.priceVar.addEventListener('input', lemonade.inputEvent);
     lemonade.priceVar.dispatchEvent(inputEvent);
   },
   whenLoaded: () => {
     lemonade.pourIn();
     lemonade.addEventListeners();
     lemonade.displayUpdate();
-    document.getElementById("loader").remove();
-    document.getElementById("play").className += " scale-in";
+    document.getElementById('loader').remove();
+    document.getElementById('play').className += ' scale-in';
+    lemonade.getExperiment();
     window.Materialize.toast("It's a nice day to sell Lemonade!", 5000);
-    // lemonade.cheat(); // Enable cheating
+  },
+  getExperiment: () => {
+    fetch('/experiment', { method: 'POST' })
+      .then(res => res.json())
+      .then((json) => {
+        if (json.label) lemonade.setLabel(lemonade.label);
+        if (json.agent) lemonade.toggleAgent();
+        if (json.explanation) lemonade.toggleExplanation();
+        lemonade.id = json.id;
+      });
+  },
+  putExperiment: () => {
+    fetch(`/experiment/${lemonade.id}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify({ events: lemonade.eventList }),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => console.log('PUT Experiment'));
   },
   // TJ: No need for cheats
   cheat: () => {
     lemonade.cheating = true;
-    window.Materialize.toast("Cheat enabled", 4000);
+    window.Materialize.toast('Cheat enabled', 4000);
     lemonade.day = 40000;
     lemonade.allTimeProfit = 40000;
     lemonade.confidence = 3;
@@ -235,7 +261,7 @@ const lemonade = {
       // lemonade.cheatWeather -= 1;
       lemonade.nextDay();
     }
-    return "You are cheating!";
+    return 'You are cheating!';
   },
   // Disable marketing
   // marketingResult: () => {
@@ -248,7 +274,7 @@ const lemonade = {
   //   const result = ((signs + confidence) / price) * weather;
   //   return result;
   // },
-  toastVar: () => document.getElementById("toast-container").innerHTML,
+  toastVar: () => document.getElementById('toast-container').innerHTML,
   randomNumber: (min, max) => Math.floor(Math.random() * (max - min)) + min,
   stringRound: equation => equation.toFixed(2),
   twoDecimals: equation => Math.round(equation * 100) / 100,
@@ -257,9 +283,9 @@ const lemonade = {
     if (lemonade.allTimeProfit < 0) {
       lemonade.confidence = 0;
       lemonade.clearToast();
-      window.Materialize.toast("Bankrupt! Better luck next time!", 30000);
-      lemonade.play.removeEventListener("click", lemonade.nextDay);
-      lemonade.play.addEventListener("click", lemonade.newGame);
+      window.Materialize.toast('Bankrupt! Better luck next time!', 30000);
+      lemonade.play.removeEventListener('click', lemonade.nextDay);
+      lemonade.play.addEventListener('click', lemonade.newGame);
       lemonade.pourOut();
       lemonade.clean();
     } else if (lemonade.dailyProfit === 0) {
@@ -270,7 +296,7 @@ const lemonade = {
       // console.log('option 1 ' + lemonade.confidence);
     } else if (lemonade.dailyProfit - lemonade.average() < 60) {
       lemonade.confidence = Math.round(
-        (lemonade.dailyProfit - lemonade.average()) / 20 + 2
+        (lemonade.dailyProfit - lemonade.average()) / 20 + 2,
       );
       // console.log('option 2 ' + lemonade.confidence);
     } else {
@@ -280,8 +306,8 @@ const lemonade = {
     return lemonade.confidence;
   },
   newGame: () => {
-    lemonade.play.removeEventListener("click", lemonade.newGame);
-    lemonade.day = 0;
+    lemonade.play.removeEventListener('click', lemonade.newGame);
+    lemonade.day = 1;
     lemonade.tomorrowWeatherVariant = 3;
     lemonade.todayWeatherVariant = 3;
     lemonade.sold = 0;
@@ -295,7 +321,7 @@ const lemonade = {
     window.Materialize.toast("It's a nice day to sell Lemonade!", 5000);
     lemonade.displayUpdate();
     lemonade.pourIn();
-    lemonade.play.addEventListener("click", lemonade.nextDay);
+    lemonade.play.addEventListener('click', lemonade.nextDay);
   },
   cupsSold: () => {
     const cupFactor = 0.5;
@@ -311,19 +337,45 @@ const lemonade = {
 
     // Sell at least one based on the ceiling of the factors
     return Math.max(Math.ceil(
-        lemonade.cups *
-          cupFactor *
-          lemonFactor *
-          sugarFactor *
-          iceFactor *
-          priceFactor
-      ),
-      1
-    );
+      lemonade.cups
+          * cupFactor
+          * lemonFactor
+          * sugarFactor
+          * iceFactor
+          * priceFactor,
+    ),
+    1);
+  },
+  alert: (text, closeText, callback) => {
+    lemonade.alertVar.style.display = 'block';
+    lemonade.alertTextVar.innerText = text;
+    lemonade.alertCloseVar.innerText = closeText;
+    lemonade.alertCloseVar.onclick = () => {
+      lemonade.alertVar.style.display = 'none';
+      callback();
+    };
+  },
+  alertNextDay: () => {
+    // if end of game
+    if (lemonade.day === 7) {
+      lemonade.alertEndGame();
+      return;
+    }
+
+    lemonade.alert('Simulating game and recalculating recommendations...',
+      'Continue', lemonade.nextDay);
+  },
+  alertEndGame: () => {
+    lemonade.putExperiment();
+    lemonade.alert(`Congratulations, you finished the game! You earned $${lemonade.allTimeProfit}.`
+      + ` Please copy this code "${lemonade.id}" and paste it into the survey in the "Experiment Identifier".`,
+    'Survey (copy the code first!)',
+    lemonade.openSurvey);
+  },
+  openSurvey: () => {
+    window.location.href = 'https://docs.google.com/forms/d/1aOiMrAaJJrvUYa4zAadAeSWvS-l6zsIEP-t2VCHFiQU';
   },
   nextDay: () => {
-    alert("Simulating game and recalculating recommendations");
-
     if (window.navigator.vibrate) {
       window.navigator.vibrate(60);
     }
@@ -334,22 +386,22 @@ const lemonade = {
     lemonade.price = lemonade.priceVar.valueAsNumber;
 
     lemonade.eventList.push({
-      type: "nextDay",
+      type: 'nextDay',
       timestamp: new Date().getTime(),
       cups: lemonade.cups,
       lemons: lemonade.lemons,
       sugar: lemonade.sugar,
       ice: lemonade.ice,
-      price: lemonade.price
+      price: lemonade.price,
     });
 
     lemonade.todayWeatherVariant = lemonade.tomorrowWeatherVariant;
     lemonade.todayForecast = lemonade.tomorrowForecast;
     lemonade.expenses = lemonade.twoDecimals(
-      lemonade.cups * lemonade.cupCost +
-        +lemonade.lemons * lemonade.lemonCost +
-        +lemonade.sugar * lemonade.sugarCost +
-        +lemonade.ice * lemonade.iceCost
+      lemonade.cups * lemonade.cupCost
+        + +lemonade.lemons * lemonade.lemonCost
+        + +lemonade.sugar * lemonade.sugarCost
+        + +lemonade.ice * lemonade.iceCost,
     );
     if (lemonade.expenses > lemonade.allTimeProfit) {
       lemonade.clearToast();
@@ -357,7 +409,7 @@ const lemonade = {
       // TJ: If they can't afford it, just tell them
       window.Materialize.toast(
         `You can't afford $${lemonade.stringRound(lemonade.expenses)}!`,
-        2000
+        2000,
       );
       // window.Materialize.toast(
       //   `$${lemonade.stringRound(
@@ -381,15 +433,15 @@ const lemonade = {
       }
       lemonade.profits = lemonade.twoDecimals(lemonade.sold * lemonade.price);
       lemonade.dailyProfit = lemonade.twoDecimals(
-        lemonade.profits - lemonade.expenses
+        lemonade.profits - lemonade.expenses,
       );
       lemonade.allTimeProfit += lemonade.dailyProfit;
       lemonade.allTimeProfit = lemonade.twoDecimals(lemonade.allTimeProfit);
       window.Materialize.toast(
         `Revenue: $${lemonade.stringRound(
-          lemonade.profits
+          lemonade.profits,
         )} | Expense: $${lemonade.stringRound(lemonade.expenses)}`,
-        6000
+        6000,
       );
       lemonade.determineConfidence();
       // TJ: Consistent Weather
@@ -400,17 +452,10 @@ const lemonade = {
       lemonade.day += 1;
       lemonade.displayUpdate();
     }
-
-    // if end of game
-    if (lemonade.day == 7) {
-        console.log(lemonade.loadEndOfGamePage)
-        lemonade.loadEndOfGamePage();
-    }
   },
   displayUpdate: () => {
     lemonade.values();
-    lemonade.tomorrowForecast =
-      lemonade.weather[lemonade.tomorrowWeatherVariant];
+    lemonade.tomorrowForecast = lemonade.weather[lemonade.tomorrowWeatherVariant];
     // lemonade.forecastDisplay.className = lemonade.tomorrowForecast;
     // TJ: Disabled updating the confidence emotion
     // lemonade.emotion.className = lemonade.emotionBank[lemonade.confidence];
@@ -419,7 +464,7 @@ const lemonade = {
       lemonade.sold
     } Cups | $${lemonade.stringRound(lemonade.dailyProfit)} profit`;
     lemonade.grandTotalDisplayVar.innerText = `$${lemonade.stringRound(
-      lemonade.allTimeProfit
+      lemonade.allTimeProfit,
     )}`;
     lemonade.updateRecommendations();
   },
@@ -438,60 +483,60 @@ const lemonade = {
     lemonade.priceRecVar.innerText = `Price: $${recommendation.price.toFixed(2)}`;
   },
   clearToast: () => {
-    lemonade.toastVar = "";
+    lemonade.toastVar = '';
   },
   clean: () => {
-    if (document.getElementById("range1").children.length > 1) {
-      document.getElementById("range1").children[1].remove();
+    if (document.getElementById('range1').children.length > 1) {
+      document.getElementById('range1').children[1].remove();
     }
-    if (document.getElementById("range2").children.length > 1) {
-      document.getElementById("range2").children[1].remove();
+    if (document.getElementById('range2').children.length > 1) {
+      document.getElementById('range2').children[1].remove();
     }
-    if (document.getElementById("range3").children.length > 1) {
-      document.getElementById("range3").children[1].remove();
+    if (document.getElementById('range3').children.length > 1) {
+      document.getElementById('range3').children[1].remove();
     }
   },
   resetAnimation: () => {
-    lemonade.strawVar().classList.remove("straw2");
-    lemonade.lemonVar().classList.remove("lemon2");
-    document.getElementById("lemonade1").classList.remove("liquid2");
-    document.getElementById("lemonade2").classList.remove("liquid2");
+    lemonade.strawVar().classList.remove('straw2');
+    lemonade.lemonVar().classList.remove('lemon2');
+    document.getElementById('lemonade1').classList.remove('liquid2');
+    document.getElementById('lemonade2').classList.remove('liquid2');
     for (let i = 1; i < 6; i += 1) {
-      document.getElementById(`cube${i}`).classList.remove("cubes2");
+      document.getElementById(`cube${i}`).classList.remove('cubes2');
     }
-    lemonade.strawVar().classList.remove("straw");
-    lemonade.lemonVar().classList.remove("lemon");
-    lemonade.glassTopVar().classList.remove("glass");
-    lemonade.glassBottomVar().classList.remove("glass");
-    document.getElementById("lemonade1").classList.remove("liquid");
-    document.getElementById("lemonade2").classList.remove("liquid");
+    lemonade.strawVar().classList.remove('straw');
+    lemonade.lemonVar().classList.remove('lemon');
+    lemonade.glassTopVar().classList.remove('glass');
+    lemonade.glassBottomVar().classList.remove('glass');
+    document.getElementById('lemonade1').classList.remove('liquid');
+    document.getElementById('lemonade2').classList.remove('liquid');
     for (let cubesOut = 1; cubesOut < 6; cubesOut += 1) {
-      document.getElementById(`cube${cubesOut}`).classList.remove("cubes");
+      document.getElementById(`cube${cubesOut}`).classList.remove('cubes');
     }
   },
   pourIn: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
-      lemonade.strawVar().classList.add("straw");
-      lemonade.lemonVar().classList.add("lemon");
-      document.getElementById("lemonade1").classList.add("liquid");
-      document.getElementById("lemonade2").classList.add("liquid");
+      lemonade.strawVar().classList.add('straw');
+      lemonade.lemonVar().classList.add('lemon');
+      document.getElementById('lemonade1').classList.add('liquid');
+      document.getElementById('lemonade2').classList.add('liquid');
       for (let i = 1; i < 6; i += 1) {
-        document.getElementById(`cube${i}`).classList.add("cubes");
+        document.getElementById(`cube${i}`).classList.add('cubes');
       }
     }, 1);
   },
   pourOut: () => {
     lemonade.resetAnimation();
     setTimeout(() => {
-      lemonade.strawVar().classList.add("straw2");
-      lemonade.lemonVar().classList.add("lemon2");
-      lemonade.glassTopVar().classList.add("glass2");
-      lemonade.glassBottomVar().classList.add("glass2");
-      lemonade.lemonade1.classList.add("liquid2");
-      lemonade.lemonade2.classList.add("liquid2");
+      lemonade.strawVar().classList.add('straw2');
+      lemonade.lemonVar().classList.add('lemon2');
+      lemonade.glassTopVar().classList.add('glass2');
+      lemonade.glassBottomVar().classList.add('glass2');
+      lemonade.lemonade1.classList.add('liquid2');
+      lemonade.lemonade2.classList.add('liquid2');
       for (let cubesIn = 1; cubesIn < 6; cubesIn += 1) {
-        document.getElementById(`cube${cubesIn}`).classList.add("cubes2");
+        document.getElementById(`cube${cubesIn}`).classList.add('cubes2');
       }
     }, 1);
   },

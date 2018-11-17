@@ -4,7 +4,7 @@
   "description": "Lemonade Game",
   "main": "index.html",
   "scripts": {
-    "test": "node ./rmDir.js && webpack --env=prod --profile",
+    "build": "webpack --env=prod --profile --progress",
     "dev": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile --open",
     "hotDebug": "webpack-dev-server --host localhost --port 8080 --env=dev --inline --hot --profile",
     "debug": "webpack-dev-server --host localhost --port 8080 --env=dev --profile",
@@ -12,23 +12,29 @@
     "watch": "webpack --progress --colors --env=dev --profile --watch",
     "exportp": "node ./rmDir.js && webpack --env=prod --profile --progress",
     "rm": "node ./rmDir.js",
-    "clean": "node ./clean.js && npm i -D && npm up -D"
+    "clean": "node ./clean.js && npm i -D && npm up -D",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xtreemze/Lemonade.git"
+    "url": "git+https://github.com/tjwilder/lemonade.git"
   },
   "author": "Carlos Velasco",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/xtreemze/Lemonade/issues"
+    "url": "https://github.com/tjwilder/lemonade/issues"
   },
-  "homepage": "https://github.com/xtreemze/Lemonade#readme",
+  "homepage": "https://github.com/tjwilder/lemonade#readme",
   "browserslist": [
     "> 1%",
     "last 2 versions"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "uuid": "^3.3.2",
+    "webpack": "^4.25.1"
+  },
   "devDependencies": {
     "@mdi/font": "^2.8.94",
     "autoprefixer": "^8.6.5",
@@ -48,11 +54,11 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.7.0",
     "extract-loader": "^2.0.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-minifier-webpack-plugin": "^1.1.1",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^3.6.0",
     "jquery": "^3.3.1",
     "materialize-css": "^0.100.2",
@@ -69,7 +75,6 @@
     "uglifyjs-webpack-plugin": "^1.3.0",
     "uncss": "^0.16.2",
     "url-loader": "^1.1.2",
-    "webpack": "^3.12.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^2.11.3"
   }
