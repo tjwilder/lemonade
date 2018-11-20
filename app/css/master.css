@@ -108,7 +108,7 @@ body::-moz-selection {
 }
 
 #recommendation-page {
-  max-width: 150px;
+  max-width: 175;
 }
 
 #explanation-page {
