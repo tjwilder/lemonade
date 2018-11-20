@@ -373,7 +373,7 @@ const lemonade = {
     lemonade.openSurvey);
   },
   openSurvey: () => {
-    window.location.href = 'https://docs.google.com/forms/d/1aOiMrAaJJrvUYa4zAadAeSWvS-l6zsIEP-t2VCHFiQU';
+    window.location.href = 'https://goo.gl/forms/D399jtMIaoBKxO3A2';
   },
   nextDay: () => {
     if (window.navigator.vibrate) {
