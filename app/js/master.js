@@ -13,7 +13,7 @@ const lemonade = {
   todayForecast: '',
   sold: 0,
   eventList: [],
-  label: 'Artificial Agent',
+  label: 'Recommendation Agent',
   emotion: document.getElementById('emotionDisplay'),
   // forecastDisplay: document.getElementById("forecastDisplay"),
   bar: document.getElementById('percentageBar'),

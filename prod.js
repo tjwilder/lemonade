@@ -1,78 +1,83 @@
-const OfflinePlugin = require("offline-plugin");
-const webpack = require("webpack");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const HtmlMinifierPlugin = require("html-minifier-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const OfflinePlugin = require('offline-plugin');
+
+const webpack = require('webpack');
+
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+const HtmlMinifierPlugin = require('html-minifier-webpack-plugin');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 //
 module.exports = function prod(env) {
   return {
     entry: {
       vendor: [
-        "./node_modules/materialize-css/dist/js/materialize.js",
-        "./node_modules/materialize-css/dist/css/materialize.css",
-        "./node_modules/mdi/css/materialdesignicons.css",
+        './node_modules/materialize-css/dist/js/materialize.js',
+        './node_modules/materialize-css/dist/css/materialize.css',
+        './node_modules/mdi/css/materialdesignicons.css',
         // "./app/css/materialdesignicons.css",
-        "./app/css/master.css",
-        "./app/js/offlineRuntimeInstall.js"
+        './app/css/master.css',
+        './app/js/offlineRuntimeInstall.js',
       ],
-      entry: "./entry.js"
+      entry: './entry.js',
     },
     output: {
-      path: __dirname + "/public/",
-      publicPath: "./",
-      filename: "./js/[name].js?[chunkhash]",
-      chunkFilename: "./js/[id].js?[chunkhash]"
+      path: `${__dirname}/public/`,
+      publicPath: './',
+      filename: './js/[name].js?[chunkhash]',
+      chunkFilename: './js/[id].js?[chunkhash]',
     },
     stats: {
-      warnings: false
+      warnings: false,
     },
-    devtool: "cheap-module-source-map",
+    devtool: 'cheap-module-source-map',
     module: {
       rules: [
         {
           test: /\.(woff|woff2|svg|eot|ttf|svg)$/,
-          loader: "url-loader?limit=1000000000?"
+          loader: 'url-loader?limit=1000000000?',
         },
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: "css-loader"
-          })
+            fallback: 'style-loader',
+            use: 'css-loader',
+          }),
         },
         {
           test: /\.(gif|png|jpe?g)$/i,
           loaders: [
-            "file-loader?name=./img/[name].[ext]?[hash]",
+            'file-loader?name=./img/[name].[ext]?[hash]',
             {
-              loader: "image-webpack-loader",
+              loader: 'image-webpack-loader',
               options: {
                 gifsicle: {
-                  interlaced: false
+                  interlaced: false,
                 },
                 // optipng: {
                 //   optimizationLevel: 7
                 // },
                 pngquant: {
-                  quality: "65-90",
-                  speed: 4
+                  quality: '65-90',
+                  speed: 4,
                 },
                 mozjpeg: {
                   progressive: true,
-                  quality: 65
-                }
+                  quality: 65,
+                },
                 // Specifying webp here will create a WEBP version of your JPG/PNG images
                 // webp: {
                 //   quality: 75
                 // }
-              }
-            }
-          ]
+              },
+            },
+          ],
         },
         {
           test: /\.js$/,
-          exclude: [/node_modules/]
+          exclude: [/node_modules/],
           // use: [
           //   {
           //     loader: "babel-loader?cacheDirectory",
@@ -81,17 +86,18 @@ module.exports = function prod(env) {
           //     }
           //   }
           // ]
-        }
-      ]
+        },
+      ],
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Lemonade",
-        template: "./app/index.ejs",
-        hash: true
+        title: 'Lemonade',
+        template: './app/index.ejs',
+        hash: true,
+        filename: './index.html',
       }),
 
-      new ExtractTextPlugin("./css/[name].css?[chunkhash]"),
+      new ExtractTextPlugin('./css/[name].css?[chunkhash]'),
       // ... other plugins
       new UglifyJSPlugin({
         cache: true,
@@ -100,9 +106,9 @@ module.exports = function prod(env) {
         uglifyOptions: {
           ecma: 8,
           output: {
-            comments: false
-          }
-        }
+            comments: false,
+          },
+        },
       }),
       new HtmlMinifierPlugin({
         minifyCSS: true,
@@ -119,25 +125,25 @@ module.exports = function prod(env) {
         minifyURLs: true,
         collapseWhitespace: true,
         collapseInlineTagWhitespace: true,
-        collapseBooleanAttributes: true
+        collapseBooleanAttributes: true,
       }),
 
       new OfflinePlugin({
-        externals: ["https://fonts.googleapis.com/icon?family=Material+Icons"],
-        caches: "all",
-        responseStrategy: "network-first",
+        externals: ['https://fonts.googleapis.com/icon?family=Material+Icons'],
+        caches: 'all',
+        responseStrategy: 'network-first',
         // responseStrategy: "cache-first",
-        updateStrategy: "all",
+        updateStrategy: 'all',
         // updateStrategy: "changed",
-        minify: "true",
+        minify: 'true',
         autoUpdate: 1000 * 60 * 60 * 2,
         ServiceWorker: {
-          events: "true"
-        }
+          events: 'true',
+        },
         // AppCache: {
         //   events: "true"
         // }
-      })
-    ]
+      }),
+    ],
   };
 };
