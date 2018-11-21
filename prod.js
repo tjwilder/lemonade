@@ -96,6 +96,12 @@ module.exports = function prod(env) {
         hash: true,
         filename: './index.html',
       }),
+      new HtmlWebpackPlugin({
+        title: 'Instructions',
+        template: './app/instructions.ejs',
+        hash: true,
+        filename: './instructions.html',
+      }),
 
       new ExtractTextPlugin('./css/[name].css?[chunkhash]'),
       // ... other plugins

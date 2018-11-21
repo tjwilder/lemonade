@@ -155,6 +155,11 @@ body::-moz-selection {
   transform: scale(0.95);
 }
 
+.play:hover:not(:active) {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
 .bold {
   font-weight: 800;
 }

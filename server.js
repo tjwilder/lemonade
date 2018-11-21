@@ -38,15 +38,16 @@ const getFiles = (dir) => {
   }, []);
 };
 
+// 000 are flags for label, agent, and explanation
 const experiments = {
   '000': 0,
   '001': 0,
   '010': 0,
   '011': 0,
-  100: 0,
-  101: 0,
-  110: 0,
-  111: 0,
+  // 100: 0,
+  // 101: 0,
+  // 110: 0,
+  // 111: 0,
 };
 
 const loadExperiments = () => {

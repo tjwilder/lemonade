@@ -88,6 +88,10 @@ module.exports = function e(env) {
         title: "Lemonade",
         template: "./app/index.ejs"
       }),
+      new HtmlWebpackPlugin({
+        title: "Instructions",
+        template: "./app/instructions.ejs"
+      }),
       // ... other plugins
       new webpack.optimize.CommonsChunkPlugin({
         name: "vendor",

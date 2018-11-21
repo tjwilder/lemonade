@@ -351,7 +351,6 @@ const lemonade = {
     lemonade.alertTextVar.innerText = text;
     lemonade.alertCloseVar.innerText = closeText;
     lemonade.alertCloseVar.onclick = () => {
-      lemonade.alertVar.style.display = 'none';
       callback();
     };
   },
@@ -367,15 +366,21 @@ const lemonade = {
   },
   alertEndGame: () => {
     lemonade.putExperiment();
-    lemonade.alert(`Congratulations, you finished the game! You earned $${lemonade.allTimeProfit}.`
+    let profit = lemonade.allTimeProfit - 150;
+    const negative = profit < 0 ? '-' : '';
+    profit = lemonade.twoDecimals(Math.abs(profit));
+    lemonade.alert(`Congratulations, you finished the game! You earned ${negative}$${profit}.`
       + ` Please copy this code "${lemonade.id}" and paste it into the survey in the "Experiment Identifier".`,
-    'Survey (copy the code first!)',
+    'Do the survey',
     lemonade.openSurvey);
   },
   openSurvey: () => {
-    window.location.href = 'https://goo.gl/forms/D399jtMIaoBKxO3A2';
+    const newUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScDlXWASwgQMWKGUclkqcuYzbXsQD2d6DIjl7nZkAxxLiZxOg'
+      + `/viewform?usp=pp_url&entry.979570377=${lemonade.id}`;
+    window.open(newUrl);
   },
   nextDay: () => {
+    lemonade.alertVar.style.display = 'none';
     if (window.navigator.vibrate) {
       window.navigator.vibrate(60);
     }
