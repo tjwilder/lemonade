@@ -97,7 +97,6 @@ body::-moz-selection {
   transition: transform 90ms, -webkit-transform 90ms;
   -webkit-transform-origin: bottom center;
   transform-origin: bottom center;
-  cursor: pointer;
 }
 
 .recommendation {
@@ -142,7 +141,8 @@ body::-moz-selection {
 
 #info-button {
   margin: auto;
-  width: 20%;
+  max-width: 100%;
+  cursor: pointer;
 }
 
 .operations {
